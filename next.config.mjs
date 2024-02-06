@@ -2,7 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-    output: 'export',
+  next: 'export',
   }
    
   export default nextConfig;
