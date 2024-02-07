@@ -33,26 +33,26 @@ const HpEditor: React.FC<InputComponentProps> = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Value 1:
+      <div>
+        <label>Value 1:</label>
         <input
           type="text"
           name="value1"
           value={formData.value1}
           onChange={handleInputChange}
         />
-      </label>
-      <label>
-        Value 2:
+      </div>
+      <div>
+        <label>Value 2:</label>
         <input
           type="text"
           name="value2"
           value={formData.value2}
           onChange={handleInputChange}
         />
-      </label>
+      </div>
       {/* Add more input fields as needed */}
-      <button type="submit">Submit</button>
+      <button type="submit">Genrate</button>
     </form>
   );
 };

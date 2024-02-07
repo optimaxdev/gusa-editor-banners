@@ -1,4 +1,6 @@
 // components/DisplayComponent.tsx
+import { useState } from "react";
+
 interface DisplayComponentProps {
   submittedData: FormData | null;
 }
@@ -10,14 +12,32 @@ interface FormData {
 }
 
 const Preview: React.FC<DisplayComponentProps> = ({ submittedData }) => {
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const handleCopyClick = () => {
+    const textToCopy = document.querySelector(".copy") as HTMLDivElement | null;
+    if (textToCopy) {
+      navigator.clipboard.writeText(textToCopy.innerText);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    }
+  };
+
   return (
     <div>
       <h2>Display Component</h2>
       {submittedData ? (
         <div>
-          <p>Submitted Value 1: {submittedData.value1}</p>
-          <p>Submitted Value 2: {submittedData.value2}</p>
-          {/* Display additional submitted data */}
+          <p>Submitted Values:</p>
+          <pre className="copy">
+            {`{
+           image:"${submittedData.value1}",
+           template:"${submittedData.value2}"
+ } `}
+          </pre>
+          <button onClick={handleCopyClick}>
+            {copySuccess ? "Copied!" : "Copy All Text"}
+          </button>
         </div>
       ) : (
         <p>No data submitted yet.</p>
