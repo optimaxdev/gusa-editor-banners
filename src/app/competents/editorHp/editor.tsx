@@ -12,15 +12,24 @@ interface FormData {
 }
 
 const HpEditor: React.FC<InputComponentProps> = ({ onSubmit }) => {
+  interface FormData {
+    value1: string;
+    value2: string;
+    // Add more fields as needed
+  }
+
   const [formData, setFormData] = useState<FormData>({
     value1: "",
     value2: "",
     // Initialize additional fields
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit(formData);
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,17 +40,29 @@ const HpEditor: React.FC<InputComponentProps> = ({ onSubmit }) => {
     }));
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit(formData);
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Value 1:</label>
-        <input
-          type="text"
+        <label>Device:</label>
+        <select
           name="value1"
           value={formData.value1}
-          onChange={handleInputChange}
-        />
+          onChange={handleSelectChange}
+        >
+          <option value="Choose Device">Choose Device</option>
+          <option value="Desktop">Desktop</option>
+          <option value="Mobile">Mobile</option>
+        </select>
       </div>
+      {formData.value1 === "Desktop" ? (
+        <div>Additional input for Desktop</div>
+      ) : (
+        <div>Additional input for Mobile</div>
+      )}
       <div>
         <label>Value 2:</label>
         <input
@@ -56,5 +77,4 @@ const HpEditor: React.FC<InputComponentProps> = ({ onSubmit }) => {
     </form>
   );
 };
-
 export default HpEditor;

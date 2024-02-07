@@ -36,7 +36,7 @@ const Preview: React.FC<DisplayComponentProps> = ({ submittedData }) => {
  } `}
           </pre>
           <button onClick={handleCopyClick}>
-            {copySuccess ? "Copied!" : "Copy All Text"}
+            {copySuccess ? "Copied!" : "Copy the json"}
           </button>
         </div>
       ) : (
