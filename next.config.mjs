@@ -1,8 +1,14 @@
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
+import path from 'path';
+
+const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename);
+
 const nextConfig = {
-    output: 'export',
-  }
-   
-  module.exports = nextConfig
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
+  output: 'export'
+};
+
+export default nextConfig;
