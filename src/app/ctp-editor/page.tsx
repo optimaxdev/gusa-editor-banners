@@ -17,7 +17,7 @@ const EditorCategoryPage: React.FC = () => {
 
   return (
     <div>
-      <h1>Ctp Editor banner Page</h1>
+      <h1>Ctp Editor banner Page test</h1>
       <CtpEditor onSubmit={handleSubmit} />
       <Preview submittedData={submittedData} />
     </div>
