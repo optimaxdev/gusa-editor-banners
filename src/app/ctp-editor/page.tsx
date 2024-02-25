@@ -1,27 +1,29 @@
+// pages/hp.tsx
 "use client";
-import { useState } from "react";
-import CtpEditor from "../competents/editorCtp/editor";
-import Preview from "../competents/editorCtp/preview";
 
-interface FormData {
-  value1: string;
-  value2: string;
-}
+import React, { useState } from "react";
+import Layout from "../competents/layout/layout";
+import EditorCtp from "../competents/editorCtp/editor";
 
-const EditorCategoryPage: React.FC = () => {
-  const [submittedData, setSubmittedData] = useState<FormData | null>(null);
+const CtpPage: React.FC = () => {
+  const [formDataCtp, setFormDataCtp] = useState({
+    input1: "",
+    input2: "",
+    // Initialize additional fields if needed
+  });
 
-  const handleSubmit = (formData: FormData) => {
-    setSubmittedData(formData);
+  const handleFormSubmit = (data: any) => {
+    setFormDataCtp(data);
   };
 
   return (
-    <div>
-      <h1>Ctp Editor banner Page test</h1>
-      <CtpEditor onSubmit={handleSubmit} />
-      <Preview submittedData={submittedData} />
-    </div>
+    <Layout currentPage="CTP" formDataCtp={formDataCtp} formDataHp={{}}>
+      <div>
+        <h1>CTP Form Page</h1>
+        <EditorCtp onFormSubmit={handleFormSubmit} />
+      </div>
+    </Layout>
   );
 };
 
-export default EditorCategoryPage;
+export default CtpPage;

@@ -1,0 +1,26 @@
+.nav {
+    height: 80px;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+        line-height: 80px;
+    }
+
+    a {
+        text-decoration: none;
+        width: 300px;
+        border-bottom: 8px solid #DEDEDE;
+        display: block;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        color: #000;
+    }
+    .activeTab{
+        border-color: #2196F3;
+    }
+}

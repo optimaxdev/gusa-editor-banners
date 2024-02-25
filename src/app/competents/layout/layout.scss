@@ -1,0 +1,21 @@
+header {
+    padding-bottom: 26px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.sideBar {
+    width: 601px;
+    background-color: #fff;
+    top: 0;
+    height: 100vh;
+    min-height: 100%;
+    position: sticky;
+}
+
+.PreviewSide {
+    margin: auto;
+}

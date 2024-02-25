@@ -1,27 +1,26 @@
+// pages/hp.tsx
 "use client";
-import { useState } from "react";
-import HpEditor from "../competents/editorHp/editor";
-import Preview from "../competents/editorHp/preview";
-interface FormData {
-  value1: string;
-  value2: string;
-  // Add more fields as needed
-}
+import React, { useState } from "react";
+import Layout from "../competents/layout/layout";
+import EditorHp from "../competents/editorHp/editor";
+const HpPage: React.FC = () => {
+  const [formDataHp, setFormDataHp] = useState({
+    input1: "",
+    input2: "",
+    // Initialize additional fields if needed
+  });
 
-const HpEditorHomePage: React.FC = () => {
-  const [submittedData, setSubmittedData] = useState<FormData | null>(null);
-
-  const handleSubmit = (formData: FormData) => {
-    setSubmittedData(formData);
+  const handleFormSubmit = (data: any) => {
+    setFormDataHp(data);
   };
 
   return (
-    <div>
-      <h1>Hp Editor banner Page</h1>
-      <HpEditor onSubmit={handleSubmit} />
-      <Preview submittedData={submittedData} />
-    </div>
+    <Layout currentPage="HP" formDataCtp={{}} formDataHp={formDataHp}>
+      <div>
+        <EditorHp onFormSubmit={handleFormSubmit} />
+      </div>
+    </Layout>
   );
 };
 
-export default HpEditorHomePage;
+export default HpPage;

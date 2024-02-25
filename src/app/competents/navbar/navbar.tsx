@@ -1,15 +1,17 @@
 import React from "react";
 import Link from "next/link";
-
+import "./navbar.scss";
 const Navbar = () => {
   return (
     <>
-      <ul>
+      <ul className="nav">
         <li>
-          <Link href="/hp-editor">Hp Editor</Link>
+          <Link href="/hp-editor" className="activeTab">
+            HP
+          </Link>
         </li>
         <li>
-          <Link href="/ctp-editor">Ctp Editor</Link>
+          <Link href="/ctp-editor">CTP</Link>
         </li>
       </ul>
     </>
