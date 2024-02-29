@@ -1,9 +1,12 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 // components/Layout.tsx
 "use client";
 import React from "react";
 import Navbar from "../navbar/navbar";
 import "./layout.scss";
 import Image from "next/image";
+import PreviewBanner from "./PreviewBanner";
+import PreviewCode from "./PreviewCode";
 interface LayoutProps {
   children: React.ReactNode;
   currentPage: string;
@@ -44,8 +47,14 @@ const Layout: React.FC<LayoutProps> = ({
           )}
           {currentPage === "HP" && (
             <div>
-              <p>Input value from Input 1 (HP): {formDataHp.device}</p>
-              <p>Input value from Input 2 (HP): {formDataHp.input2}</p>
+              <PreviewBanner
+                ImageLink={formDataHp.imageLink}
+                VideoLink={formDataHp.videoLink}
+              />
+              <PreviewCode
+                ImageLink={formDataHp.imageLink}
+                VideoLink={formDataHp.videoLink}
+              />
             </div>
           )}
         </div>
