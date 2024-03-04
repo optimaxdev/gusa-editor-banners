@@ -5,9 +5,9 @@ import Layout from "../competents/layout/layout";
 import EditorHp from "../competents/editorHp/editor";
 const HpPage: React.FC = () => {
   const [formDataHp, setFormDataHp] = useState({
-    input1: "",
-    input2: "",
-    // Initialize additional fields if needed
+    imageLink: "",
+    videoLink: "",
+    templateb: "",
   });
 
   const handleFormSubmit = (data: any) => {

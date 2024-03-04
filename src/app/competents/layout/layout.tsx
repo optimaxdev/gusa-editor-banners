@@ -50,10 +50,13 @@ const Layout: React.FC<LayoutProps> = ({
               <PreviewBanner
                 ImageLink={formDataHp.imageLink}
                 VideoLink={formDataHp.videoLink}
+                template={formDataHp.template}
               />
               <PreviewCode
                 ImageLink={formDataHp.imageLink}
                 VideoLink={formDataHp.videoLink}
+                template={formDataHp.template}
+                formatType={formDataHp.format}
               />
             </div>
           )}

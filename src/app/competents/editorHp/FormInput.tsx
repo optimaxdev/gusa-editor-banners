@@ -8,7 +8,7 @@ interface FormInputProps {
   value: string;
   onChange: (value: string) => void;
   type: string;
-  options?: { value: string; svg: string }[];
+  options?: { value: string; svg: string; text: string }[];
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -45,9 +45,11 @@ const FormInput: React.FC<FormInputProps> = ({
               />
               <span
                 className="areaOfinput"
-                dangerouslySetInnerHTML={{ __html: option.svg }}
+                dangerouslySetInnerHTML={{
+                  __html: option.svg.replace(/`/g, "'"),
+                }}
               />
-              {classN === "layoutTemplate" ? option.value : ""} <div></div>
+              {classN === "layoutTemplateArea" ? <div>{option.text}</div> : ""}
             </label>
           ))}
           <div className="select"></div>
