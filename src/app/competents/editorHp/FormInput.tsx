@@ -34,30 +34,44 @@ const FormInput: React.FC<FormInputProps> = ({
         <div className={`${classN}`} id={`${id}`}>
           {options?.map((option) => (
             <label className="areaOfType" key={option.value}>
-              <input
-                type="radio"
-                value={option.value}
-                checked={value === option.value}
-                onChange={() => {
-                  onChange(option.value);
-                  activeType();
-                }}
-              />
-              <span
-                className="areaOfinput"
-                dangerouslySetInnerHTML={{
-                  __html: option.svg.replace(/`/g, "'"),
-                }}
-              />
-              {classN === "layoutTemplateArea" ? <div>{option.text}</div> : ""}
+              <div className={`areaTypeTemp-${option.value}`}>
+                <input
+                  type="radio"
+                  value={option.value}
+                  checked={value === option.value}
+                  onChange={() => {
+                    onChange(option.value);
+                    activeType();
+                  }}
+                />
+                <span
+                  className="areaOfinput"
+                  dangerouslySetInnerHTML={{
+                    __html: option.svg.replace(/`/g, "'"),
+                  }}
+                />
+              </div>
+              {classN == "layoutTemplateArea" ? (
+                <div className="NumberofTemplate">{option.text}</div>
+              ) : (
+                ""
+              )}
+              {classN == "layoutTemplateArea M" ? (
+                <div className={`NumberofTemplate width-${option.value}`}>
+                  {option.text}
+                </div>
+              ) : (
+                ""
+              )}
             </label>
           ))}
-          <div className="select"></div>
+          {classN == "toggleType" ? <div className="select"></div> : ""}
         </div>
       ) : (
         <input
           type={type}
           value={value}
+          className="inputText"
           onChange={(e) => onChange(e.target.value)}
         />
       )}

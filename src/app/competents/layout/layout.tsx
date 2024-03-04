@@ -57,6 +57,7 @@ const Layout: React.FC<LayoutProps> = ({
                 VideoLink={formDataHp.videoLink}
                 template={formDataHp.template}
                 formatType={formDataHp.format}
+                deviceType={formDataHp.device}
               />
             </div>
           )}

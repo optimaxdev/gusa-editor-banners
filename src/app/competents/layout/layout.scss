@@ -24,4 +24,21 @@ blockquote {
     background-color: #fff;
     width: 1024px;
     margin: auto;
-  }
+    position: relative;
+}
+
+.copyIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 4px;
+    background: #DBE1E5;
+    text-align: center;
+    position: absolute;
+    right:26px;
+    top: 22px;
+    display: flex;
+    cursor: pointer;
+    svg{
+        margin: auto;
+    }
+}
