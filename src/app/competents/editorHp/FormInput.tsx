@@ -26,15 +26,32 @@ const FormInput: React.FC<FormInputProps> = ({
       selectType.classList.toggle("activeSelected");
     }
   };
-
+  const activeTab = (event: React.MouseEvent<HTMLLabelElement>) => {
+    const clickedLabel = event.currentTarget;
+    clickedLabel.classList.add("activeTemplate");
+  };
   return (
     <div className="form-input">
       <label className="labelTxt">{label}:</label>
       {type === "radio" ? (
         <div className={`${classN}`} id={`${id}`}>
-          {options?.map((option) => (
-            <label className="areaOfType" key={option.value}>
+          {options?.map((option, index) => (
+            <label
+              className={`areaOfType  ${
+                value === option.value && classN == "layoutTemplateArea"
+                  ? "activeTemplate"
+                  : ""
+              }
+              `}
+              key={option.value}
+              onClick={(e) => {
+                {
+                  classN == "layoutTemplateArea" ? activeTab(e) : "";
+                }
+              }}
+            >
               <div className={`areaTypeTemp-${option.value}`}>
+                {id == "templateM" ? "" : ""}
                 <input
                   type="radio"
                   value={option.value}
@@ -51,12 +68,12 @@ const FormInput: React.FC<FormInputProps> = ({
                   }}
                 />
               </div>
-              {classN == "layoutTemplateArea" ? (
+              {id == "template" ? (
                 <div className="NumberofTemplate">{option.text}</div>
               ) : (
                 ""
               )}
-              {classN == "layoutTemplateArea M" ? (
+              {id == "templateM" ? (
                 <div className={`NumberofTemplate width-${option.value}`}>
                   {option.text}
                 </div>
@@ -65,7 +82,7 @@ const FormInput: React.FC<FormInputProps> = ({
               )}
             </label>
           ))}
-          {classN == "toggleType" ? <div className="select"></div> : ""}
+          {classN === "toggleType" ? <div className="select"></div> : ""}
         </div>
       ) : (
         <input

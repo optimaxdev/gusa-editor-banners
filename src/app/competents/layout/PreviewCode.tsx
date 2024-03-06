@@ -59,7 +59,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
     const textToCopy = beautifiedJson;
     navigator.clipboard.writeText(textToCopy);
     setCopySuccess(true);
-    setTimeout(() => setCopySuccess(false), 6500);
+    setTimeout(() => setCopySuccess(false), 1000);
   };
   return (
     <div>

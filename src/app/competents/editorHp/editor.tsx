@@ -184,7 +184,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               onChange={(value) => handleInputChange("template", value)}
               type="radio"
               id="templateM"
-              classN="layoutTemplateArea M"
+              classN="layoutTemplateArea"
               options={[
                 {
                   value: "0",

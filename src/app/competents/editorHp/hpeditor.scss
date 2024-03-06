@@ -86,6 +86,7 @@
     border-radius: 12px;
     border: 1px solid #DBE1E5;
     overflow: hidden;
+    margin-top: 40px;
 
     .labelTxt {
         display: none;
@@ -112,6 +113,7 @@
     align-items: center;
     margin: 20px auto 0;
     text-align: center;
+    gap: 30px 0px;
 
     div[class*=areaTypeTemp-] {
         width: 138.095px;
@@ -122,6 +124,7 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        border: 1px solid #F6F6F6;
         border-radius: 4px;
 
         .areaTypeTemp-3 {
@@ -168,6 +171,7 @@
 
 #templateM {
     align-items: start;
+    gap: 0px;
 
     div[class*=areaTypeTemp-] {
         width: 140px;
@@ -177,6 +181,24 @@
     .areaTypeTemp-3 {
         background: linear-gradient(to bottom, #F6F6F6 44%, #DBE1E5 44%);
     }
+
+    .activeTemplate {
+        div[class*="areaTypeTemp"] {
+            border: 1px solid #2196F3;
+            background: #F4FAFE;
+        }
+
+        svg,
+        rect,
+        path {
+            fill: #2196F3;
+            stroke: #2196F3;
+        }
+
+        .areaTypeTemp-3 {
+            background: linear-gradient(to bottom, #F4FAFE 44%, #E7F4FE 44%) !important;
+        }
+    }
 }
 
 .width-2 {
@@ -185,4 +207,28 @@
 
 .width-1 {
     width: 98px;
+}
+
+.layoutTemplateArea {
+    .activeTemplate {
+        div[class*="areaTypeTemp"] {
+            border: 1px solid #2196F3;
+            background: #F4FAFE;
+        }
+
+        svg,
+        rect,
+        path {
+            fill: #2196F3;
+            stroke: #2196F3;
+        }
+
+        .areaTypeTemp-4 {
+            background: linear-gradient(to left, #E7F4FE 52%, #F4FAFE 52%) !important;
+        }
+
+        .areaTypeTemp-5 {
+            background: linear-gradient(to left, #F4FAFE 52%, #E7F4FE 52%) !important;
+        }
+    }
 }
