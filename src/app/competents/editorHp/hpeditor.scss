@@ -3,12 +3,13 @@
 }
 
 .form-input {
-    margin-bottom: 21px;
     display: flex;
     align-items: center;
+    margin-bottom: 21px;
 }
 
-.inputText {
+input[type="text"],
+input[type="url"] {
     width: 281px;
     border-radius: 4px;
     border: 1px solid #E5E8E8;
@@ -17,6 +18,29 @@
     padding-block: 0;
     padding-inline: 6px;
     outline: 0;
+}
+
+input[type=color] {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    vertical-align: middle;    
+    border: 1px;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
+    margin-right: 6px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: 0;
 }
 
 .labelTxt {
@@ -81,16 +105,13 @@
     }
 }
 
-.LayoutTemplates {
+.ContainerOfInputs {
     width: 534px;
     border-radius: 12px;
     border: 1px solid #DBE1E5;
     overflow: hidden;
     margin-top: 40px;
-
-    .labelTxt {
-        display: none;
-    }
+    padding-bottom: 20px;
 
     .title {
         background: #F1F3F4;
@@ -103,15 +124,43 @@
         line-height: 45px;
     }
 
+    .form-input {
+        margin-bottom: 12px;
+        display: block;
+    }
+
+}
+
+.innerInputs {
+    margin-top: 30px;
+}
+
+.innerDiv {
+    width: 494px;
+    margin: auto;
+}
+
+.areaOfColor {
+    width: 91px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #E5E8E8;
+    background: #FFF;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    box-sizing: border-box;
+    vertical-align: middle;
 }
 
 .layoutTemplateArea {
     display: flex;
-    width: 474px;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    margin: 20px auto 0;
     text-align: center;
     gap: 30px 0px;
 

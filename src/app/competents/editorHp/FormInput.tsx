@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./hpeditor.scss";
 
 interface FormInputProps {
-  id: string;
-  classN: string;
+  id?: string;
+  classN?: string;
   label: string;
   value: string;
   onChange: (value: string) => void;
   type: string;
-  options?: { value: string; svg: string; text: string }[];
+  options?: { value: string; svg: string; text?: string }[];
+  backgroundColor?: string;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -19,39 +20,44 @@ const FormInput: React.FC<FormInputProps> = ({
   onChange,
   type,
   options,
+  backgroundColor,
 }) => {
+  const [activeTab, setActiveTab] = useState<string | null>(null);
+
   const activeType = () => {
     const selectType = document.querySelector(`#${id} .select`);
     if (selectType) {
       selectType.classList.toggle("activeSelected");
     }
   };
-  const activeTab = (event: React.MouseEvent<HTMLLabelElement>) => {
-    const clickedLabel = event.currentTarget;
-    clickedLabel.classList.add("activeTemplate");
+
+  const activeTabHandler = (value: string) => {
+    setActiveTab(value);
   };
+
+  useEffect(() => {
+    setActiveTab(value);
+  }, [value]);
+
   return (
     <div className="form-input">
-      <label className="labelTxt">{label}:</label>
+      <label className="labelTxt">
+        {classN == "layoutTemplateArea" ? "" : label + ":"}
+      </label>
       {type === "radio" ? (
         <div className={`${classN}`} id={`${id}`}>
-          {options?.map((option, index) => (
+          {options?.map((option) => (
             <label
               className={`areaOfType  ${
-                value === option.value && classN == "layoutTemplateArea"
+                (activeTab === option.value &&
+                  classN === "layoutTemplateArea") ||
+                (option === options[0] && !activeTab)
                   ? "activeTemplate"
                   : ""
-              }
-              `}
+              }`}
               key={option.value}
-              onClick={(e) => {
-                {
-                  classN == "layoutTemplateArea" ? activeTab(e) : "";
-                }
-              }}
             >
               <div className={`areaTypeTemp-${option.value}`}>
-                {id == "templateM" ? "" : ""}
                 <input
                   type="radio"
                   value={option.value}
@@ -59,6 +65,8 @@ const FormInput: React.FC<FormInputProps> = ({
                   onChange={() => {
                     onChange(option.value);
                     activeType();
+                    classN === "layoutTemplateArea" &&
+                      activeTabHandler(option.value);
                   }}
                 />
                 <span
@@ -68,12 +76,12 @@ const FormInput: React.FC<FormInputProps> = ({
                   }}
                 />
               </div>
-              {id == "template" ? (
+              {id === "templateD" ? (
                 <div className="NumberofTemplate">{option.text}</div>
               ) : (
                 ""
               )}
-              {id == "templateM" ? (
+              {id === "templateM" ? (
                 <div className={`NumberofTemplate width-${option.value}`}>
                   {option.text}
                 </div>
@@ -91,6 +99,13 @@ const FormInput: React.FC<FormInputProps> = ({
           className="inputText"
           onChange={(e) => onChange(e.target.value)}
         />
+      )}
+      {type === "color" ? (
+        <div className="areaOfColor">
+          {backgroundColor ? backgroundColor : "#000000"}
+        </div>
+      ) : (
+        backgroundColor
       )}
     </div>
   );

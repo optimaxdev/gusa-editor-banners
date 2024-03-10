@@ -4,20 +4,17 @@
 import React from "react";
 import Navbar from "../navbar/navbar";
 import "./layout.scss";
-import Image from "next/image";
 import PreviewBanner from "./PreviewBanner";
 import PreviewCode from "./PreviewCode";
 interface LayoutProps {
   children: React.ReactNode;
   currentPage: string;
-  formDataCtp: any;
   formDataHp: any;
 }
 
 const Layout: React.FC<LayoutProps> = ({
   children,
   currentPage,
-  formDataCtp,
   formDataHp,
 }) => {
   return (
@@ -30,10 +27,9 @@ const Layout: React.FC<LayoutProps> = ({
           {children}
         </div>
         <div className="PreviewSide">
-          <h2>Preview</h2>
           {currentPage === "CTP" && (
             <div>
-              <p>
+              {/* <p>
                 Input value from Input 1 (CTP): {formDataCtp.device}{" "}
                 <Image
                   src={formDataCtp.device || "default-image-source"}
@@ -42,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({
                   height={100}
                 />
               </p>
-              <p>Input value from Input 2 (CTP): {formDataCtp.input2}</p>
+              <p>Input value from Input 2 (CTP): {formDataCtp.input2}</p> */}
             </div>
           )}
           {currentPage === "HP" && (
@@ -50,14 +46,20 @@ const Layout: React.FC<LayoutProps> = ({
               <PreviewBanner
                 ImageLink={formDataHp.imageLink}
                 VideoLink={formDataHp.videoLink}
-                template={formDataHp.template}
+                templateD={formDataHp.templateD}
+                templateM={formDataHp.templateM}
+                formatType={formDataHp.format}
+                deviceType={formDataHp.device}
+                backgroundColor={formDataHp.backgroundColor}
               />
               <PreviewCode
                 ImageLink={formDataHp.imageLink}
                 VideoLink={formDataHp.videoLink}
-                template={formDataHp.template}
+                templateD={formDataHp.templateD}
+                templateM={formDataHp.templateM}
                 formatType={formDataHp.format}
                 deviceType={formDataHp.device}
+                backgroundColor={formDataHp.backgroundColor}
               />
             </div>
           )}

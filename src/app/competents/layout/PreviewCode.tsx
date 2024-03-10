@@ -6,19 +6,22 @@ import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 interface PreviewCodeProps {
   ImageLink: string;
   VideoLink: string;
-  template: string;
+  templateD: string;
+  templateM: string;
   formatType: string;
   deviceType: string;
+  backgroundColor: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
   ImageLink,
   VideoLink,
-  template,
+  templateD,
+  templateM,
   formatType,
   deviceType,
+  backgroundColor,
 }) => {
-  // Utility function to beautify JSON
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
       indent_char: " ",
@@ -43,8 +46,19 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
             ? `"video": [{ "source": "${VideoLink}", "type": "video/mp4" }]`
             : ""
         }
-        "template": ${template ? `"${template}"` : "0"}
+        "template": ${
+          deviceType == "Mobile"
+            ? templateM
+              ? templateM
+              : 0
+            : templateD
+            ? templateD
+            : 0
+        }
+        ,
+        "backgroundColor":"${backgroundColor ? backgroundColor : "#000000"}"
       }
+      
     ],
     "analytics": {
       "action": "${actionEvent}",
