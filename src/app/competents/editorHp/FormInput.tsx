@@ -30,7 +30,10 @@ const FormInput: React.FC<FormInputProps> = ({
       selectType.classList.toggle("activeSelected");
     }
   };
-
+  const activeTypeTheme = () => {
+    const ThemeContainer = document.querySelector(".Theme");
+    ThemeContainer?.classList.toggle("activeCotainer");
+  };
   const activeTabHandler = (value: string) => {
     setActiveTab(value);
   };
@@ -51,7 +54,7 @@ const FormInput: React.FC<FormInputProps> = ({
               className={`areaOfType  ${
                 (activeTab === option.value &&
                   classN === "layoutTemplateArea") ||
-                (option === options[0] && !activeTab)
+                (option === options[0] && !activeTab && id !== "Theme")
                   ? "activeTemplate"
                   : ""
               }`}
@@ -64,8 +67,14 @@ const FormInput: React.FC<FormInputProps> = ({
                   checked={value === option.value}
                   onChange={() => {
                     onChange(option.value);
-                    activeType();
-                    activeTabHandler(option.value);
+                    {
+                      classN == "toggleType" ? activeType() : "";
+                    }
+                    {
+                      id === "Theme" ? activeTypeTheme() : "";
+                    }
+                    classN === "layoutTemplateArea" &&
+                      activeTabHandler(option.value);
                   }}
                 />
                 <span
@@ -80,6 +89,13 @@ const FormInput: React.FC<FormInputProps> = ({
               ) : (
                 ""
               )}
+              {id === "Theme" ? (
+                <span className={`themeMode ${option.value}`}>
+                  {option.value}{" "}
+                </span>
+              ) : (
+                ""
+              )}
               {id === "templateM" ? (
                 <div className={`NumberofTemplate width-${option.value}`}>
                   {option.text}
@@ -90,6 +106,7 @@ const FormInput: React.FC<FormInputProps> = ({
             </label>
           ))}
           {classN === "toggleType" ? <div className="select"></div> : ""}
+          {id == "Theme" ? <div className="BallSwitch"></div> : ""}
         </div>
       ) : (
         <input

@@ -15,7 +15,7 @@ const HpPage: React.FC = () => {
   };
 
   return (
-    <Layout currentPage="HP" formDataCtp={{}} formDataHp={formDataHp}>
+    <Layout currentPage="HP" formDataHp={formDataHp}>
       <div>
         <EditorHp onFormSubmit={handleFormSubmit} />
       </div>

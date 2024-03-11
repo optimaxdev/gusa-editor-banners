@@ -17,7 +17,7 @@ const CtpPage: React.FC = () => {
   };
 
   return (
-    <Layout currentPage="CTP" formDataCtp={formDataCtp} formDataHp={{}}>
+    <Layout currentPage="CTP" formDataHp={{}}>
       <div>
         <h1>CTP Form Page</h1>
         <EditorCtp onFormSubmit={handleFormSubmit} />
