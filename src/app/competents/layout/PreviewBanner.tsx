@@ -9,6 +9,7 @@ interface PreviewBannerProps {
   formatType: string;
   deviceType: string;
   backgroundColor: string;
+  themeMode: string;
 }
 
 const PreviewBanner: React.FC<PreviewBannerProps> = ({
@@ -19,6 +20,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
   formatType,
   deviceType,
   backgroundColor,
+  themeMode,
 }) => {
   return (
     <div
@@ -34,10 +36,9 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             : "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/hp-banner-desktop-newsale.png"
         }
         alt={"image"}
-        width={1024}
-        height={200}
+        width={0}
+        height={0}
         className="imagePreview"
-        onError={(e) => console.error("Error loading image:", e)}
       />
 
       {/* <p>{ImageLink}</p> */}

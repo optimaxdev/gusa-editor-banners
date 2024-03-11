@@ -15,6 +15,8 @@ interface FormData {
   templateM: string;
   backgroundColor: string;
   color: string;
+  Theme: string;
+  contentPostion: string;
 }
 
 const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
@@ -28,6 +30,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     templateM: "",
     backgroundColor: "",
     color: "",
+    Theme: "",
+    contentPostion: "",
   });
 
   const handleInputChange = (fieldName: string, value: string) => {
@@ -238,6 +242,50 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               type="color"
               id="backgroundColor"
               backgroundColor={formData.backgroundColor}
+            />
+            <FormInput
+              label="Theme mode"
+              value={formData.Theme}
+              onChange={(value) => handleInputChange("Theme", value)}
+              type="radio"
+              id="Theme"
+              classN="Theme"
+              options={[
+                {
+                  value: "Dark",
+                },
+                {
+                  value: "Light",
+                },
+              ]}
+            />
+            <FormInput
+              label="Content position"
+              value={formData.contentPostion}
+              onChange={(value) => handleInputChange("contentPostion", value)}
+              type="radio"
+              id="Contentposition"
+              classN="Contentposition"
+              options={[
+                {
+                  value: "left",
+                  svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 17V15.5H17.5V17H0.5ZM0.5 13.125V11.625H11.5V13.125H0.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM0.5 5.37498V3.875H11.5V5.37498H0.5ZM0.5 1.49998V0H17.5V1.49998H0.5Z" fill="black"/>
+                  </svg>
+                  `,
+                },
+                {
+                  value: "center",
+                  svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.5 17V15.5H17.5V17H0.5ZM4.5 13.125V11.625H13.5V13.125H4.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM4.5 5.37498V3.875H13.5V5.37498H4.5ZM0.5 1.49998V0H17.5V1.49998H0.5Z" fill="#1C1B1F"/> </svg>`,
+                },
+                {
+                  value: "right",
+                  svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 1.49998V0H17.5V1.49998H0.5ZM6.5 5.37498V3.875H17.5V5.37498H6.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM6.5 13.125V11.625H17.5V13.125H6.5ZM0.5 17V15.5H17.5V17H0.5Z" fill="#1C1B1F"/>
+                  </svg>
+                  `,
+                },
+              ]}
             />
           </div>
         </div>

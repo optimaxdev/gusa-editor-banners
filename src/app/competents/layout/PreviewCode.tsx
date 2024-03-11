@@ -11,6 +11,8 @@ interface PreviewCodeProps {
   formatType: string;
   deviceType: string;
   backgroundColor: string;
+  themeMode: string;
+  contentPostion: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
@@ -21,6 +23,8 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   formatType,
   deviceType,
   backgroundColor,
+  themeMode,
+  contentPostion,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -56,7 +60,9 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
             : 0
         }
         ,
-        "backgroundColor":"${backgroundColor ? backgroundColor : "#000000"}"
+        "backgroundColor":"${backgroundColor ? backgroundColor : "#000000"}",
+        "theme":"${themeMode ? themeMode.toLowerCase() : "light"}",
+        "contentPosition":"${contentPostion ? contentPostion : "left"}"
       }
       
     ],

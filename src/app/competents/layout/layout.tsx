@@ -51,6 +51,7 @@ const Layout: React.FC<LayoutProps> = ({
                 formatType={formDataHp.format}
                 deviceType={formDataHp.device}
                 backgroundColor={formDataHp.backgroundColor}
+                themeMode={formDataHp.Theme}
               />
               <PreviewCode
                 ImageLink={formDataHp.imageLink}
@@ -60,7 +61,10 @@ const Layout: React.FC<LayoutProps> = ({
                 formatType={formDataHp.format}
                 deviceType={formDataHp.device}
                 backgroundColor={formDataHp.backgroundColor}
+                themeMode={formDataHp.Theme}
+                contentPostion={formDataHp.contentPostion}
               />
+              {formDataHp.templateD}
             </div>
           )}
         </div>

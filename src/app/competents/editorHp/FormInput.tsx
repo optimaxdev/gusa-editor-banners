@@ -8,7 +8,7 @@ interface FormInputProps {
   value: string;
   onChange: (value: string) => void;
   type: string;
-  options?: { value: string; svg: string; text?: string }[];
+  options?: { value: string; svg?: string; text?: string }[];
   backgroundColor?: string;
 }
 
@@ -65,14 +65,13 @@ const FormInput: React.FC<FormInputProps> = ({
                   onChange={() => {
                     onChange(option.value);
                     activeType();
-                    classN === "layoutTemplateArea" &&
-                      activeTabHandler(option.value);
+                    activeTabHandler(option.value);
                   }}
                 />
                 <span
                   className="areaOfinput"
                   dangerouslySetInnerHTML={{
-                    __html: option.svg.replace(/`/g, "'"),
+                    __html: option.svg ? option.svg.replace(/`/g, "'") : "",
                   }}
                 />
               </div>

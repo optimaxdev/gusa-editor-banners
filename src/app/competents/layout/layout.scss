@@ -35,20 +35,23 @@ blockquote {
     background: #DBE1E5;
     text-align: center;
     position: absolute;
-    right:26px;
+    right: 26px;
     top: 22px;
     display: flex;
     cursor: pointer;
-    svg{
+
+    svg {
         margin: auto;
     }
 }
-.previewBanner{
+
+.previewBanner {
     width: 100%;
     height: 256px;
 }
-.imagePreview{
+
+.imagePreview {
     width: 100%;
     object-fit: contain;
-    height: 256px;
+    height: 100%;
 }
