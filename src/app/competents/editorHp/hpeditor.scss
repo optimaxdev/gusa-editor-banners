@@ -135,7 +135,8 @@ input[type="color"]::-webkit-color-swatch {
 
 .innerInputs {
     margin-top: 42px;
-    .form-input{
+
+    .form-input {
         height: 32px;
         line-height: 32px;
     }
@@ -291,6 +292,8 @@ input[type="color"]::-webkit-color-swatch {
     justify-content: space-between;
     cursor: pointer;
     color: #2196F3;
+    vertical-align: middle;
+
     .Dark {
         opacity: 0;
     }
@@ -321,25 +324,33 @@ input[type="color"]::-webkit-color-swatch {
     .BallSwitch {
         left: 42.5px;
     }
-    background-color:#2196F3 ;
+
+    background-color:#2196F3;
     color: #F4FAFE;
+
     .Dark {
         opacity: 1;
         transform: translateX(12px);
     }
+
     .Light {
         opacity: 0;
     }
 }
 
-.Contentposition{
+.Contentposition {
     display: inline-flex;
     width: 84px;
     height: 24px;
     align-items: center;
     vertical-align: text-top;
     justify-content: space-between;
-    input[type=radio]{
-        position: relative;
+    cursor: pointer;
+    position: relative;
+}
+
+.activeTabPos{
+    svg,path{
+        fill: #2196F3;
     }
 }

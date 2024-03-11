@@ -64,7 +64,6 @@ const Layout: React.FC<LayoutProps> = ({
                 themeMode={formDataHp.Theme}
                 contentPostion={formDataHp.contentPostion}
               />
-              {formDataHp.templateD}
             </div>
           )}
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "./hpeditor.scss";
 
@@ -34,13 +35,28 @@ const FormInput: React.FC<FormInputProps> = ({
     const ThemeContainer = document.querySelector(".Theme");
     ThemeContainer?.classList.toggle("activeCotainer");
   };
+  const contentPosition = (_value: string) => {
+    const contentPositions = document.querySelectorAll(`#${id} .areaOfType`);
+
+    contentPositions?.forEach((position) => {
+      const positionValue = position.querySelector("input")?.value;
+      if (positionValue === activeTab) {
+        position.classList.add("activeTabPos");
+      } else {
+        position.classList.remove("activeTabPos");
+      }
+    });
+  };
+
   const activeTabHandler = (value: string) => {
     setActiveTab(value);
+    contentPosition(value);
   };
 
   useEffect(() => {
     setActiveTab(value);
-  }, [value]);
+    contentPosition(value);
+  }, [contentPosition, value]);
 
   return (
     <div className="form-input">
@@ -75,6 +91,7 @@ const FormInput: React.FC<FormInputProps> = ({
                     }
                     classN === "layoutTemplateArea" &&
                       activeTabHandler(option.value);
+                    activeTabHandler(option.value);
                   }}
                 />
                 <span

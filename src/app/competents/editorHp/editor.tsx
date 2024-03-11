@@ -41,12 +41,13 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     onFormSubmit(formData);
   };
 
   return (
-    <form className="hpEditor" onKeyUp={handleSubmit} onChange={handleSubmit}>
+    <form className="hpEditor" onKeyUp={handleSubmit} onInput={handleSubmit}>
       <FormInput
         label="Device"
         value={formData.device}
