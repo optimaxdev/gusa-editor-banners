@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "./hpeditor.scss";
 
@@ -35,19 +34,17 @@ const FormInput: React.FC<FormInputProps> = ({
     const ThemeContainer = document.querySelector(".Theme");
     ThemeContainer?.classList.toggle("activeCotainer");
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const contentPosition = (_value: string) => {
-    const contentPositions = document.querySelectorAll(`#${id} .areaOfType`);
-
+    const contentPositions = document.querySelectorAll(`#${id} .postion`);
+    console.log(contentPositions);
     contentPositions?.forEach((position) => {
       const positionValue = position.querySelector("input")?.value;
-      if (positionValue === activeTab) {
-        position.classList.add("activeTabPos");
-      } else {
-        position.classList.remove("activeTabPos");
-      }
+      const isActive = positionValue === activeTab;
+
+      position.classList.toggle("activeTabPos", isActive);
     });
   };
-
   const activeTabHandler = (value: string) => {
     setActiveTab(value);
     contentPosition(value);
@@ -56,7 +53,7 @@ const FormInput: React.FC<FormInputProps> = ({
   useEffect(() => {
     setActiveTab(value);
     contentPosition(value);
-  }, [contentPosition, value]);
+  }, [contentPosition, value, id, activeTab]);
 
   return (
     <div className="form-input">
@@ -70,10 +67,13 @@ const FormInput: React.FC<FormInputProps> = ({
               className={`areaOfType  ${
                 (activeTab === option.value &&
                   classN === "layoutTemplateArea") ||
-                (option === options[0] && !activeTab && id !== "Theme")
+                (option === options[0] &&
+                  !activeTab &&
+                  id !== "Theme" &&
+                  id !== "Contentposition")
                   ? "activeTemplate"
                   : ""
-              }`}
+              }${id == "Contentposition" ? "postion" : ""}`}
               key={option.value}
             >
               <div className={`areaTypeTemp-${option.value}`}>
@@ -89,17 +89,33 @@ const FormInput: React.FC<FormInputProps> = ({
                     {
                       id === "Theme" ? activeTypeTheme() : "";
                     }
+                    {
+                      id == "Contentposition"
+                        ? contentPosition(option.value)
+                        : "";
+                    }
                     classN === "layoutTemplateArea" &&
                       activeTabHandler(option.value);
-                    activeTabHandler(option.value);
                   }}
                 />
-                <span
-                  className="areaOfinput"
-                  dangerouslySetInnerHTML={{
-                    __html: option.svg ? option.svg.replace(/`/g, "'") : "",
-                  }}
-                />
+                <div
+                  className={`${
+                    classN == "Contentposition"
+                      ? `${
+                          option.value == options[0].value &&
+                          !activeTab &&
+                          "activeTabPos"
+                        }`
+                      : ""
+                  }`}
+                >
+                  <span
+                    className="areaOfinput"
+                    dangerouslySetInnerHTML={{
+                      __html: option.svg ? option.svg.replace(/`/g, "'") : "",
+                    }}
+                  />
+                </div>
               </div>
               {id === "templateD" ? (
                 <div className="NumberofTemplate">{option.text}</div>

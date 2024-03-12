@@ -13,6 +13,7 @@ interface PreviewCodeProps {
   backgroundColor: string;
   themeMode: string;
   contentPostion: string;
+  link: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
@@ -25,6 +26,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   backgroundColor,
   themeMode,
   contentPostion,
+  link,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -39,7 +41,6 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   // Variables for action and label events
   const actionEvent = "${action}";
   const labelEvent = "${label}";
-
   // Construct the JSON string
   const jsonString = `{
     "value": [
@@ -62,7 +63,8 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
         ,
         "backgroundColor":"${backgroundColor ? backgroundColor : "#000000"}",
         "theme":"${themeMode ? themeMode.toLowerCase() : "light"}",
-        "contentPosition":"${contentPostion ? contentPostion : "left"}"
+        "contentPosition":"${contentPostion ? contentPostion : "left"}",
+         ${link ? `"link": "${link}"` : `"link":""`}
       }
       
     ],

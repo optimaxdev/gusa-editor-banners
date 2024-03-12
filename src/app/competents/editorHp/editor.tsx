@@ -17,6 +17,7 @@ interface FormData {
   color: string;
   Theme: string;
   contentPostion: string;
+  link: string;
 }
 
 const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
@@ -32,6 +33,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     color: "",
     Theme: "",
     contentPostion: "",
+    link: "",
   });
 
   const handleInputChange = (fieldName: string, value: string) => {
@@ -287,6 +289,13 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   `,
                 },
               ]}
+            />
+            <FormInput
+              label="Entire banner link"
+              value={formData.link}
+              onChange={(value) => handleInputChange("link", value)}
+              type="url"
+              classN="inputUrl"
             />
           </div>
         </div>

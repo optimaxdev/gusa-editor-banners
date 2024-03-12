@@ -63,6 +63,7 @@ const Layout: React.FC<LayoutProps> = ({
                 backgroundColor={formDataHp.backgroundColor}
                 themeMode={formDataHp.Theme}
                 contentPostion={formDataHp.contentPostion}
+                link={formDataHp.link}
               />
             </div>
           )}
