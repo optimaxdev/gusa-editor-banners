@@ -24,7 +24,7 @@ const Layout: React.FC<LayoutProps> = ({
           <header>
             <Navbar />
           </header>
-          {children}
+          <div className="scrollBar">{children}</div>
         </div>
         <div className="PreviewSide">
           {currentPage === "CTP" && (
@@ -52,6 +52,7 @@ const Layout: React.FC<LayoutProps> = ({
                 deviceType={formDataHp.device}
                 backgroundColor={formDataHp.backgroundColor}
                 themeMode={formDataHp.Theme}
+                link={formDataHp.link}
               />
               <PreviewCode
                 ImageLink={formDataHp.imageLink}
@@ -64,6 +65,8 @@ const Layout: React.FC<LayoutProps> = ({
                 themeMode={formDataHp.Theme}
                 contentPostion={formDataHp.contentPostion}
                 link={formDataHp.link}
+                event={formDataHp.event}
+                backgroundPostion={formDataHp.backgroundPostion}
               />
             </div>
           )}

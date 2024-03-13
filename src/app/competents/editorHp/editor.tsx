@@ -18,22 +18,30 @@ interface FormData {
   Theme: string;
   contentPostion: string;
   link: string;
+  event: string;
+  backgroundPostion: string;
+  Counter: string;
+  checkactive: string;
 }
 
 const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
   const [formData, setFormData] = useState<FormData>({
     id: "",
-    device: "",
+    device: "Desktop",
     format: "",
     imageLink: "",
     videoLink: "",
-    templateD: "",
-    templateM: "",
+    templateD: "0",
+    templateM: "0",
     backgroundColor: "",
     color: "",
     Theme: "",
     contentPostion: "",
     link: "",
+    event: "",
+    backgroundPostion: "",
+    Counter: "",
+    checkactive: "",
   });
 
   const handleInputChange = (fieldName: string, value: string) => {
@@ -47,7 +55,6 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     e.preventDefault();
     onFormSubmit(formData);
   };
-
   return (
     <form className="hpEditor" onKeyUp={handleSubmit} onInput={handleSubmit}>
       <FormInput
@@ -111,11 +118,39 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
       ) : (
         ""
       )}
+      <FormInput
+        label="Background position"
+        value={formData.backgroundPostion}
+        onChange={(value) => handleInputChange("backgroundPostion", value)}
+        type="radio"
+        id="backgroundPostion"
+        classN="Contentposition"
+        options={[
+          {
+            value: "left",
+            svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 17V15.5H17.5V17H0.5ZM0.5 13.125V11.625H11.5V13.125H0.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM0.5 5.37498V3.875H11.5V5.37498H0.5ZM0.5 1.49998V0H17.5V1.49998H0.5Z" fill="black"/>
+                  </svg>
+                  `,
+          },
+          {
+            value: "center",
+            svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.5 17V15.5H17.5V17H0.5ZM4.5 13.125V11.625H13.5V13.125H4.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM4.5 5.37498V3.875H13.5V5.37498H4.5ZM0.5 1.49998V0H17.5V1.49998H0.5Z" fill="#1C1B1F"/> </svg>`,
+          },
+          {
+            value: "right",
+            svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 1.49998V0H17.5V1.49998H0.5ZM6.5 5.37498V3.875H17.5V5.37498H6.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM6.5 13.125V11.625H17.5V13.125H6.5ZM0.5 17V15.5H17.5V17H0.5Z" fill="#1C1B1F"/>
+                  </svg>
+                  `,
+          },
+        ]}
+      />
       <div className="ContainerOfInputs">
         <div className="title">Layout</div>
         <div className="innerDiv">
           <div className="LayoutTemplate">
-            {formData.device == "Desktop" || formData.device !== "Mobile" ? (
+            {formData.device == "Desktop" ? (
               <FormInput
                 label="template"
                 value={formData.templateD}
@@ -290,14 +325,47 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                 },
               ]}
             />
-            <FormInput
-              label="Entire banner link"
-              value={formData.link}
-              onChange={(value) => handleInputChange("link", value)}
-              type="url"
-              classN="inputUrl"
-            />
+            {(formData.templateD === "0" && formData.device === "Desktop") ||
+            (formData.device === "Mobile" && formData.templateM === "0") ? (
+              <>
+                <FormInput
+                  label="Entire banner link"
+                  value={formData.link}
+                  onChange={(value) => handleInputChange("link", value)}
+                  type="url"
+                  classN="inputUrl"
+                />
+                <FormInput
+                  label="Event label"
+                  value={formData.event}
+                  onChange={(value) => handleInputChange("event", value)}
+                  type="text"
+                  classN="event"
+                />
+              </>
+            ) : (
+              ""
+            )}
           </div>
+        </div>
+      </div>
+      <div className="ContainerOfInputs UniqueSpaceCounter">
+        <div className="innerDiv">
+          <FormInput
+            label=""
+            value={formData.checkactive}
+            onChange={(value) => handleInputChange("checkactive", value)}
+            type="checkbox"
+            classN="checkactive"
+          />
+          <FormInput
+            label="Counter"
+            value={formData.Counter}
+            onChange={(value) => handleInputChange("Counter", value)}
+            type="date"
+            classN="inputCounter"
+            disable="ture"
+          />
         </div>
       </div>
     </form>

@@ -14,19 +14,23 @@ interface PreviewCodeProps {
   themeMode: string;
   contentPostion: string;
   link: string;
+  event: string;
+  backgroundPostion: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
   ImageLink,
   VideoLink,
-  templateD,
-  templateM,
+  templateD = "0",
+  templateM = "0",
   formatType,
-  deviceType,
+  deviceType = "Desktop",
   backgroundColor,
   themeMode,
   contentPostion,
   link,
+  event,
+  backgroundPostion,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -48,7 +52,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
         "image": "${ImageLink}",
         ${
           formatType === "video" && VideoLink
-            ? `"video": [{ "source": "${VideoLink}", "type": "video/mp4" }]`
+            ? `"video": [{ "source": "${VideoLink}", "type": "video/mp4" }],`
             : ""
         }
         "template": ${
@@ -61,10 +65,26 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
             : 0
         }
         ,
+        "backgroundPosition": "${
+          backgroundPostion ? backgroundPostion : "left"
+        }",
         "backgroundColor":"${backgroundColor ? backgroundColor : "#000000"}",
         "theme":"${themeMode ? themeMode.toLowerCase() : "light"}",
         "contentPosition":"${contentPostion ? contentPostion : "left"}",
-         ${link ? `"link": "${link}"` : `"link":""`}
+         ${
+           (deviceType == "Desktop" && templateD === "0") ||
+           (deviceType == "Mobile" && templateM === "0")
+             ? `"link": "${link ? link : ""}",`
+             : ""
+         }
+         ${
+           (deviceType == "Desktop" && templateD == "0") ||
+           (deviceType == "Mobile" && templateM === "0")
+             ? `"linkAnalytics":"${`Unknown >> slider (control) >> Slide 1 >>${
+                 event ? event : ""
+               }`}"`
+             : ""
+         }
       }
       
     ],

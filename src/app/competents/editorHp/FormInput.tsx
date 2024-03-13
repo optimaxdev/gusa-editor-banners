@@ -10,6 +10,7 @@ interface FormInputProps {
   type: string;
   options?: { value: string; svg?: string; text?: string }[];
   backgroundColor?: string;
+  disable?: string;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -21,6 +22,7 @@ const FormInput: React.FC<FormInputProps> = ({
   type,
   options,
   backgroundColor,
+  disable,
 }) => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
@@ -37,13 +39,19 @@ const FormInput: React.FC<FormInputProps> = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const contentPosition = (_value: string) => {
     const contentPositions = document.querySelectorAll(`#${id} .postion`);
-    console.log(contentPositions);
     contentPositions?.forEach((position) => {
       const positionValue = position.querySelector("input")?.value;
       const isActive = positionValue === activeTab;
-
       position.classList.toggle("activeTabPos", isActive);
     });
+  };
+  const checkBoxToActiveCounter = () => {
+    const checkbox = document.querySelector(".checkactive");
+    const inputDate = document.querySelector(".inputCounter");
+
+    if (checkbox) {
+      inputDate?.toggleAttribute("disabled");
+    }
   };
   const activeTabHandler = (value: string) => {
     setActiveTab(value);
@@ -57,9 +65,11 @@ const FormInput: React.FC<FormInputProps> = ({
 
   return (
     <div className="form-input">
-      <label className="labelTxt">
-        {classN == "layoutTemplateArea" ? "" : label + ":"}
-      </label>
+      {classN == "layoutTemplateArea" ? (
+        ""
+      ) : (
+        <label className="labelTxt"> {label ? label + ":" : ""} </label>
+      )}
       {type === "radio" ? (
         <div className={`${classN}`} id={`${id}`}>
           {options?.map((option) => (
@@ -70,10 +80,13 @@ const FormInput: React.FC<FormInputProps> = ({
                 (option === options[0] &&
                   !activeTab &&
                   id !== "Theme" &&
-                  id !== "Contentposition")
+                  id !== "Contentposition" &&
+                  id !== "backgroundPostion")
                   ? "activeTemplate"
                   : ""
-              }${id == "Contentposition" ? "postion" : ""}`}
+              }${id == "Contentposition" ? "postion" : ""} ${
+                id == "backgroundPostion" ? "postion" : ""
+              }`}
               key={option.value}
             >
               <div className={`areaTypeTemp-${option.value}`}>
@@ -90,7 +103,7 @@ const FormInput: React.FC<FormInputProps> = ({
                       id === "Theme" ? activeTypeTheme() : "";
                     }
                     {
-                      id == "Contentposition"
+                      id == "Contentposition" || "backgroundPostion"
                         ? contentPosition(option.value)
                         : "";
                     }
@@ -100,7 +113,7 @@ const FormInput: React.FC<FormInputProps> = ({
                 />
                 <div
                   className={`${
-                    classN == "Contentposition"
+                    classN == "Contentposition" || id === "backgroundPostion"
                       ? `${
                           option.value == options[0].value &&
                           !activeTab &&
@@ -145,8 +158,15 @@ const FormInput: React.FC<FormInputProps> = ({
         <input
           type={type}
           value={value}
-          className="inputText"
-          onChange={(e) => onChange(e.target.value)}
+          className={`inputText ${
+            classN == "inputText" || "checkactive" ? (classN ? classN : "") : ""
+          }
+          `}
+          onChange={(e) => {
+            onChange(e.target.value);
+            checkBoxToActiveCounter();
+          }}
+          disabled={classN === "inputCounter" ? true : false}
         />
       )}
       {type === "color" ? (

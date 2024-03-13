@@ -10,42 +10,50 @@ interface PreviewBannerProps {
   deviceType: string;
   backgroundColor: string;
   themeMode: string;
+  link: string;
 }
 
 const PreviewBanner: React.FC<PreviewBannerProps> = ({
   ImageLink,
   VideoLink,
-  templateD,
-  templateM,
+  templateD = "0",
+  templateM = "0",
   formatType,
   deviceType,
-  backgroundColor,
+  backgroundColor = "#000000",
   themeMode,
+  link,
 }) => {
   return (
-    <div
+    <a
+      href={
+        (deviceType == "Desktop" && templateD === "0") ||
+        (deviceType == "Mobile" && templateM === "0")
+          ? link
+          : "#"
+      }
       style={{
         backgroundColor: backgroundColor === "" ? "#000" : backgroundColor,
       }}
       className="previewBanner"
     >
-      <Image
-        src={
-          ImageLink
-            ? ImageLink
-            : "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/hp-banner-desktop-newsale.png"
-        }
-        alt={"image"}
-        width={0}
-        height={0}
-        className="imagePreview"
-      />
-
-      {/* <p>{ImageLink}</p> */}
-      <p>{VideoLink}</p>
-      <p>{templateD}</p>
-      <p>{templateM}</p>
-    </div>
+      {ImageLink && !VideoLink ? (
+        <Image
+          src={ImageLink}
+          alt={"image"}
+          width={1024}
+          height={256}
+          className="imagePreview"
+        />
+      ) : (
+        <span className="hide"> backgroundColor</span>
+      )}
+      {VideoLink && (
+        <video poster={ImageLink} playsInline autoPlay>
+          <source src={VideoLink} type="video/mp4" />
+        </video>
+      )}
+    </a>
   );
 };
 
