@@ -8,9 +8,8 @@ interface FormInputProps {
   value: string;
   onChange: (value: string) => void;
   type: string;
-  options?: { value: string; svg?: string; text?: string }[];
+  options?: { value: string; svg?: string; text?: string; min?: string }[];
   backgroundColor?: string;
-  disable?: string;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -22,7 +21,6 @@ const FormInput: React.FC<FormInputProps> = ({
   type,
   options,
   backgroundColor,
-  disable,
 }) => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
@@ -45,14 +43,15 @@ const FormInput: React.FC<FormInputProps> = ({
       position.classList.toggle("activeTabPos", isActive);
     });
   };
-  const checkBoxToActiveCounter = () => {
-    const checkbox = document.querySelector(".checkactive");
-    const inputDate = document.querySelector(".inputCounter");
-
-    if (checkbox) {
-      inputDate?.toggleAttribute("disabled");
-    }
-  };
+  // const checkBoxToActiveCounter = () => {
+  //   const checkbox = document.querySelector(".checkactive");
+  //   const inputDate = document.querySelector(".inputCounter");
+  //   const pickerDate = document.querySelector(".pickerDate");
+  //   if (checkbox) {
+  //     inputDate?.toggleAttribute("disabled");
+  //     pickerDate?.classList.toggle("activePicker");
+  //   }
+  // };
   const activeTabHandler = (value: string) => {
     setActiveTab(value);
     contentPosition(value);
@@ -164,9 +163,7 @@ const FormInput: React.FC<FormInputProps> = ({
           `}
           onChange={(e) => {
             onChange(e.target.value);
-            checkBoxToActiveCounter();
           }}
-          disabled={classN === "inputCounter" ? true : false}
         />
       )}
       {type === "color" ? (

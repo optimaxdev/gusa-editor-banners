@@ -16,6 +16,7 @@ interface PreviewCodeProps {
   link: string;
   event: string;
   backgroundPostion: string;
+  Counter: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
@@ -31,6 +32,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   link,
   event,
   backgroundPostion,
+  Counter,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -45,6 +47,14 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   // Variables for action and label events
   const actionEvent = "${action}";
   const labelEvent = "${label}";
+  const dateValue = Counter ? new Date(Counter) : null;
+  const dateFormat = dateValue
+    ? dateValue.toLocaleString("en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : "";
   // Construct the JSON string
   const jsonString = `{
     "value": [
@@ -64,7 +74,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
             ? templateD
             : 0
         }
-        ,
+        ,${dateFormat}
         "backgroundPosition": "${
           backgroundPostion ? backgroundPostion : "left"
         }",

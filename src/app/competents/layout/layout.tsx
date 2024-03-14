@@ -67,6 +67,7 @@ const Layout: React.FC<LayoutProps> = ({
                 link={formDataHp.link}
                 event={formDataHp.event}
                 backgroundPostion={formDataHp.backgroundPostion}
+                Counter={formDataHp.Counter}
               />
             </div>
           )}
