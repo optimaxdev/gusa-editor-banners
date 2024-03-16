@@ -5,9 +5,22 @@ import Layout from "../competents/layout/layout";
 import EditorHp from "../competents/editorHp/editor";
 const HpPage: React.FC = () => {
   const [formDataHp, setFormDataHp] = useState({
+    id: "",
+    device: "Desktop",
+    format: "",
     imageLink: "",
     videoLink: "",
-    templateb: "",
+    templateD: "0",
+    templateM: "0",
+    backgroundColor: "",
+    color: "",
+    Theme: "",
+    contentPostion: "",
+    link: "",
+    event: "",
+    backgroundPostion: "",
+    date: "",
+    checkactive: "",
   });
 
   const handleFormSubmit = (data: any) => {

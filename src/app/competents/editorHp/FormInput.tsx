@@ -8,7 +8,7 @@ interface FormInputProps {
   value: string;
   onChange: (value: string) => void;
   type: string;
-  options?: { value: string; svg?: string; text?: string; min?: string }[];
+  options?: { value: string; svg?: string; text?: string }[];
   backgroundColor?: string;
 }
 
@@ -43,15 +43,15 @@ const FormInput: React.FC<FormInputProps> = ({
       position.classList.toggle("activeTabPos", isActive);
     });
   };
-  // const checkBoxToActiveCounter = () => {
-  //   const checkbox = document.querySelector(".checkactive");
-  //   const inputDate = document.querySelector(".inputCounter");
-  //   const pickerDate = document.querySelector(".pickerDate");
-  //   if (checkbox) {
-  //     inputDate?.toggleAttribute("disabled");
-  //     pickerDate?.classList.toggle("activePicker");
-  //   }
-  // };
+  const checkBoxToActiveCounter = () => {
+    const checkbox = document.querySelector(".checkactive");
+    const inputDate = document.querySelector(".inputCounter");
+    const pickerDate = document.querySelector(".pickerDate");
+    if (checkbox) {
+      inputDate?.toggleAttribute("disabled");
+      pickerDate?.classList.toggle("activePicker");
+    }
+  };
   const activeTabHandler = (value: string) => {
     setActiveTab(value);
     contentPosition(value);
@@ -61,7 +61,10 @@ const FormInput: React.FC<FormInputProps> = ({
     setActiveTab(value);
     contentPosition(value);
   }, [contentPosition, value, id, activeTab]);
-
+  const d = document.querySelector(".inputCounter");
+  d?.addEventListener("submit", () => {
+    value;
+  });
   return (
     <div className="form-input">
       {classN == "layoutTemplateArea" ? (
@@ -159,11 +162,12 @@ const FormInput: React.FC<FormInputProps> = ({
           value={value}
           className={`inputText ${
             classN == "inputText" || "checkactive" ? (classN ? classN : "") : ""
-          }
-          `}
+          }`}
           onChange={(e) => {
             onChange(e.target.value);
           }}
+          onClick={checkBoxToActiveCounter}
+          disabled={classN === "inputCounter" ? true : false}
         />
       )}
       {type === "color" ? (

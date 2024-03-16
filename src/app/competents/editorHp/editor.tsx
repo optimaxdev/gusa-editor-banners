@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormInput from "./FormInput";
-
 interface FormProps {
   onFormSubmit: (formData: FormData) => void;
 }
@@ -20,7 +19,7 @@ interface FormData {
   link: string;
   event: string;
   backgroundPostion: string;
-  Counter: string;
+  date: string;
   checkactive: string;
 }
 
@@ -40,10 +39,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     link: "",
     event: "",
     backgroundPostion: "",
-    Counter: "",
+    date: "",
     checkactive: "",
   });
-
+  const [inputFocused, setInputFocused] = useState(false);
   const handleInputChange = (fieldName: string, value: string) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -57,7 +56,12 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
   };
 
   return (
-    <form className="hpEditor" onKeyUp={handleSubmit} onInput={handleSubmit}>
+    <form
+      className="hpEditor"
+      onKeyUp={handleSubmit}
+      onInput={handleSubmit}
+      onFocus={handleSubmit}
+    >
       <FormInput
         label="Device"
         value={formData.device}
@@ -362,8 +366,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
           <div className="pickerDate">
             <FormInput
               label="Counter"
-              value={formData.Counter}
-              onChange={(value) => handleInputChange("Counter", value)}
+              value={formData.date}
+              onChange={(value) => handleInputChange("date", value)}
               type="date"
               classN="inputCounter"
             />
