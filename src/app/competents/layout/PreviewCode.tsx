@@ -17,6 +17,7 @@ interface PreviewCodeProps {
   event: string;
   backgroundPostion: string;
   date: string;
+  checkactive: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
@@ -33,6 +34,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   event,
   backgroundPostion,
   date,
+  checkactive,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -74,7 +76,12 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
             ? templateD
             : 0
         }
-        ${dateFormat ? `,"deadline": "${dateFormat} 2:00:00",` : ","}
+        ${
+          checkactive == "true"
+            ? ` ${dateFormat ? `,"deadline": "${dateFormat} 2:00:00",` : ","}`
+            : ","
+        }
+       
         "backgroundPosition": "${
           backgroundPostion ? backgroundPostion : "left"
         }",

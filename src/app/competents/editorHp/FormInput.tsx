@@ -61,10 +61,6 @@ const FormInput: React.FC<FormInputProps> = ({
     setActiveTab(value);
     contentPosition(value);
   }, [contentPosition, value, id, activeTab]);
-  const d = document.querySelector(".inputCounter");
-  d?.addEventListener("submit", () => {
-    value;
-  });
   return (
     <div className="form-input">
       {classN == "layoutTemplateArea" ? (

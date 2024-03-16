@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-duplicate-props */
 // components/Layout.tsx
 "use client";
 import React from "react";
@@ -68,6 +67,7 @@ const Layout: React.FC<LayoutProps> = ({
                 event={formDataHp.event}
                 backgroundPostion={formDataHp.backgroundPostion}
                 date={formDataHp.date}
+                checkactive={formDataHp.checkactive}
               />
             </div>
           )}

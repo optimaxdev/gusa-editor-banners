@@ -40,9 +40,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     event: "",
     backgroundPostion: "",
     date: "",
-    checkactive: "",
+    checkactive: "false",
   });
-  const [inputFocused, setInputFocused] = useState(false);
   const handleInputChange = (fieldName: string, value: string) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -359,7 +358,11 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
           <FormInput
             label=""
             value={formData.checkactive}
-            onChange={(value) => handleInputChange("checkactive", value)}
+            onChange={() => {
+              const newValue =
+                formData.checkactive === "true" ? "false" : "true";
+              handleInputChange("checkactive", newValue);
+            }}
             type="checkbox"
             classN="checkactive"
           />
