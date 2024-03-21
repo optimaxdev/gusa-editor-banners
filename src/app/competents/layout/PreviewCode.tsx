@@ -18,6 +18,9 @@ interface PreviewCodeProps {
   backgroundPostion: string;
   date: string;
   checkactive: string;
+  select: string;
+  linetext: string;
+  fontWeightLineOne: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
@@ -35,6 +38,9 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   backgroundPostion,
   date,
   checkactive,
+  select,
+  linetext,
+  fontWeightLineOne,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -100,6 +106,16 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
              ? `"linkAnalytics":"${`Unknown >> slider (control) >> Slide 1 >>${
                  event ? event : ""
                }`}"`
+             : ""
+         }
+         ${
+           templateD !== "0"
+             ? `
+         "lines": [{
+          "text":"${linetext ? linetext : ""}"
+          "weight":"${fontWeightLineOne ? fontWeightLineOne : ""}"
+         }]
+         `
              : ""
          }
       }

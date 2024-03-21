@@ -21,6 +21,9 @@ interface FormData {
   backgroundPostion: string;
   date: string;
   checkactive: string;
+  select: string;
+  linetext: string;
+  fontWeightLineOne: string;
 }
 
 const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
@@ -41,26 +44,29 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     backgroundPostion: "",
     date: "",
     checkactive: "false",
+    select: "",
+    linetext: "",
+    fontWeightLineOne: "",
   });
   const handleInputChange = (fieldName: string, value: string) => {
     setFormData((prevData) => ({
       ...prevData,
       [fieldName]: value,
     }));
+    onFormSubmit(formData);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onFormSubmit(formData);
   };
 
+  useEffect(() => {
+    onFormSubmit(formData);
+  }, [formData, onFormSubmit]);
+
   return (
-    <form
-      className="hpEditor"
-      onKeyUp={handleSubmit}
-      onInput={handleSubmit}
-      onFocus={handleSubmit}
-    >
+    <form className="hpEditor" onSubmit={handleSubmit}>
       <FormInput
         label="Device"
         value={formData.device}
@@ -158,7 +164,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               <FormInput
                 label="template"
                 value={formData.templateD}
-                onChange={(value) => handleInputChange("templateD", value)}
+                onChange={(value) => {
+                  const v = value != "0" ? value : value;
+                  handleInputChange("templateD", v);
+                }}
                 type="radio"
                 id="templateD"
                 classN="layoutTemplateArea"
@@ -394,6 +403,62 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               </defs>
             </svg>
           </div>
+        </div>
+      </div>
+      <div className="ContainerOfInputs UniqueSpaceCounter">
+        <div className="innerDiv">
+          <FormInput
+            label="Number of lines text"
+            value={formData.select}
+            onChange={(value) => handleInputChange("select", value)}
+            type="select"
+            classN="event"
+            options={[
+              {
+                value: "1",
+                text: "1",
+              },
+              {
+                value: "2",
+                text: "2",
+              },
+              {
+                value: "3",
+                text: "3",
+              },
+            ]}
+          />
+          {formData.select === "1" && (
+            <div className="areaofInputPostion">
+              <FormInput
+                label=""
+                value={formData.linetext}
+                onChange={(value) => handleInputChange("linetext", value)}
+                type="text"
+                classN="inputLineText"
+              />
+              <FormInput
+                label=""
+                value={formData.fontWeightLineOne}
+                onChange={(value) =>
+                  handleInputChange("fontWeightLineOne", value)
+                }
+                type="radio"
+                id="DeviceTyped"
+                classN="toggleType"
+                options={[
+                  {
+                    value: "L",
+                  },
+                  {
+                    value: "B",
+                  },
+                ]}
+              />
+            </div>
+          )}
+          {formData.select === "2" && "div2"}
+          {formData.select === "3" && "div3"}
         </div>
       </div>
     </form>

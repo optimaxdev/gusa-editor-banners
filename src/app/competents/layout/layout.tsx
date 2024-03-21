@@ -68,6 +68,9 @@ const Layout: React.FC<LayoutProps> = ({
                 backgroundPostion={formDataHp.backgroundPostion}
                 date={formDataHp.date}
                 checkactive={formDataHp.checkactive}
+                select={formDataHp.select}
+                linetext={formDataHp.linetext}
+                fontWeightLineOne={formDataHp.fontWeightLineOne}
               />
             </div>
           )}

@@ -110,6 +110,9 @@ input[type="date"] {
     font-weight: 400;
     line-height: normal;
     color: #000;
+}
+
+.pr {
     padding-right: 10px;
 }
 
@@ -147,7 +150,7 @@ input[type="date"] {
         position: absolute;
         width: 45.33px;
         height: 28px;
-        left: 0px;
+        left: 1px;
         transition: 0.1s;
     }
 
@@ -426,4 +429,20 @@ input[type="date"] {
 .flexTwoinput {
     display: flex;
     align-items: center;
+}
+
+.areaofInputPostion {
+    display: flex;
+    align-items: center;
+padding-top: 20px;
+    .areaOfinput {
+        color: #2196F3;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .inputLineText{
+        width: 320px;
+    }
 }

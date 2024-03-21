@@ -66,7 +66,10 @@ const FormInput: React.FC<FormInputProps> = ({
       {classN == "layoutTemplateArea" ? (
         ""
       ) : (
-        <label className="labelTxt"> {label ? label + ":" : ""} </label>
+        <label className={`labelTxt ${label ? "pr" : ""}`}>
+          {" "}
+          {label ? label + ":" : ""}{" "}
+        </label>
       )}
       {type === "radio" ? (
         <div className={`${classN}`} id={`${id}`}>
@@ -123,7 +126,11 @@ const FormInput: React.FC<FormInputProps> = ({
                   <span
                     className="areaOfinput"
                     dangerouslySetInnerHTML={{
-                      __html: option.svg ? option.svg.replace(/`/g, "'") : "",
+                      __html: option.svg
+                        ? option.svg.replace(/`/g, "'")
+                        : classN === "toggleType"
+                        ? option.value
+                        : "",
                     }}
                   />
                 </div>
@@ -152,6 +159,20 @@ const FormInput: React.FC<FormInputProps> = ({
           {classN === "toggleType" ? <div className="select"></div> : ""}
           {id == "Theme" ? <div className="BallSwitch"></div> : ""}
         </div>
+      ) : type === "select" ? (
+        <select
+          value={value}
+          className="inputSelect"
+          onChange={(e) => {
+            onChange(e.target.value);
+          }}
+        >
+          {options?.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.text}
+            </option>
+          ))}
+        </select>
       ) : (
         <input
           type={type}
