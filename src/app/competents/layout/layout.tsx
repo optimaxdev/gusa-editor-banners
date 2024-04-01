@@ -71,6 +71,7 @@ const Layout: React.FC<LayoutProps> = ({
                 select={formDataHp.select}
                 linetext={formDataHp.linetext}
                 fontWeightLineOne={formDataHp.fontWeightLineOne}
+                selectTextSize={formDataHp.selectTextSize}
               />
             </div>
           )}

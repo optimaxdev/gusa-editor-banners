@@ -24,6 +24,8 @@ interface FormData {
   select: string;
   linetext: string;
   fontWeightLineOne: string;
+  selectTextSize: string;
+  mBottom: string;
 }
 
 const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
@@ -47,6 +49,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     select: "",
     linetext: "",
     fontWeightLineOne: "",
+    selectTextSize: "",
+    mBottom: "",
   });
   const handleInputChange = (fieldName: string, value: string) => {
     setFormData((prevData) => ({
@@ -405,30 +409,32 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
           </div>
         </div>
       </div>
-      <div className="ContainerOfInputs UniqueSpaceCounter">
-        <div className="innerDiv">
-          <FormInput
-            label="Number of lines text"
-            value={formData.select}
-            onChange={(value) => handleInputChange("select", value)}
-            type="select"
-            classN="event"
-            options={[
-              {
-                value: "1",
-                text: "1",
-              },
-              {
-                value: "2",
-                text: "2",
-              },
-              {
-                value: "3",
-                text: "3",
-              },
-            ]}
-          />
-          {formData.select === "1" && (
+      {(formData.templateD !== "0" && formData.device == "Desktop") ||
+      (formData.templateM !== "0" && formData.device == "Mobile") ? (
+        <div className="ContainerOfInputs UniqueSpaceCounter">
+          <div className="innerDiv">
+            <FormInput
+              label="Number of lines text"
+              value={formData.select}
+              onChange={(value) => handleInputChange("select", value)}
+              type="select"
+              classN="event"
+              options={[
+                {
+                  value: "1",
+                  text: "1",
+                },
+                {
+                  value: "2",
+                  text: "2",
+                },
+                {
+                  value: "3",
+                  text: "3",
+                },
+              ]}
+            />
+
             <div className="areaofInputPostion">
               <FormInput
                 label=""
@@ -436,6 +442,34 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                 onChange={(value) => handleInputChange("linetext", value)}
                 type="text"
                 classN="inputLineText"
+                placeholder="line 1"
+              />
+              <FormInput
+                label=""
+                value={formData.selectTextSize}
+                onChange={(value) => handleInputChange("selectTextSize", value)}
+                type="select"
+                classN="TextSizeSelect"
+                options={[
+                  {
+                    value: "h1",
+                  },
+                  {
+                    value: "h2",
+                  },
+                  {
+                    value: "h3",
+                  },
+                  {
+                    value: "h4",
+                  },
+                  {
+                    value: "h5",
+                  },
+                  {
+                    value: "h6",
+                  },
+                ]}
               />
               <FormInput
                 label=""
@@ -444,23 +478,38 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   handleInputChange("fontWeightLineOne", value)
                 }
                 type="radio"
-                id="DeviceTyped"
-                classN="toggleType"
+                id="fontWeightType"
+                classN="toggleTypefWeight"
                 options={[
                   {
-                    value: "L",
+                    value: "normal",
+                    text: "R",
                   },
                   {
-                    value: "B",
+                    value: "bold",
+                    text: "B",
                   },
                 ]}
               />
             </div>
-          )}
-          {formData.select === "2" && "div2"}
-          {formData.select === "3" && "div3"}
+            <div className="areaofInputPostion">
+              <FormInput
+                label="Margin Bottom"
+                value={formData.mBottom}
+                onChange={(value) => handleInputChange("mBottom", value)}
+                type="number"
+                classN="mBottom"
+                minValue="0"
+                maxValue="50"
+              />
+            </div>
+            {formData.select === "2" && "div2"}
+            {formData.select === "3" && "div3"}
+          </div>
         </div>
-      </div>
+      ) : (
+        ""
+      )}
     </form>
   );
 };

@@ -10,6 +10,9 @@ interface FormInputProps {
   type: string;
   options?: { value: string; svg?: string; text?: string }[];
   backgroundColor?: string;
+  minValue?: string;
+  maxValue?: string;
+  placeholder?: string;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -21,6 +24,9 @@ const FormInput: React.FC<FormInputProps> = ({
   type,
   options,
   backgroundColor,
+  maxValue,
+  minValue,
+  placeholder,
 }) => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
@@ -43,6 +49,7 @@ const FormInput: React.FC<FormInputProps> = ({
       position.classList.toggle("activeTabPos", isActive);
     });
   };
+  const [isActive, setActive] = useState(false);
   const checkBoxToActiveCounter = () => {
     const checkbox = document.querySelector(".checkactive");
     const inputDate = document.querySelector(".inputCounter");
@@ -67,8 +74,7 @@ const FormInput: React.FC<FormInputProps> = ({
         ""
       ) : (
         <label className={`labelTxt ${label ? "pr" : ""}`}>
-          {" "}
-          {label ? label + ":" : ""}{" "}
+          {label ? label + ":" : ""}
         </label>
       )}
       {type === "radio" ? (
@@ -98,7 +104,9 @@ const FormInput: React.FC<FormInputProps> = ({
                   onChange={() => {
                     onChange(option.value);
                     {
-                      classN == "toggleType" ? activeType() : "";
+                      classN == "toggleType" || classN === "toggleTypefWeight"
+                        ? activeType()
+                        : "";
                     }
                     {
                       id === "Theme" ? activeTypeTheme() : "";
@@ -112,6 +120,7 @@ const FormInput: React.FC<FormInputProps> = ({
                       activeTabHandler(option.value);
                   }}
                 />
+
                 <div
                   className={`${
                     classN == "Contentposition" || id === "backgroundPostion"
@@ -130,6 +139,8 @@ const FormInput: React.FC<FormInputProps> = ({
                         ? option.svg.replace(/`/g, "'")
                         : classN === "toggleType"
                         ? option.value
+                        : classN === "toggleTypefWeight"
+                        ? option.text || ""
                         : "",
                     }}
                   />
@@ -142,7 +153,7 @@ const FormInput: React.FC<FormInputProps> = ({
               )}
               {id === "Theme" ? (
                 <span className={`themeMode ${option.value}`}>
-                  {option.value}{" "}
+                  {option.value}
                 </span>
               ) : (
                 ""
@@ -157,19 +168,26 @@ const FormInput: React.FC<FormInputProps> = ({
             </label>
           ))}
           {classN === "toggleType" ? <div className="select"></div> : ""}
+          {classN === "toggleTypefWeight" ? <div className="select"></div> : ""}
           {id == "Theme" ? <div className="BallSwitch"></div> : ""}
         </div>
       ) : type === "select" ? (
         <select
           value={value}
-          className="inputSelect"
+          className={`${classN} ${isActive ? "focused" : ""}`}
           onChange={(e) => {
             onChange(e.target.value);
+          }}
+          onClick={() => {
+            setActive(!isActive);
+          }}
+          onBlur={() => {
+            setActive(false);
           }}
         >
           {options?.map((option) => (
             <option key={option.value} value={option.value}>
-              {option.text}
+              {classN == "TextSizeSelect" ? option.value : option.text}
             </option>
           ))}
         </select>
@@ -178,15 +196,23 @@ const FormInput: React.FC<FormInputProps> = ({
           type={type}
           value={value}
           className={`inputText ${
-            classN == "inputText" || "checkactive" ? (classN ? classN : "") : ""
+            classN === "inputText" || "checkactive" ? classN : ""
           }`}
           onChange={(e) => {
             onChange(e.target.value);
           }}
-          onClick={checkBoxToActiveCounter}
+          onClick={
+            type === "checkbox"
+              ? (checkBoxToActiveCounter as React.MouseEventHandler<HTMLInputElement>)
+              : undefined
+          }
           disabled={classN === "inputCounter" ? true : false}
+          max={type === "number" ? maxValue : ""}
+          min={type === "number" ? minValue : ""}
+          placeholder={classN === "inputLineText" ? placeholder : ""}
         />
       )}
+
       {type === "color" ? (
         <div className="areaOfColor">
           {backgroundColor ? backgroundColor : "#000000"}

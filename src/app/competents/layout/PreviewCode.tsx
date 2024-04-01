@@ -21,6 +21,7 @@ interface PreviewCodeProps {
   select: string;
   linetext: string;
   fontWeightLineOne: string;
+  selectTextSize: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
@@ -41,6 +42,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   select,
   linetext,
   fontWeightLineOne,
+  selectTextSize,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -109,11 +111,13 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
              : ""
          }
          ${
-           templateD !== "0"
+           (templateD !== "0" && deviceType == "Desktop") ||
+           (templateM !== "0" && deviceType == "Mobile")
              ? `
          "lines": [{
           "text":"${linetext ? linetext : ""}"
-          "weight":"${fontWeightLineOne ? fontWeightLineOne : ""}"
+          "weight":"${fontWeightLineOne ? fontWeightLineOne : "normal"}"
+          "size": "${selectTextSize ? selectTextSize : "h1"}",
          }]
          `
              : ""
