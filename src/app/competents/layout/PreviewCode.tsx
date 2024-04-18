@@ -19,9 +19,30 @@ interface PreviewCodeProps {
   date: string;
   checkactive: string;
   select: string;
+  selectCta: string;
   linetext: string;
   fontWeightLineOne: string;
   selectTextSize: string;
+  mBottom: string;
+  textColor: string;
+  linetexttwo: string;
+  fontWeightLinetwo: string;
+  selectTextSizetwo: string;
+  mBottomtwo: string;
+  textColortwo: string;
+  linetextthree: string;
+  fontWeightLinethree: string;
+  selectTextSizethree: string;
+  mBottomthree: string;
+  textColorthree: string;
+  buttonTextOne: string;
+  buttonLinkOne: string;
+  buttonEventOne: string;
+  buttonColorOne: string;
+  buttonTextTwo: string;
+  buttonLinkTwo: string;
+  buttonEventTwo: string;
+  buttonColorTwo: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
@@ -40,9 +61,30 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   date,
   checkactive,
   select,
+  selectCta,
   linetext,
   fontWeightLineOne,
   selectTextSize,
+  mBottom,
+  textColor,
+  linetexttwo,
+  fontWeightLinetwo,
+  selectTextSizetwo,
+  mBottomtwo,
+  textColortwo,
+  linetextthree,
+  fontWeightLinethree,
+  selectTextSizethree,
+  mBottomthree,
+  textColorthree,
+  buttonTextOne,
+  buttonLinkOne,
+  buttonEventOne,
+  buttonColorOne,
+  buttonTextTwo,
+  buttonLinkTwo,
+  buttonEventTwo,
+  buttonColorTwo,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -115,15 +157,114 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
            (templateM !== "0" && deviceType == "Mobile")
              ? `
          "lines": [{
-          "text":"${linetext ? linetext : ""}"
-          "weight":"${fontWeightLineOne ? fontWeightLineOne : "normal"}"
-          "size": "${selectTextSize ? selectTextSize : "h1"}",
-         }]
+          "text":"${
+            linetext
+              ? textColor
+                ? `<span style='color:${textColor}'>` + linetext + "</span>"
+                : linetext
+              : ""
+          }",
+          "weight":"${fontWeightLineOne ? fontWeightLineOne : "normal"}",
+          "size": "${selectTextSize ? selectTextSize : "h1"}"
+          ${mBottom ? `,"marginBottom":"${mBottom}px"` : ""}
+         }
+        ${
+          select == "2"
+            ? `,{
+            "text":"${
+              linetexttwo
+                ? textColortwo
+                  ? `<span style='color:${textColortwo}'>` +
+                    linetexttwo +
+                    "</span>"
+                  : linetexttwo
+                : ""
+            }",
+            "weight":"${fontWeightLinetwo ? fontWeightLinetwo : "normal"}",
+            "size": "${selectTextSizetwo ? selectTextSizetwo : "h1"}"
+            ${mBottomtwo ? `,"marginBottom":"${mBottomtwo}px"` : ""}
+           
+        }`
+            : ""
+        }
+        ${
+          select == "3"
+            ? `
+            ,{
+              "text":"${
+                linetexttwo
+                  ? textColortwo
+                    ? `<span style='color:${textColortwo}'>` +
+                      linetexttwo +
+                      "</span>"
+                    : linetexttwo
+                  : ""
+              }",
+              "weight":"${fontWeightLinetwo ? fontWeightLinetwo : "normal"}",
+              "size": "${selectTextSizetwo ? selectTextSizetwo : "h1"}"
+              ${mBottomtwo ? `,"marginBottom":"${mBottomtwo}px"` : ""}
+             
+          }
+            
+            ,{
+            "text":"${
+              linetextthree
+                ? textColorthree
+                  ? `<span style='color:${textColorthree}'>` +
+                    linetextthree +
+                    "</span>"
+                  : linetextthree
+                : ""
+            }",
+            "weight":"${fontWeightLinethree ? fontWeightLinethree : "normal"}",
+            "size": "${selectTextSizethree ? selectTextSizethree : "h1"}"
+            ${mBottomthree ? `,"marginBottom":"${mBottomthree}px"` : ""}
+           
+        }`
+            : ""
+        }
+        ],
+        "buttons": [
+${`{
+  "text":"${buttonTextOne}",
+  "link":"${buttonLinkOne}",
+  "analytics": {
+    "action": "HP Banner Click",
+    "label": "Unknown >> slider (two buttons gender) >> Slide 1 - ${buttonEventOne} >> ${buttonTextOne}"
+}
+${
+  buttonColorOne
+    ? `,"color":"${buttonColorOne.toLocaleLowerCase()}"`
+    : `,"color":"light"`
+}
+  }
+  ${
+    selectCta == "2"
+      ? `,{
+    "text":"${buttonTextTwo}",
+    "link":"${buttonLinkTwo}",
+    "analytics": {
+      "action": "HP Banner Click",
+      "label": "Unknown >> slider (two buttons gender) >> Slide 1 - ${buttonEventTwo} >> ${buttonTextTwo}"
+  }
+  ${
+    buttonColorTwo
+      ? `,"color":"${buttonColorTwo.toLocaleLowerCase()}"`
+      : `,"color":"light"`
+  }
+}
+  `
+      : ""
+  }
+  
+  `}
+
+        ]
          `
              : ""
          }
       }
-      
+
     ],
     "analytics": {
       "action": "${actionEvent}",

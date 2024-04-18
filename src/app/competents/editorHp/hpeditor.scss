@@ -38,12 +38,35 @@ input[type="number"] {
     padding-left: 10px;
 
     &::-webkit-inner-spin-button {
-        opacity: 1;
+        -webkit-appearance: none;
     }
 
     &::-webkit-outer-spin-button {
-        opacity: 1;
+        -webkit-appearance: none;
     }
+}
+
+.arrowsCounterArea {
+    position: absolute;
+    top: -1px;
+    right: 9px;
+    height: 15px;
+}
+
+.arrow-btn {
+    height: 5px;
+    cursor: pointer;
+}
+
+.minus {
+    margin-top: 6px;
+}
+
+.pxValue {
+    position: absolute;
+    right: 23px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 input[type="radio"] {
@@ -583,3 +606,62 @@ input[type="date"] {
     }
 }
 
+
+
+// line Text
+#my-input-container {
+    display: inline-block;
+    position: relative;
+}
+
+.pxValue {
+    position: absolute;
+    top: 6px;
+    padding-left: 5px;
+    font-size: 16px;
+    letter-spacing: 0.229px;
+}
+
+.spaceLeft {
+    .form-input:last-child {
+        margin-left: 10px;
+    }
+}
+
+.titleSection {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 20px 0 0px 20px;
+}
+
+.mtopSection {
+    padding-top: 17.5px;
+}
+
+// Cta style
+.inputCtaText {
+    width: 324px !important;
+}
+
+.areaofInputCta {
+    .form-input {
+        padding-top: 12px;
+    }
+}
+
+.titleofBtn {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-top: 17.5px;
+}
+
+// strip Bottom
+
+.ptop{
+    padding-top: 0;
+}

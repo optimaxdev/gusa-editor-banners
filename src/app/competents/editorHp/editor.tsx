@@ -22,10 +22,34 @@ interface FormData {
   date: string;
   checkactive: string;
   select: string;
+  selectCta: string;
   linetext: string;
   fontWeightLineOne: string;
   selectTextSize: string;
   mBottom: string;
+  textColor: string;
+  linetexttwo: string;
+  fontWeightLinetwo: string;
+  selectTextSizetwo: string;
+  mBottomtwo: string;
+  textColortwo: string;
+  linetextthree: string;
+  fontWeightLinethree: string;
+  selectTextSizethree: string;
+  mBottomthree: string;
+  textColorthree: string;
+  buttonTextOne: string;
+  buttonLinkOne: string;
+  buttonEventOne: string;
+  buttonColorOne: string;
+  buttonTextTwo: string;
+  buttonLinkTwo: string;
+  buttonEventTwo: string;
+  buttonColorTwo: string;
+  stripText: string;
+  stripLink: string;
+  stripbgColor: string;
+  striptxtColor: string;
 }
 
 const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
@@ -47,27 +71,52 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     date: "",
     checkactive: "false",
     select: "",
+    selectCta: "",
     linetext: "",
     fontWeightLineOne: "",
     selectTextSize: "",
     mBottom: "",
+    textColor: "",
+    linetexttwo: "",
+    fontWeightLinetwo: "",
+    selectTextSizetwo: "",
+    mBottomtwo: "",
+    textColortwo: "",
+    linetextthree: "",
+    fontWeightLinethree: "",
+    selectTextSizethree: "",
+    mBottomthree: "",
+    textColorthree: "",
+    buttonTextOne: "",
+    buttonLinkOne: "",
+    buttonEventOne: "",
+    buttonColorOne: "",
+    buttonTextTwo: "",
+    buttonLinkTwo: "",
+    buttonEventTwo: "",
+    buttonColorTwo: "",
+    stripText: "",
+    stripLink: "",
+    stripbgColor: "",
+    striptxtColor: "",
   });
+  useEffect(() => {
+    if (Object.keys(formData).length > 0) {
+      onFormSubmit(formData);
+    }
+  }, [formData, onFormSubmit]);
+
   const handleInputChange = (fieldName: string, value: string) => {
     setFormData((prevData) => ({
       ...prevData,
       [fieldName]: value,
     }));
-    onFormSubmit(formData);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onFormSubmit(formData);
   };
-
-  useEffect(() => {
-    onFormSubmit(formData);
-  }, [formData, onFormSubmit]);
 
   return (
     <form className="hpEditor" onSubmit={handleSubmit}>
@@ -411,105 +460,522 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
       </div>
       {(formData.templateD !== "0" && formData.device == "Desktop") ||
       (formData.templateM !== "0" && formData.device == "Mobile") ? (
-        <div className="ContainerOfInputs UniqueSpaceCounter">
-          <div className="innerDiv">
-            <FormInput
-              label="Number of lines text"
-              value={formData.select}
-              onChange={(value) => handleInputChange("select", value)}
-              type="select"
-              classN="event"
-              options={[
-                {
-                  value: "1",
-                  text: "1",
-                },
-                {
-                  value: "2",
-                  text: "2",
-                },
-                {
-                  value: "3",
-                  text: "3",
-                },
-              ]}
-            />
-
-            <div className="areaofInputPostion">
+        <>
+          <div className="ContainerOfInputs UniqueSpaceCounter">
+            <div className="innerDiv">
               <FormInput
-                label=""
-                value={formData.linetext}
-                onChange={(value) => handleInputChange("linetext", value)}
-                type="text"
-                classN="inputLineText"
-                placeholder="line 1"
-              />
-              <FormInput
-                label=""
-                value={formData.selectTextSize}
-                onChange={(value) => handleInputChange("selectTextSize", value)}
+                label="Number of lines text"
+                value={formData.select}
+                onChange={(value) => handleInputChange("select", value)}
                 type="select"
-                classN="TextSizeSelect"
+                classN="event"
                 options={[
                   {
-                    value: "h1",
+                    value: "1",
+                    text: "1",
                   },
                   {
-                    value: "h2",
+                    value: "2",
+                    text: "2",
                   },
                   {
-                    value: "h3",
-                  },
-                  {
-                    value: "h4",
-                  },
-                  {
-                    value: "h5",
-                  },
-                  {
-                    value: "h6",
+                    value: "3",
+                    text: "3",
                   },
                 ]}
               />
-              <FormInput
-                label=""
-                value={formData.fontWeightLineOne}
-                onChange={(value) =>
-                  handleInputChange("fontWeightLineOne", value)
-                }
-                type="radio"
-                id="fontWeightType"
-                classN="toggleTypefWeight"
-                options={[
-                  {
-                    value: "normal",
-                    text: "R",
-                  },
-                  {
-                    value: "bold",
-                    text: "B",
-                  },
-                ]}
-              />
+
+              <div className="areaofInputPostion">
+                <FormInput
+                  label=""
+                  value={formData.linetext}
+                  onChange={(value) => handleInputChange("linetext", value)}
+                  type="text"
+                  classN="inputLineText"
+                  placeholder="line 1"
+                />
+                <FormInput
+                  label=""
+                  value={formData.selectTextSize}
+                  onChange={(value) =>
+                    handleInputChange("selectTextSize", value)
+                  }
+                  type="select"
+                  classN="TextSizeSelect"
+                  options={[
+                    {
+                      value: "h1",
+                    },
+                    {
+                      value: "h2",
+                    },
+                    {
+                      value: "h3",
+                    },
+                    {
+                      value: "h4",
+                    },
+                    {
+                      value: "h5",
+                    },
+                    {
+                      value: "h6",
+                    },
+                  ]}
+                />
+                <FormInput
+                  label=""
+                  value={formData.fontWeightLineOne}
+                  onChange={(value) =>
+                    handleInputChange("fontWeightLineOne", value)
+                  }
+                  type="radio"
+                  id="fontWeightType"
+                  classN="toggleTypefWeight"
+                  options={[
+                    {
+                      value: "normal",
+                      text: "R",
+                    },
+                    {
+                      value: "bold",
+                      text: "B",
+                    },
+                  ]}
+                />
+              </div>
+              <div className="areaofInputPostion spaceLeft">
+                <FormInput
+                  label="Margin Bottom"
+                  value={formData.mBottom}
+                  onChange={(value) => handleInputChange("mBottom", value)}
+                  type="number"
+                  classN="mBottom"
+                />
+                <FormInput
+                  label="Text color"
+                  value={formData.textColor}
+                  onChange={(value) => handleInputChange("textColor", value)}
+                  type="color"
+                  id="backgroundColor"
+                  backgroundColor={formData.textColor}
+                />
+              </div>
+              {formData.select === "2" && (
+                <>
+                  <div className="areaofInputPostion">
+                    <FormInput
+                      label=""
+                      value={formData.linetexttwo}
+                      onChange={(value) =>
+                        handleInputChange("linetexttwo", value)
+                      }
+                      type="text"
+                      classN="inputLineText"
+                      placeholder="line 2"
+                    />
+                    <FormInput
+                      label=""
+                      value={formData.selectTextSizetwo}
+                      onChange={(value) =>
+                        handleInputChange("selectTextSizetwo", value)
+                      }
+                      type="select"
+                      classN="TextSizeSelect"
+                      options={[
+                        {
+                          value: "h1",
+                        },
+                        {
+                          value: "h2",
+                        },
+                        {
+                          value: "h3",
+                        },
+                        {
+                          value: "h4",
+                        },
+                        {
+                          value: "h5",
+                        },
+                        {
+                          value: "h6",
+                        },
+                      ]}
+                    />
+                    <FormInput
+                      label=""
+                      value={formData.fontWeightLinetwo}
+                      onChange={(value) =>
+                        handleInputChange("fontWeightLinetwo", value)
+                      }
+                      type="radio"
+                      id="fontWeightTypetwo"
+                      classN="toggleTypefWeight"
+                      options={[
+                        {
+                          value: "normal",
+                          text: "R",
+                        },
+                        {
+                          value: "bold",
+                          text: "B",
+                        },
+                      ]}
+                    />
+                  </div>
+                  <div className="areaofInputPostion spaceLeft">
+                    <FormInput
+                      label="Margin Bottom"
+                      value={formData.mBottomtwo}
+                      onChange={(value) =>
+                        handleInputChange("mBottomtwo", value)
+                      }
+                      type="number"
+                      classN="mBottom"
+                    />
+                    <FormInput
+                      label="Text color"
+                      value={formData.textColortwo}
+                      onChange={(value) =>
+                        handleInputChange("textColortwo", value)
+                      }
+                      type="color"
+                      id="backgroundColor"
+                      backgroundColor={formData.textColortwo}
+                    />
+                  </div>
+                </>
+              )}
+              {formData.select === "3" && (
+                <>
+                  <div className="areaofInputPostion">
+                    <FormInput
+                      label=""
+                      value={formData.linetexttwo}
+                      onChange={(value) =>
+                        handleInputChange("linetexttwo", value)
+                      }
+                      type="text"
+                      classN="inputLineText"
+                      placeholder="line 2"
+                    />
+                    <FormInput
+                      label=""
+                      value={formData.selectTextSizetwo}
+                      onChange={(value) =>
+                        handleInputChange("selectTextSizetwo", value)
+                      }
+                      type="select"
+                      classN="TextSizeSelect"
+                      options={[
+                        {
+                          value: "h1",
+                        },
+                        {
+                          value: "h2",
+                        },
+                        {
+                          value: "h3",
+                        },
+                        {
+                          value: "h4",
+                        },
+                        {
+                          value: "h5",
+                        },
+                        {
+                          value: "h6",
+                        },
+                      ]}
+                    />
+                    <FormInput
+                      label=""
+                      value={formData.fontWeightLinetwo}
+                      onChange={(value) =>
+                        handleInputChange("fontWeightLinetwo", value)
+                      }
+                      type="radio"
+                      id="fontWeightTypetwo"
+                      classN="toggleTypefWeight"
+                      options={[
+                        {
+                          value: "normal",
+                          text: "R",
+                        },
+                        {
+                          value: "bold",
+                          text: "B",
+                        },
+                      ]}
+                    />
+                  </div>
+                  <div className="areaofInputPostion spaceLeft">
+                    <FormInput
+                      label="Margin Bottom"
+                      value={formData.mBottomtwo}
+                      onChange={(value) =>
+                        handleInputChange("mBottomtwo", value)
+                      }
+                      type="number"
+                      classN="mBottom"
+                    />
+                    <FormInput
+                      label="Text color"
+                      value={formData.textColortwo}
+                      onChange={(value) =>
+                        handleInputChange("textColortwo", value)
+                      }
+                      type="color"
+                      id="backgroundColor"
+                      backgroundColor={formData.textColortwo}
+                    />
+                  </div>
+                  <div className="areaofInputPostion">
+                    <FormInput
+                      label=""
+                      value={formData.linetextthree}
+                      onChange={(value) =>
+                        handleInputChange("linetextthree", value)
+                      }
+                      type="text"
+                      classN="inputLineText"
+                      placeholder="line 3"
+                    />
+                    <FormInput
+                      label=""
+                      value={formData.selectTextSizethree}
+                      onChange={(value) =>
+                        handleInputChange("selectTextSizethree", value)
+                      }
+                      type="select"
+                      classN="TextSizeSelect"
+                      options={[
+                        {
+                          value: "h1",
+                        },
+                        {
+                          value: "h2",
+                        },
+                        {
+                          value: "h3",
+                        },
+                        {
+                          value: "h4",
+                        },
+                        {
+                          value: "h5",
+                        },
+                        {
+                          value: "h6",
+                        },
+                      ]}
+                    />
+                    <FormInput
+                      label=""
+                      value={formData.fontWeightLinethree}
+                      onChange={(value) =>
+                        handleInputChange("fontWeightLinethree", value)
+                      }
+                      type="radio"
+                      id="fontWeightTypethree"
+                      classN="toggleTypefWeight"
+                      options={[
+                        {
+                          value: "normal",
+                          text: "R",
+                        },
+                        {
+                          value: "bold",
+                          text: "B",
+                        },
+                      ]}
+                    />
+                  </div>
+                  <div className="areaofInputPostion spaceLeft">
+                    <FormInput
+                      label="Margin Bottom"
+                      value={formData.mBottomthree}
+                      onChange={(value) =>
+                        handleInputChange("mBottomthree", value)
+                      }
+                      type="number"
+                      classN="mBottom"
+                    />
+                    <FormInput
+                      label="Text color"
+                      value={formData.textColorthree}
+                      onChange={(value) =>
+                        handleInputChange("textColorthree", value)
+                      }
+                      type="color"
+                      id="backgroundColor"
+                      backgroundColor={formData.textColorthree}
+                    />
+                  </div>
+                </>
+              )}
             </div>
-            <div className="areaofInputPostion">
-              <FormInput
-                label="Margin Bottom"
-                value={formData.mBottom}
-                onChange={(value) => handleInputChange("mBottom", value)}
-                type="number"
-                classN="mBottom"
-                minValue="0"
-                maxValue="50"
-              />
-            </div>
-            {formData.select === "2" && "div2"}
-            {formData.select === "3" && "div3"}
           </div>
-        </div>
+          {/*Add button*/}
+          <div className="ContainerOfInputs UniqueSpaceCounter">
+            <div className="titleSection">Add button</div>
+            <div className="innerDiv mtopSection">
+              <FormInput
+                label="Number of buttons"
+                value={formData.selectCta}
+                onChange={(value) => handleInputChange("selectCta", value)}
+                type="select"
+                classN="event"
+                options={[
+                  {
+                    value: "1",
+                    text: "1",
+                  },
+                  {
+                    value: "2",
+                    text: "2",
+                  },
+                ]}
+              />
+
+              <div className="areaofInputCta">
+                <div className="titleofBtn">Button 1:</div>
+                <FormInput
+                  label="Text"
+                  value={formData.buttonTextOne}
+                  onChange={(value) =>
+                    handleInputChange("buttonTextOne", value)
+                  }
+                  type="text"
+                  classN="inputCtaText"
+                />
+                <FormInput
+                  label="Link"
+                  value={formData.buttonLinkOne}
+                  onChange={(value) =>
+                    handleInputChange("buttonLinkOne", value)
+                  }
+                  type="url"
+                  classN="inputCtaText"
+                />
+                <FormInput
+                  label="Event discount"
+                  value={formData.buttonEventOne}
+                  onChange={(value) =>
+                    handleInputChange("buttonEventOne", value)
+                  }
+                  type="text"
+                  classN="inputCtaText"
+                />
+                <FormInput
+                  label="Button color"
+                  value={formData.buttonColorOne}
+                  onChange={(value) =>
+                    handleInputChange("buttonColorOne", value)
+                  }
+                  type="radio"
+                  id="btnColor"
+                  classN="Theme"
+                  options={[
+                    {
+                      value: "Dark",
+                    },
+                    {
+                      value: "Light",
+                    },
+                  ]}
+                />
+              </div>
+              {formData.selectCta === "2" && (
+                <div className="areaofInputCta">
+                  <div className="titleofBtn">Button 2:</div>
+                  <FormInput
+                    label="Text"
+                    value={formData.buttonTextTwo}
+                    onChange={(value) =>
+                      handleInputChange("buttonTextTwo", value)
+                    }
+                    type="text"
+                    classN="inputCtaText"
+                  />
+                  <FormInput
+                    label="Link"
+                    value={formData.buttonLinkTwo}
+                    onChange={(value) =>
+                      handleInputChange("buttonLinkTwo", value)
+                    }
+                    type="url"
+                    classN="inputCtaText"
+                  />
+                  <FormInput
+                    label="Event discount"
+                    value={formData.buttonEventTwo}
+                    onChange={(value) =>
+                      handleInputChange("buttonEventTwo", value)
+                    }
+                    type="text"
+                    classN="inputCtaText"
+                  />
+                  <FormInput
+                    label="Button color"
+                    value={formData.buttonColorTwo}
+                    onChange={(value) =>
+                      handleInputChange("buttonColorTwo", value)
+                    }
+                    type="radio"
+                    id="btnColortwo"
+                    classN="Theme"
+                    options={[
+                      {
+                        value: "Dark",
+                      },
+                      {
+                        value: "Light",
+                      },
+                    ]}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+          {/*Add strip bottom*/}
+          <div className="ContainerOfInputs UniqueSpaceCounter">
+            <div className="titleSection">Add bottom strip</div>
+            <div className="innerDiv ptop">
+              <div className="areaofInputCta">
+                <FormInput
+                  label="Text"
+                  value={formData.stripText}
+                  onChange={(value) => handleInputChange("stripText", value)}
+                  type="text"
+                  classN="inputCtaText"
+                />
+                <FormInput
+                  label="Link"
+                  value={formData.stripLink}
+                  onChange={(value) => handleInputChange("stripLink", value)}
+                  type="url"
+                  classN="inputCtaText"
+                />
+                <FormInput
+                  label="Text color"
+                  value={formData.striptxtColor}
+                  onChange={(value) =>
+                    handleInputChange("striptxtColor", value)
+                  }
+                  type="color"
+                  id="backgroundColor"
+                  backgroundColor={formData.striptxtColor}
+                />
+              </div>
+            </div>
+          </div>
+        </>
       ) : (
         ""
       )}
+      {formData.striptxtColor}
     </form>
   );
 };

@@ -10,8 +10,6 @@ interface FormInputProps {
   type: string;
   options?: { value: string; svg?: string; text?: string }[];
   backgroundColor?: string;
-  minValue?: string;
-  maxValue?: string;
   placeholder?: string;
 }
 
@@ -24,8 +22,6 @@ const FormInput: React.FC<FormInputProps> = ({
   type,
   options,
   backgroundColor,
-  maxValue,
-  minValue,
   placeholder,
 }) => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
@@ -37,7 +33,7 @@ const FormInput: React.FC<FormInputProps> = ({
     }
   };
   const activeTypeTheme = () => {
-    const ThemeContainer = document.querySelector(".Theme");
+    const ThemeContainer = document.querySelector(`.Theme#${id}`);
     ThemeContainer?.classList.toggle("activeCotainer");
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,6 +64,25 @@ const FormInput: React.FC<FormInputProps> = ({
     setActiveTab(value);
     contentPosition(value);
   }, [contentPosition, value, id, activeTab]);
+  const handleDecrease = () => {
+    const currentValue = parseFloat(value);
+    const newValue = isNaN(currentValue)
+      ? 0
+      : currentValue <= 0
+      ? ""
+      : currentValue - 1;
+    onChange(newValue.toString());
+  };
+  const handleIncrease = () => {
+    const currentValue = parseFloat(value);
+    const newValue = isNaN(currentValue)
+      ? 0
+      : currentValue >= 50
+      ? "50"
+      : currentValue + 1;
+    onChange(newValue.toString());
+  };
+
   return (
     <div className="form-input">
       {classN == "layoutTemplateArea" ? (
@@ -109,7 +124,7 @@ const FormInput: React.FC<FormInputProps> = ({
                         : "";
                     }
                     {
-                      id === "Theme" ? activeTypeTheme() : "";
+                      classN === "Theme" ? activeTypeTheme() : "";
                     }
                     {
                       id == "Contentposition" || "backgroundPostion"
@@ -151,7 +166,7 @@ const FormInput: React.FC<FormInputProps> = ({
               ) : (
                 ""
               )}
-              {id === "Theme" ? (
+              {classN === "Theme" ? (
                 <span className={`themeMode ${option.value}`}>
                   {option.value}
                 </span>
@@ -169,7 +184,7 @@ const FormInput: React.FC<FormInputProps> = ({
           ))}
           {classN === "toggleType" ? <div className="select"></div> : ""}
           {classN === "toggleTypefWeight" ? <div className="select"></div> : ""}
-          {id == "Theme" ? <div className="BallSwitch"></div> : ""}
+          {classN == "Theme" ? <div className="BallSwitch"></div> : ""}
         </div>
       ) : type === "select" ? (
         <select
@@ -192,27 +207,80 @@ const FormInput: React.FC<FormInputProps> = ({
           ))}
         </select>
       ) : (
-        <input
-          type={type}
-          value={value}
-          className={`inputText ${
-            classN === "inputText" || "checkactive" ? classN : ""
-          }`}
-          onChange={(e) => {
-            onChange(e.target.value);
-          }}
-          onClick={
-            type === "checkbox"
-              ? (checkBoxToActiveCounter as React.MouseEventHandler<HTMLInputElement>)
-              : undefined
-          }
-          disabled={classN === "inputCounter" ? true : false}
-          max={type === "number" ? maxValue : ""}
-          min={type === "number" ? minValue : ""}
-          placeholder={classN === "inputLineText" ? placeholder : ""}
-        />
+        <>
+          {type === "number" ? (
+            <>
+              <div className="arrowsCounterArea">
+                <div className="arrow-btn plus" onClick={handleIncrease}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="6"
+                    viewBox="0 0 10 6"
+                    fill="none"
+                  >
+                    <path
+                      d="M9 5.5L5 0.5L1 5.5"
+                      stroke="#AAAAAA"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div className="arrow-btn minus" onClick={handleDecrease}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="6"
+                    viewBox="0 0 10 6"
+                    fill="none"
+                  >
+                    <path
+                      d="M1 0.5L5 5.5L9 0.5"
+                      stroke="#AAAAAA"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+          <input
+            type={type}
+            value={type === "number" && value === "" ? "0" : value}
+            className={`inputText ${
+              classN === "inputText" || "checkactive" ? classN : ""
+            }
+            `}
+            onChange={(e) => {
+              onChange(e.target.value);
+            }}
+            onClick={
+              type === "checkbox"
+                ? (checkBoxToActiveCounter as React.MouseEventHandler<HTMLInputElement>)
+                : undefined
+            }
+            disabled={classN === "inputCounter" ? true : false}
+            placeholder={classN === "inputLineText" ? placeholder : ""}
+            style={
+              classN === "mBottom" && parseInt(value) >= 10
+                ? { width: "70px" }
+                : {}
+            }
+          />
+        </>
       )}
-
+      {type === "number" && (
+        <span
+          className="pxValue"
+          style={parseInt(value) >= 10 ? { right: "22px" } : { right: "22px" }}
+        >
+          px
+        </span>
+      )}
       {type === "color" ? (
         <div className="areaOfColor">
           {backgroundColor ? backgroundColor : "#000000"}

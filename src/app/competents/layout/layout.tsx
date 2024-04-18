@@ -72,6 +72,27 @@ const Layout: React.FC<LayoutProps> = ({
                 linetext={formDataHp.linetext}
                 fontWeightLineOne={formDataHp.fontWeightLineOne}
                 selectTextSize={formDataHp.selectTextSize}
+                mBottom={formDataHp.mBottom}
+                textColor={formDataHp.textColor}
+                linetexttwo={formDataHp.linetexttwo}
+                fontWeightLinetwo={formDataHp.fontWeightLinetwo}
+                selectTextSizetwo={formDataHp.selectTextSizetwo}
+                mBottomtwo={formDataHp.mBottomtwo}
+                textColortwo={formDataHp.textColortwo}
+                linetextthree={formDataHp.linetextthree}
+                fontWeightLinethree={formDataHp.fontWeightLinethree}
+                selectTextSizethree={formDataHp.selectTextSizethree}
+                mBottomthree={formDataHp.mBottomthree}
+                textColorthree={formDataHp.textColorthree}
+                buttonTextOne={formDataHp.buttonTextOne}
+                buttonLinkOne={formDataHp.buttonLinkOne}
+                buttonEventOne={formDataHp.buttonEventOne}
+                buttonColorOne={formDataHp.buttonColorOne}
+                buttonTextTwo={formDataHp.buttonTextTwo}
+                buttonLinkTwo={formDataHp.buttonLinkTwo}
+                buttonEventTwo={formDataHp.buttonEventTwo}
+                buttonColorTwo={formDataHp.buttonColorTwo}
+                selectCta={formDataHp.selectCta}
               />
             </div>
           )}
