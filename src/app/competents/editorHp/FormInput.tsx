@@ -11,6 +11,8 @@ interface FormInputProps {
   options?: { value: string; svg?: string; text?: string }[];
   backgroundColor?: string;
   placeholder?: string;
+  max?: string;
+  min?: string;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -23,6 +25,8 @@ const FormInput: React.FC<FormInputProps> = ({
   options,
   backgroundColor,
   placeholder,
+  max,
+  min,
 }) => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
@@ -265,6 +269,8 @@ const FormInput: React.FC<FormInputProps> = ({
             }
             disabled={classN === "inputCounter" ? true : false}
             placeholder={classN === "inputLineText" ? placeholder : ""}
+            max={max}
+            min={min}
             style={
               classN === "mBottom" && parseInt(value) >= 10
                 ? { width: "70px" }

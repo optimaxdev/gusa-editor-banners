@@ -249,13 +249,16 @@ input[type="date"] {
 
     .form-input {
         margin-bottom: 12px;
-        display: block;
 
         &:last-child {
             margin-bottom: 0;
         }
     }
 
+    // Disclimar
+    .inputdiscText {
+        width: 239px;
+    }
 }
 
 .innerInputs {
@@ -505,17 +508,17 @@ input[type="date"] {
     align-items: center;
     padding-top: 20px;
 
-    .areaOfinput {
-        color: #2196F3;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
-
     .inputLineText {
         width: 320px;
     }
+}
+
+.areaOfinput {
+    color: #2196F3;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 //Font Weight
@@ -662,6 +665,6 @@ input[type="date"] {
 
 // strip Bottom
 
-.ptop{
+.ptop {
     padding-top: 0;
 }

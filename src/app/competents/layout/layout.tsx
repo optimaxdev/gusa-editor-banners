@@ -93,6 +93,22 @@ const Layout: React.FC<LayoutProps> = ({
                 buttonEventTwo={formDataHp.buttonEventTwo}
                 buttonColorTwo={formDataHp.buttonColorTwo}
                 selectCta={formDataHp.selectCta}
+                stripText={formDataHp.stripText}
+                stripLink={formDataHp.stripLink}
+                stripbgColor={formDataHp.stripbgColor}
+                striptxtColor={formDataHp.striptxtColor}
+                disclaimerleftTxt={formDataHp.disclaimerleftTxt}
+                disclaimerleftTxtFontWeight={
+                  formDataHp.disclaimerleftTxtFontWeight
+                }
+                disclaimerleftTxtColor={formDataHp.disclaimerleftTxtColor}
+                disclaimerleftbgColor={formDataHp.disclaimerleftbgColor}
+                disclaimerrightTxt={formDataHp.disclaimerrightTxt}
+                disclaimerrightTxtFontWeight={
+                  formDataHp.disclaimerrightTxtFontWeight
+                }
+                disclaimerrightTxtColor={formDataHp.disclaimerrightTxtColor}
+                disclaimerrightbgColor={formDataHp.disclaimerrightbgColor}
               />
             </div>
           )}

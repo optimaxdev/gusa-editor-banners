@@ -43,6 +43,18 @@ interface PreviewCodeProps {
   buttonLinkTwo: string;
   buttonEventTwo: string;
   buttonColorTwo: string;
+  stripText: string;
+  stripLink: string;
+  stripbgColor: string;
+  striptxtColor: string;
+  disclaimerleftTxt: string;
+  disclaimerleftTxtFontWeight: string;
+  disclaimerleftTxtColor: string;
+  disclaimerleftbgColor: string;
+  disclaimerrightTxt: string;
+  disclaimerrightTxtFontWeight: string;
+  disclaimerrightTxtColor: string;
+  disclaimerrightbgColor: string;
 }
 
 const PreviewCode: React.FC<PreviewCodeProps> = ({
@@ -85,6 +97,18 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   buttonLinkTwo,
   buttonEventTwo,
   buttonColorTwo,
+  stripText,
+  stripLink,
+  stripbgColor,
+  striptxtColor,
+  disclaimerleftTxt,
+  disclaimerleftTxtFontWeight,
+  disclaimerleftTxtColor,
+  disclaimerleftbgColor,
+  disclaimerrightTxt,
+  disclaimerrightTxtFontWeight,
+  disclaimerrightTxtColor,
+  disclaimerrightbgColor,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -224,6 +248,68 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
             : ""
         }
         ],
+        ${
+          disclaimerleftTxt || disclaimerrightTxt
+            ? `
+            "disclaimer": [
+              ${
+                disclaimerleftTxt
+                  ? `
+              
+              {
+                "text": "${disclaimerleftTxt}",
+                "position": "left",
+                "weight": "${
+                  disclaimerleftTxtFontWeight
+                    ? disclaimerleftTxtFontWeight
+                    : "normal"
+                }"
+                ${
+                  disclaimerleftTxtColor
+                    ? `,"color":"${disclaimerleftTxtColor.toLowerCase()}"`
+                    : ""
+                }
+                ${
+                  disclaimerleftbgColor
+                    ? `,"backgroundColor":"${disclaimerleftbgColor.toLowerCase()}"`
+                    : ""
+                }
+            }
+              `
+                  : ""
+              }
+${disclaimerleftTxt ? "," : ""}
+              ${
+                disclaimerrightTxt
+                  ? `
+              {
+                "text": "${disclaimerrightTxt}",
+                "position": "right",
+                "weight": "${
+                  disclaimerrightTxtFontWeight
+                    ? disclaimerrightTxtFontWeight
+                    : "normal"
+                }"
+                ${
+                  disclaimerrightTxtColor
+                    ? `,"color":"${disclaimerrightTxtColor.toLowerCase()}"`
+                    : ""
+                }
+                ${
+                  disclaimerrightbgColor
+                    ? `,"backgroundColor":"${disclaimerrightbgColor.toLowerCase()}"`
+                    : ""
+                }
+              }
+              `
+                  : ""
+              }
+  
+          ],
+        
+        `
+            : ""
+        }
         "buttons": [
 ${`{
   "text":"${buttonTextOne}",
@@ -245,7 +331,7 @@ ${
     "link":"${buttonLinkTwo}",
     "analytics": {
       "action": "HP Banner Click",
-      "label": "Unknown >> slider (two buttons gender) >> Slide 1 - ${buttonEventTwo} >> ${buttonTextTwo}"
+      "label": "Unknown >> slider (two buttons gender) >> Slide 1 - ${buttonEventOne} >> ${buttonTextTwo}"
   }
   ${
     buttonColorTwo
@@ -260,12 +346,38 @@ ${
   `}
 
         ]
+        ${
+          deviceType == "Desktop" && stripText
+            ? `,"bottomStrip": {
+          "text": "${stripText}",
+          "link": "${stripLink}",
+          "analytics": {
+            "action": "HP Banner Click",
+            "label": "Unknown >> slider (two buttons gender) >> Slide 1 - ${buttonEventTwo} >> ${stripText}"
+          }
+        }`
+            : ""
+        }
          `
              : ""
          }
       }
 
     ],
+    ${
+      deviceType == "Mobile" && stripText
+        ? `"bottomStrip": {
+      "text": "${stripText}",
+      "link": "${stripLink}",
+      "textColor": "${striptxtColor ? striptxtColor : "#000"}",
+      "backgroundColor": "${stripbgColor ? stripbgColor : "#fff"}",
+      "analytics": {
+        "action": "HP Banner Click",
+        "label": "Unknown >> slider (two buttons gender) >> Slide 1 - ${buttonEventTwo} >> ${stripText}"
+      }
+    },`
+        : ""
+    }
     "analytics": {
       "action": "${actionEvent}",
       "label": "${labelEvent}"

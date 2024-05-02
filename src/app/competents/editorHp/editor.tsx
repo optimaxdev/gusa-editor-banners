@@ -50,6 +50,14 @@ interface FormData {
   stripLink: string;
   stripbgColor: string;
   striptxtColor: string;
+  disclaimerleftTxt: string;
+  disclaimerleftTxtFontWeight: string;
+  disclaimerleftTxtColor: string;
+  disclaimerleftbgColor: string;
+  disclaimerrightTxt: string;
+  disclaimerrightTxtFontWeight: string;
+  disclaimerrightTxtColor: string;
+  disclaimerrightbgColor: string;
 }
 
 const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
@@ -99,6 +107,14 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     stripLink: "",
     stripbgColor: "",
     striptxtColor: "",
+    disclaimerleftTxt: "",
+    disclaimerleftTxtFontWeight: "",
+    disclaimerleftTxtColor: "",
+    disclaimerleftbgColor: "",
+    disclaimerrightTxt: "",
+    disclaimerrightTxtFontWeight: "",
+    disclaimerrightTxtColor: "",
+    disclaimerrightbgColor: "",
   });
   useEffect(() => {
     if (Object.keys(formData).length > 0) {
@@ -551,6 +567,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   onChange={(value) => handleInputChange("mBottom", value)}
                   type="number"
                   classN="mBottom"
+                  max="50"
+                  min="0"
                 />
                 <FormInput
                   label="Text color"
@@ -633,6 +651,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       }
                       type="number"
                       classN="mBottom"
+                      max="50"
+                      min="0"
                     />
                     <FormInput
                       label="Text color"
@@ -719,6 +739,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       }
                       type="number"
                       classN="mBottom"
+                      max="50"
+                      min="0"
                     />
                     <FormInput
                       label="Text color"
@@ -801,6 +823,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       }
                       type="number"
                       classN="mBottom"
+                      max="50"
                     />
                     <FormInput
                       label="Text color"
@@ -958,15 +981,175 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   type="url"
                   classN="inputCtaText"
                 />
+                {formData.device == "Mobile" && (
+                  <>
+                    <FormInput
+                      label="Text color"
+                      value={formData.striptxtColor}
+                      onChange={(value) =>
+                        handleInputChange("striptxtColor", value)
+                      }
+                      type="color"
+                      id="backgroundColor"
+                      backgroundColor={formData.striptxtColor}
+                    />
+                    <FormInput
+                      label="Background Color"
+                      value={formData.stripbgColor}
+                      onChange={(value) =>
+                        handleInputChange("stripbgColor", value)
+                      }
+                      type="color"
+                      id="backgroundColor"
+                      backgroundColor={formData.stripbgColor}
+                    />
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+          {/*Disclaimer left */}
+          <div className="ContainerOfInputs UniqueSpaceCounter">
+            <div className="titleSection">Disclaimer left</div>
+            <div className="innerDiv ptop">
+              <div className="areaofInputCta">
                 <FormInput
-                  label="Text color"
-                  value={formData.striptxtColor}
+                  label="Disclaimer text"
+                  value={formData.disclaimerleftTxt}
                   onChange={(value) =>
-                    handleInputChange("striptxtColor", value)
+                    handleInputChange("disclaimerleftTxt", value)
                   }
-                  type="color"
-                  id="backgroundColor"
-                  backgroundColor={formData.striptxtColor}
+                  type="text"
+                  classN="inputdiscText"
+                />
+                <FormInput
+                  label="Font weight"
+                  value={formData.disclaimerleftTxtFontWeight}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerleftTxtFontWeight", value)
+                  }
+                  type="radio"
+                  id="disclaimerleftTxtFontWeight"
+                  classN="toggleTypefWeight"
+                  options={[
+                    {
+                      value: "normal",
+                      text: "R",
+                    },
+                    {
+                      value: "bold",
+                      text: "B",
+                    },
+                  ]}
+                />
+                <FormInput
+                  label="Color"
+                  value={formData.disclaimerleftTxtColor}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerleftTxtColor", value)
+                  }
+                  type="radio"
+                  id="disclaimerleftTxtColor"
+                  classN="Theme"
+                  options={[
+                    {
+                      value: "Dark",
+                    },
+                    {
+                      value: "Light",
+                    },
+                  ]}
+                />
+                <FormInput
+                  label="Background Color"
+                  value={formData.disclaimerleftbgColor}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerleftbgColor", value)
+                  }
+                  type="radio"
+                  id="disclaimerleftbgColor"
+                  classN="Theme"
+                  options={[
+                    {
+                      value: "Dark",
+                    },
+                    {
+                      value: "Light",
+                    },
+                  ]}
+                />
+              </div>
+            </div>
+          </div>
+          {/*Disclaimer Right */}
+          <div className="ContainerOfInputs UniqueSpaceCounter">
+            <div className="titleSection">Disclaimer right</div>
+            <div className="innerDiv ptop">
+              <div className="areaofInputCta">
+                <FormInput
+                  label="Disclaimer text"
+                  value={formData.disclaimerrightTxt}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerrightTxt", value)
+                  }
+                  type="text"
+                  classN="inputdiscText"
+                />
+                <FormInput
+                  label="Font weight"
+                  value={formData.disclaimerrightTxtFontWeight}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerrightTxtFontWeight", value)
+                  }
+                  type="radio"
+                  id="disclaimerrightTxtFontWeight"
+                  classN="toggleTypefWeight"
+                  options={[
+                    {
+                      value: "normal",
+                      text: "R",
+                    },
+                    {
+                      value: "bold",
+                      text: "B",
+                    },
+                  ]}
+                />
+                <FormInput
+                  label="Color"
+                  value={formData.disclaimerrightTxtColor}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerrightTxtColor", value)
+                  }
+                  type="radio"
+                  id="disclaimerrightTxtColor"
+                  classN="Theme"
+                  options={[
+                    {
+                      value: "Dark",
+                    },
+                    {
+                      value: "Light",
+                    },
+                  ]}
+                />
+                <FormInput
+                  label="Background Color"
+                  value={formData.disclaimerrightbgColor}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerrightbgColor", value)
+                  }
+                  type="radio"
+                  id="disclaimerrightbgColor"
+                  classN="Theme"
+                  options={[
+                    {
+                      value: "Dark",
+                    },
+                    {
+                      value: "Light",
+                    },
+                  ]}
                 />
               </div>
             </div>
@@ -975,7 +1158,6 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
       ) : (
         ""
       )}
-      {formData.striptxtColor}
     </form>
   );
 };
