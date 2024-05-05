@@ -1,3 +1,9 @@
+@import './resoultion.scss';
+
+body {
+    overflow: hidden;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -9,6 +15,10 @@
     top: 0;
     min-height: 100%;
     position: sticky;
+
+    @include tablet-large() {
+        width: 478px;
+    }
 }
 
 .scrollBar {
@@ -18,17 +28,56 @@
     overflow-x: hidden;
     max-height: 90vh;
 
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background: #DEDEDE;
+        border-radius: 10px;
+        ;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        cursor: pointer;
+    }
+
 }
 
 .PreviewSide {
-    margin: auto;
+    margin: 50px auto;
     width: 1101.304px;
+    margin-top: 100px;
+
+    @include desktop() {
+        width: 746px;
+    }
+
+    @include desktop-medium() {
+        width: 568px;
+    }
+
+    @include tablet-large() {
+        width: 500px;
+    }
 }
 
 blockquote {
     background-color: #fff;
     margin: auto;
     position: relative;
+
+    @include tablet-large {
+        font-size: 12px;
+    }
 }
 
 .copyIcon {
@@ -53,12 +102,68 @@ blockquote {
     height: 308.87px;
     display: block;
     text-decoration: none;
+
+    @include desktop() {
+        height: 209px;
+    }
+
+    @include desktop-medium() {
+        height: 159px;
+    }
+
+    @include tablet-large() {
+        height: 180px;
+    }
 }
 
 .imagePreview {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     height: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.imagePreviewHalf {
+    width: 100%;
+    object-fit: cover;
+    height: 308.87px;
+    object-position: right;
+    display: block;
+
+    @include desktop() {
+        height: 209px;
+    }
+
+    @include desktop-medium() {
+        height: 159px;
+    }
+
+    @include tablet-large() {
+        height: 180px;
+    }
+}
+
+.content {
+    width: 100%;
+}
+
+.halfBanner {
+    width: calc(1101.304px/2);
+
+    @include desktop() {
+        width: calc(746px/2);
+    }
+
+    @include desktop-medium() {
+        width: calc(568px/2);
+    }
+
+    @include tablet-large() {
+        width: calc(500px/2);
+    }
 }
 
 video {

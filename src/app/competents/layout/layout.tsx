@@ -2,7 +2,6 @@
 "use client";
 import React from "react";
 import Navbar from "../navbar/navbar";
-import "./layout.scss";
 import PreviewBanner from "./PreviewBanner";
 import PreviewCode from "./PreviewCode";
 interface LayoutProps {
@@ -50,8 +49,11 @@ const Layout: React.FC<LayoutProps> = ({
                 formatType={formDataHp.format}
                 deviceType={formDataHp.device}
                 backgroundColor={formDataHp.backgroundColor}
+                backgroundPostion={formDataHp.backgroundPostion}
                 themeMode={formDataHp.Theme}
                 link={formDataHp.link}
+                linetext={formDataHp.linetext}
+                selectTextSize={formDataHp.selectTextSize}
               />
               <PreviewCode
                 ImageLink={formDataHp.imageLink}

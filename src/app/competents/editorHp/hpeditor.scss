@@ -1,3 +1,5 @@
+@import '../layout/resoultion.scss';
+
 .hpEditor {
     padding: 26px 0 0 32px;
 }
@@ -236,6 +238,14 @@ input[type="date"] {
     margin-top: 40px;
     padding-bottom: 20px;
 
+    &:last-child {
+        margin-bottom: 124px;
+    }
+
+    @include tablet-large {
+        width: 414px;
+    }
+
     .title {
         background: #F1F3F4;
         height: 45px;
@@ -274,6 +284,11 @@ input[type="date"] {
     width: 494px;
     margin: auto;
     padding-top: 20px;
+
+    @include tablet-large {
+        width: 374px;
+
+    }
 }
 
 .areaOfColor {
@@ -299,6 +314,11 @@ input[type="date"] {
     align-items: center;
     text-align: center;
     gap: 30px 0px;
+
+    @include tablet-large {
+        width: 310px;
+        gap: 34px 0px;
+    }
 
     div[class*=areaTypeTemp-] {
         width: 138.095px;
@@ -347,6 +367,10 @@ input[type="date"] {
 #templateM {
     align-items: start;
     gap: 0px;
+
+    @include tablet-large {
+        gap: 34px 0;
+    }
 
     div[class*=areaTypeTemp-] {
         width: 140px;

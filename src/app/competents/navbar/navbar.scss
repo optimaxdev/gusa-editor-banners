@@ -1,3 +1,5 @@
+@import '../layout/resoultion.scss';
+
 .nav {
     height: 80px;
     display: flex;
@@ -18,23 +20,28 @@
         font-weight: 700;
         text-align: center;
         color: #000;
+
+        @include tablet-large {
+            width: 239px;
+        }
     }
 }
 
-.navbar-container{
+.navbar-container {
     position: relative;
 }
-.areaIndicator{
+
+.areaIndicator {
     height: 8px;
     background-color: #DEDEDE;
 }
 
-.indicator{
+.indicator {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 8px; 
-    width: 50%; 
-    background-color: #2196F3; 
-    transition: left 0.3s ease; 
+    height: 8px;
+    width: 50%;
+    background-color: #2196F3;
+    transition: left 0.3s ease;
 }
