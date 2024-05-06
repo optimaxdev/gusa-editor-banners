@@ -24,10 +24,11 @@ const Layout: React.FC<LayoutProps> = ({
           </header>
           <div className="scrollBar">{children}</div>
         </div>
-        <div className="PreviewSide">
-          {currentPage === "CTP" && (
-            <div>
-              {/* <p>
+        <div className="scollPreviewside">
+          <div className="PreviewSide">
+            {currentPage === "CTP" && (
+              <div>
+                {/* <p>
                 Input value from Input 1 (CTP): {formDataCtp.device}{" "}
                 <Image
                   src={formDataCtp.device || "default-image-source"}
@@ -37,83 +38,98 @@ const Layout: React.FC<LayoutProps> = ({
                 />
               </p>
               <p>Input value from Input 2 (CTP): {formDataCtp.input2}</p> */}
-            </div>
-          )}
-          {currentPage === "HP" && (
-            <div>
-              <PreviewBanner
-                ImageLink={formDataHp.imageLink}
-                VideoLink={formDataHp.videoLink}
-                templateD={formDataHp.templateD}
-                templateM={formDataHp.templateM}
-                formatType={formDataHp.format}
-                deviceType={formDataHp.device}
-                backgroundColor={formDataHp.backgroundColor}
-                backgroundPostion={formDataHp.backgroundPostion}
-                themeMode={formDataHp.Theme}
-                link={formDataHp.link}
-                linetext={formDataHp.linetext}
-                selectTextSize={formDataHp.selectTextSize}
-              />
-              <PreviewCode
-                ImageLink={formDataHp.imageLink}
-                VideoLink={formDataHp.videoLink}
-                templateD={formDataHp.templateD}
-                templateM={formDataHp.templateM}
-                formatType={formDataHp.format}
-                deviceType={formDataHp.device}
-                backgroundColor={formDataHp.backgroundColor}
-                themeMode={formDataHp.Theme}
-                contentPostion={formDataHp.contentPostion}
-                link={formDataHp.link}
-                event={formDataHp.event}
-                backgroundPostion={formDataHp.backgroundPostion}
-                date={formDataHp.date}
-                checkactive={formDataHp.checkactive}
-                select={formDataHp.select}
-                linetext={formDataHp.linetext}
-                fontWeightLineOne={formDataHp.fontWeightLineOne}
-                selectTextSize={formDataHp.selectTextSize}
-                mBottom={formDataHp.mBottom}
-                textColor={formDataHp.textColor}
-                linetexttwo={formDataHp.linetexttwo}
-                fontWeightLinetwo={formDataHp.fontWeightLinetwo}
-                selectTextSizetwo={formDataHp.selectTextSizetwo}
-                mBottomtwo={formDataHp.mBottomtwo}
-                textColortwo={formDataHp.textColortwo}
-                linetextthree={formDataHp.linetextthree}
-                fontWeightLinethree={formDataHp.fontWeightLinethree}
-                selectTextSizethree={formDataHp.selectTextSizethree}
-                mBottomthree={formDataHp.mBottomthree}
-                textColorthree={formDataHp.textColorthree}
-                buttonTextOne={formDataHp.buttonTextOne}
-                buttonLinkOne={formDataHp.buttonLinkOne}
-                buttonEventOne={formDataHp.buttonEventOne}
-                buttonColorOne={formDataHp.buttonColorOne}
-                buttonTextTwo={formDataHp.buttonTextTwo}
-                buttonLinkTwo={formDataHp.buttonLinkTwo}
-                buttonEventTwo={formDataHp.buttonEventTwo}
-                buttonColorTwo={formDataHp.buttonColorTwo}
-                selectCta={formDataHp.selectCta}
-                stripText={formDataHp.stripText}
-                stripLink={formDataHp.stripLink}
-                stripbgColor={formDataHp.stripbgColor}
-                striptxtColor={formDataHp.striptxtColor}
-                disclaimerleftTxt={formDataHp.disclaimerleftTxt}
-                disclaimerleftTxtFontWeight={
-                  formDataHp.disclaimerleftTxtFontWeight
-                }
-                disclaimerleftTxtColor={formDataHp.disclaimerleftTxtColor}
-                disclaimerleftbgColor={formDataHp.disclaimerleftbgColor}
-                disclaimerrightTxt={formDataHp.disclaimerrightTxt}
-                disclaimerrightTxtFontWeight={
-                  formDataHp.disclaimerrightTxtFontWeight
-                }
-                disclaimerrightTxtColor={formDataHp.disclaimerrightTxtColor}
-                disclaimerrightbgColor={formDataHp.disclaimerrightbgColor}
-              />
-            </div>
-          )}
+              </div>
+            )}
+            {currentPage === "HP" && (
+              <div>
+                <PreviewBanner
+                  ImageLink={formDataHp.imageLink}
+                  VideoLink={formDataHp.videoLink}
+                  templateD={formDataHp.templateD}
+                  templateM={formDataHp.templateM}
+                  formatType={formDataHp.format}
+                  deviceType={formDataHp.device}
+                  backgroundColor={formDataHp.backgroundColor}
+                  backgroundPostion={formDataHp.backgroundPostion}
+                  themeMode={formDataHp.Theme}
+                  contentPostion={formDataHp.contentPostion}
+                  link={formDataHp.link}
+                  linetext={formDataHp.linetext}
+                  selectTextSize={formDataHp.selectTextSize}
+                  fontWeightLineOne={formDataHp.fontWeightLineOne}
+                  mBottom={formDataHp.mBottom}
+                  textColor={formDataHp.textColor}
+                  linetexttwo={formDataHp.linetexttwo}
+                  fontWeightLinetwo={formDataHp.fontWeightLinetwo}
+                  selectTextSizetwo={formDataHp.selectTextSizetwo}
+                  mBottomtwo={formDataHp.mBottomtwo}
+                  textColortwo={formDataHp.textColortwo}
+                  linetextthree={formDataHp.linetextthree}
+                  fontWeightLinethree={formDataHp.fontWeightLinethree}
+                  selectTextSizethree={formDataHp.selectTextSizethree}
+                  mBottomthree={formDataHp.mBottomthree}
+                  textColorthree={formDataHp.textColorthree}
+                />
+                <PreviewCode
+                  ImageLink={formDataHp.imageLink}
+                  VideoLink={formDataHp.videoLink}
+                  templateD={formDataHp.templateD}
+                  templateM={formDataHp.templateM}
+                  formatType={formDataHp.format}
+                  deviceType={formDataHp.device}
+                  backgroundColor={formDataHp.backgroundColor}
+                  themeMode={formDataHp.Theme}
+                  contentPostion={formDataHp.contentPostion}
+                  link={formDataHp.link}
+                  event={formDataHp.event}
+                  backgroundPostion={formDataHp.backgroundPostion}
+                  date={formDataHp.date}
+                  checkactive={formDataHp.checkactive}
+                  select={formDataHp.select}
+                  linetext={formDataHp.linetext}
+                  fontWeightLineOne={formDataHp.fontWeightLineOne}
+                  selectTextSize={formDataHp.selectTextSize}
+                  mBottom={formDataHp.mBottom}
+                  textColor={formDataHp.textColor}
+                  linetexttwo={formDataHp.linetexttwo}
+                  fontWeightLinetwo={formDataHp.fontWeightLinetwo}
+                  selectTextSizetwo={formDataHp.selectTextSizetwo}
+                  mBottomtwo={formDataHp.mBottomtwo}
+                  textColortwo={formDataHp.textColortwo}
+                  linetextthree={formDataHp.linetextthree}
+                  fontWeightLinethree={formDataHp.fontWeightLinethree}
+                  selectTextSizethree={formDataHp.selectTextSizethree}
+                  mBottomthree={formDataHp.mBottomthree}
+                  textColorthree={formDataHp.textColorthree}
+                  buttonTextOne={formDataHp.buttonTextOne}
+                  buttonLinkOne={formDataHp.buttonLinkOne}
+                  buttonEventOne={formDataHp.buttonEventOne}
+                  buttonColorOne={formDataHp.buttonColorOne}
+                  buttonTextTwo={formDataHp.buttonTextTwo}
+                  buttonLinkTwo={formDataHp.buttonLinkTwo}
+                  buttonEventTwo={formDataHp.buttonEventTwo}
+                  buttonColorTwo={formDataHp.buttonColorTwo}
+                  selectCta={formDataHp.selectCta}
+                  stripText={formDataHp.stripText}
+                  stripLink={formDataHp.stripLink}
+                  stripbgColor={formDataHp.stripbgColor}
+                  striptxtColor={formDataHp.striptxtColor}
+                  disclaimerleftTxt={formDataHp.disclaimerleftTxt}
+                  disclaimerleftTxtFontWeight={
+                    formDataHp.disclaimerleftTxtFontWeight
+                  }
+                  disclaimerleftTxtColor={formDataHp.disclaimerleftTxtColor}
+                  disclaimerleftbgColor={formDataHp.disclaimerleftbgColor}
+                  disclaimerrightTxt={formDataHp.disclaimerrightTxt}
+                  disclaimerrightTxtFontWeight={
+                    formDataHp.disclaimerrightTxtFontWeight
+                  }
+                  disclaimerrightTxtColor={formDataHp.disclaimerrightTxtColor}
+                  disclaimerrightbgColor={formDataHp.disclaimerrightbgColor}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </main>
     </div>

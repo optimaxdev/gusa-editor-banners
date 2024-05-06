@@ -372,10 +372,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               classN="Theme"
               options={[
                 {
-                  value: "Dark",
+                  value: "Light",
                 },
                 {
-                  value: "Light",
+                  value: "Dark",
                 },
               ]}
             />
@@ -824,6 +824,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       type="number"
                       classN="mBottom"
                       max="50"
+                      min="0"
                     />
                     <FormInput
                       label="Text color"
@@ -902,10 +903,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   classN="Theme"
                   options={[
                     {
-                      value: "Dark",
+                      value: "Light",
                     },
                     {
-                      value: "Light",
+                      value: "Dark",
                     },
                   ]}
                 />
@@ -951,10 +952,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                     classN="Theme"
                     options={[
                       {
-                        value: "Dark",
+                        value: "Light",
                       },
                       {
-                        value: "Light",
+                        value: "Dark",
                       },
                     ]}
                   />
@@ -1055,10 +1056,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       classN="Theme"
                       options={[
                         {
-                          value: "Dark",
+                          value: "Light",
                         },
                         {
-                          value: "Light",
+                          value: "Dark",
                         },
                       ]}
                     />
@@ -1073,10 +1074,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       classN="Theme"
                       options={[
                         {
-                          value: "Dark",
+                          value: "Light",
                         },
                         {
-                          value: "Light",
+                          value: "Dark",
                         },
                       ]}
                     />
