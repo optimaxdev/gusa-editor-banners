@@ -159,16 +159,22 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                   ""
                 )}
                 <div className={selectCta == "2" ? "ctaArea" : ""}>
-                  {buttonTextOne.length < 18 && buttonTextOne ? (
-                    <a
-                      href={buttonLinkOne}
-                      target="_blank"
-                      className={`button ${
-                        buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
-                      } `}
-                    >
-                      {buttonTextOne}
-                    </a>
+                  {buttonTextOne ? (
+                    buttonTextOne.length < 18 ? (
+                      <a
+                        href={buttonLinkOne}
+                        target="_blank"
+                        className={`button ${
+                          buttonColorOne == "Dark"
+                            ? "darkbutton"
+                            : "lightbutton"
+                        } `}
+                      >
+                        {buttonTextOne}
+                      </a>
+                    ) : (
+                      ""
+                    )
                   ) : (
                     ""
                   )}
@@ -286,17 +292,24 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 ) : (
                   ""
                 )}
+
                 <div className={selectCta == "2" ? "ctaArea" : ""}>
-                  {buttonTextOne.length < 18 && buttonTextOne ? (
-                    <a
-                      href={buttonLinkOne}
-                      target="_blank"
-                      className={`button ${
-                        buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
-                      } `}
-                    >
-                      {buttonTextOne}
-                    </a>
+                  {buttonTextOne ? (
+                    buttonTextOne.length < 18 ? (
+                      <a
+                        href={buttonLinkOne}
+                        target="_blank"
+                        className={`button ${
+                          buttonColorOne == "Dark"
+                            ? "darkbutton"
+                            : "lightbutton"
+                        } `}
+                      >
+                        {buttonTextOne}
+                      </a>
+                    ) : (
+                      ""
+                    )
                   ) : (
                     ""
                   )}
@@ -406,16 +419,20 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 ""
               )}
               <div className={selectCta == "2" ? "ctaArea" : ""}>
-                {buttonTextOne.length < 18 && buttonTextOne ? (
-                  <a
-                    href={buttonLinkOne}
-                    target="_blank"
-                    className={`button ${
-                      buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
-                    } `}
-                  >
-                    {buttonTextOne}
-                  </a>
+                {buttonTextOne ? (
+                  buttonTextOne.length < 18 && buttonTextOne ? (
+                    <a
+                      href={buttonLinkOne}
+                      target="_blank"
+                      className={`button ${
+                        buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
+                      } `}
+                    >
+                      {buttonTextOne}
+                    </a>
+                  ) : (
+                    ""
+                  )
                 ) : (
                   ""
                 )}
