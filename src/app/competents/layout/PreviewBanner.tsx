@@ -28,6 +28,13 @@ interface PreviewBannerProps {
   selectTextSizethree: string;
   mBottomthree: string;
   textColorthree: string;
+  selectCta: string;
+  buttonTextOne: string;
+  buttonLinkOne: string;
+  buttonColorOne: string;
+  buttonTextTwo: string;
+  buttonLinkTwo: string;
+  buttonColorTwo: string;
 }
 
 const PreviewBanner: React.FC<PreviewBannerProps> = ({
@@ -57,6 +64,13 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
   selectTextSizethree,
   mBottomthree,
   textColorthree,
+  selectCta,
+  buttonTextOne,
+  buttonLinkOne,
+  buttonColorOne,
+  buttonTextTwo,
+  buttonLinkTwo,
+  buttonColorTwo,
 }) => {
   return (
     <a
@@ -76,9 +90,68 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
       }
     >
       {deviceType == "Desktop" ? (
-        templateD == "4" ? (
+        templateD == "5" ? (
           <div className="flex">
-            <div className="halfBanner">ss</div>
+            <div
+              className={`halfBanner ${
+                themeMode == "Dark" ? "darkTxt" : "lightText"
+              } ${
+                contentPostion == "right"
+                  ? "textright"
+                  : contentPostion == "center"
+                  ? "textcenter"
+                  : ""
+              }`}
+            >
+              <div className="textside">
+                <div
+                  className={selectTextSize ? selectTextSize : "h1"}
+                  style={{
+                    color: textColor,
+                    marginBottom: mBottom ? mBottom + "px" : "0",
+                    fontWeight: fontWeightLineOne,
+                  }}
+                >
+                  {linetext}
+                </div>
+                <div
+                  className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                  style={{
+                    color: textColortwo,
+                    marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                    fontWeight: fontWeightLinetwo,
+                  }}
+                >
+                  {linetexttwo}
+                </div>
+                <div
+                  className={selectTextSizethree ? selectTextSizethree : "h1"}
+                  style={{
+                    color: textColorthree,
+                    marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                    fontWeight: fontWeightLinethree,
+                  }}
+                >
+                  {linetextthree}
+                </div>
+                {buttonTextOne.length < 18 && buttonTextOne ? (
+                  <a
+                    href={buttonLinkOne}
+                    target="_blank"
+                    className={`button ${
+                      buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
+                    }  
+                      `}
+                  >
+                    {buttonTextOne}
+                  </a>
+                ) : (
+                  ""
+                )}
+
+                {selectCta == "2" ? "" : ""}
+              </div>
+            </div>
             <div className="halfBanner">
               {ImageLink ? (
                 <Image
@@ -94,7 +167,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
               )}
             </div>
           </div>
-        ) : templateD == "5" ? (
+        ) : templateD == "4" ? (
           <div className="flex">
             <div className="halfBanner">
               {ImageLink ? (
@@ -110,16 +183,48 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 ""
               )}
             </div>
-            <div className="halfBanner">
-              <div
-                className={selectTextSize}
-                style={{
-                  color: themeMode == "Light" ? "#000" : textColor,
-                  marginBottom: mBottom,
-                  fontWeight: fontWeightLineOne,
-                }}
-              >
-                {linetext}
+            <div
+              className={`halfBanner ${
+                themeMode == "Dark" ? "darkTxt" : "lightText"
+              } ${
+                contentPostion == "right"
+                  ? "textright"
+                  : contentPostion == "center"
+                  ? "textcenter"
+                  : ""
+              }`}
+            >
+              <div className="textside">
+                <div
+                  className={selectTextSize ? selectTextSize : "h1"}
+                  style={{
+                    color: textColor,
+                    marginBottom: mBottom ? mBottom + "px" : "0",
+                    fontWeight: fontWeightLineOne,
+                  }}
+                >
+                  {linetext}
+                </div>
+                <div
+                  className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                  style={{
+                    color: textColortwo,
+                    marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                    fontWeight: fontWeightLinetwo,
+                  }}
+                >
+                  {linetexttwo}
+                </div>
+                <div
+                  className={selectTextSizethree ? selectTextSizethree : "h1"}
+                  style={{
+                    color: textColorthree,
+                    marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                    fontWeight: fontWeightLinethree,
+                  }}
+                >
+                  {linetextthree}
+                </div>
               </div>
             </div>
           </div>
@@ -136,6 +241,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 width={1024}
                 height={800}
                 className="imagePreview"
+                style={{ objectPosition: backgroundPostion }}
               />
             ) : (
               ""
@@ -243,15 +349,67 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 </div>
               </div>
             </>
+          ) : templateM ? (
+            <div
+              className={`fullImage ${
+                themeMode == "Dark" ? "darkTxt" : "lightText"
+              }`}
+            >
+              {ImageLink ? (
+                <Image
+                  src={ImageLink}
+                  alt={"image"}
+                  width={375}
+                  height={360}
+                  className="imagePreviewFullimage"
+                  style={{ objectPosition: backgroundPostion }}
+                />
+              ) : (
+                ""
+              )}
+              <div
+                className={`contentPostion ${
+                  templateM == "2"
+                    ? "topTxtPostion"
+                    : templateM == "1"
+                    ? "bottomTxtPostion"
+                    : ""
+                } ${templateM == "0" ? "hide" : ""}`}
+              >
+                <div
+                  className={selectTextSize ? selectTextSize : "h1"}
+                  style={{
+                    color: textColor,
+                    marginBottom: mBottom ? mBottom + "px" : "0",
+                    fontWeight: fontWeightLineOne,
+                  }}
+                >
+                  {linetext}
+                </div>
+                <div
+                  className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                  style={{
+                    color: textColortwo,
+                    marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                    fontWeight: fontWeightLinetwo,
+                  }}
+                >
+                  {linetexttwo}
+                </div>
+                <div
+                  className={selectTextSizethree ? selectTextSizethree : "h1"}
+                  style={{
+                    color: textColorthree,
+                    marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                    fontWeight: fontWeightLinethree,
+                  }}
+                >
+                  {linetextthree}
+                </div>
+              </div>
+            </div>
           ) : (
-            <Image
-              src={ImageLink}
-              alt={"image"}
-              width={375}
-              height={360}
-              className=""
-              style={{ objectPosition: backgroundPostion }}
-            />
+            ""
           )}
         </div>
       )}

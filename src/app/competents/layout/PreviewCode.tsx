@@ -161,7 +161,11 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
         }",
         "backgroundColor":"${backgroundColor ? backgroundColor : "#000000"}",
         "theme":"${themeMode ? themeMode.toLowerCase() : "light"}",
-        "contentPosition":"${contentPostion ? contentPostion : "left"}",
+       ${
+         deviceType == "Desktop"
+           ? `"contentPosition":"${contentPostion ? contentPostion : "left"}",`
+           : ""
+       }
          ${
            (deviceType == "Desktop" && templateD === "0") ||
            (deviceType == "Mobile" && templateM === "0")

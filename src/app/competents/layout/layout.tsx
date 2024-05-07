@@ -69,6 +69,13 @@ const Layout: React.FC<LayoutProps> = ({
                   selectTextSizethree={formDataHp.selectTextSizethree}
                   mBottomthree={formDataHp.mBottomthree}
                   textColorthree={formDataHp.textColorthree}
+                  selectCta={formDataHp.selectCta}
+                  buttonTextOne={formDataHp.buttonTextOne}
+                  buttonLinkOne={formDataHp.buttonLinkOne}
+                  buttonColorOne={formDataHp.buttonColorOne}
+                  buttonTextTwo={formDataHp.buttonTextTwo}
+                  buttonLinkTwo={formDataHp.buttonLinkTwo}
+                  buttonColorTwo={formDataHp.buttonColorTwo}
                 />
                 <PreviewCode
                   ImageLink={formDataHp.imageLink}

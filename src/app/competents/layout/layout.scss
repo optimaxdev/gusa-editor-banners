@@ -168,35 +168,27 @@ blockquote {
     width: 100%;
     object-fit: cover;
     height: 308.87px;
-    object-position: right;
     display: block;
+}
+
+.halfBanner {
+    position: relative;
+    width: calc(1101.304px/2);
+    height: 308.87px;
 
     @include desktop() {
+        width: calc(746px/2);
         height: 209px;
     }
 
     @include desktop-medium() {
+        width: calc(568px/2);
         height: 159px;
     }
 
     @include tablet-large() {
-        height: 180px;
-    }
-}
-
-.halfBanner {
-    width: calc(1101.304px/2);
-
-    @include desktop() {
-        width: calc(746px/2);
-    }
-
-    @include desktop-medium() {
-        width: calc(568px/2);
-    }
-
-    @include tablet-large() {
         width: calc(500px/2);
+        height: 180px;
     }
 }
 

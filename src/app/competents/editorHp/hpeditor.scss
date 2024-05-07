@@ -1,7 +1,14 @@
 @import '../layout/resoultion.scss';
 
 .hpEditor {
-    padding: 26px 0 0 32px;
+    padding: 26px 0;
+    width: 534px;
+    margin: auto;
+
+    @include tablet-large {
+        padding: 26px 0;
+        width: 454px;
+    }
 }
 
 .form-input {
@@ -21,6 +28,10 @@ input[type="url"] {
     padding-block: 0;
     outline: 0;
     padding-left: 16px;
+
+    @include tablet-large {
+        width: 266px;
+    }
 }
 
 input[type="number"] {
@@ -181,6 +192,10 @@ input[type="date"] {
     font-weight: 400;
     line-height: normal;
     color: #000;
+
+    @include tablet-large {
+        font-size: 16px;
+    }
 }
 
 .pr {
@@ -231,7 +246,6 @@ input[type="date"] {
 }
 
 .ContainerOfInputs {
-    width: 534px;
     border-radius: 12px;
     border: 1px solid #DBE1E5;
     overflow: hidden;
@@ -240,10 +254,6 @@ input[type="date"] {
 
     &:last-child {
         margin-bottom: 124px;
-    }
-
-    @include tablet-large {
-        width: 414px;
     }
 
     .title {
@@ -286,7 +296,7 @@ input[type="date"] {
     padding-top: 20px;
 
     @include tablet-large {
-        width: 374px;
+        width: 424px;
 
     }
 }
@@ -379,6 +389,12 @@ input[type="date"] {
 
     .areaTypeTemp-3 {
         background: linear-gradient(to bottom, #F6F6F6 44%, #DBE1E5 44%);
+    }
+
+    .areaTypeTemp-1 {
+        svg {
+            margin-top: 60px;
+        }
     }
 
     .activeTemplate {
@@ -534,6 +550,10 @@ input[type="date"] {
 
     .inputLineText {
         width: 320px;
+
+        @include tablet-large {
+            width: 240px;
+        }
     }
 }
 
@@ -661,7 +681,13 @@ input[type="date"] {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    padding: 20px 0 0px 20px;
+    padding-top: 20px;
+    width: 494px;
+    margin: auto;
+
+    @include tablet-large {
+        width: 424px;
+    }
 }
 
 .mtopSection {
@@ -671,6 +697,10 @@ input[type="date"] {
 // Cta style
 .inputCtaText {
     width: 324px !important;
+
+    @include tablet-large {
+        width: 266px !important;
+    }
 }
 
 .areaofInputCta {
