@@ -54,6 +54,7 @@ const Layout: React.FC<LayoutProps> = ({
                   themeMode={formDataHp.Theme}
                   contentPostion={formDataHp.contentPostion}
                   link={formDataHp.link}
+                  select={formDataHp.select}
                   linetext={formDataHp.linetext}
                   selectTextSize={formDataHp.selectTextSize}
                   fontWeightLineOne={formDataHp.fontWeightLineOne}

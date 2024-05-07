@@ -13,6 +13,7 @@ interface PreviewBannerProps {
   link: string;
   contentPostion: string;
   backgroundPostion: string;
+  select: string;
   linetext: string;
   selectTextSize: string;
   fontWeightLineOne: string;
@@ -49,6 +50,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
   backgroundPostion,
   link,
   contentPostion,
+  select,
   linetext,
   selectTextSize,
   fontWeightLineOne,
@@ -114,42 +116,79 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 >
                   {linetext}
                 </div>
-                <div
-                  className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                  style={{
-                    color: textColortwo,
-                    marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                    fontWeight: fontWeightLinetwo,
-                  }}
-                >
-                  {linetexttwo}
-                </div>
-                <div
-                  className={selectTextSizethree ? selectTextSizethree : "h1"}
-                  style={{
-                    color: textColorthree,
-                    marginBottom: mBottomthree ? mBottomthree + "px" : "0",
-                    fontWeight: fontWeightLinethree,
-                  }}
-                >
-                  {linetextthree}
-                </div>
-                {buttonTextOne.length < 18 && buttonTextOne ? (
-                  <a
-                    href={buttonLinkOne}
-                    target="_blank"
-                    className={`button ${
-                      buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
-                    }  
-                      `}
+                {select == "2" ? (
+                  <div
+                    className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                    style={{
+                      color: textColortwo,
+                      marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                      fontWeight: fontWeightLinetwo,
+                    }}
                   >
-                    {buttonTextOne}
-                  </a>
+                    {linetexttwo}
+                  </div>
                 ) : (
                   ""
                 )}
+                {select == "3" ? (
+                  <>
+                    <div
+                      className={
+                        selectTextSizethree ? selectTextSizethree : "h1"
+                      }
+                      style={{
+                        color: textColorthree,
+                        marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                        fontWeight: fontWeightLinethree,
+                      }}
+                    >
+                      {linetextthree}
+                    </div>
+                    <div
+                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                      style={{
+                        color: textColortwo,
+                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                        fontWeight: fontWeightLinetwo,
+                      }}
+                    >
+                      {linetexttwo}
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
+                <div className={selectCta == "2" ? "ctaArea" : ""}>
+                  {buttonTextOne.length < 18 && buttonTextOne ? (
+                    <a
+                      href={buttonLinkOne}
+                      target="_blank"
+                      className={`button ${
+                        buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
+                      } `}
+                    >
+                      {buttonTextOne}
+                    </a>
+                  ) : (
+                    ""
+                  )}
 
-                {selectCta == "2" ? "" : ""}
+                  {selectCta == "2" &&
+                  buttonTextTwo.length < 18 &&
+                  buttonTextTwo ? (
+                    <a
+                      href={buttonLinkTwo}
+                      target="_blank"
+                      className={`button ${
+                        buttonColorTwo == "Dark" ? "darkbutton" : "lightbutton"
+                      } `}
+                    >
+                      {buttonTextTwo}
+                    </a>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
             </div>
             <div className="halfBanner">
@@ -205,25 +244,78 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 >
                   {linetext}
                 </div>
-                <div
-                  className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                  style={{
-                    color: textColortwo,
-                    marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                    fontWeight: fontWeightLinetwo,
-                  }}
-                >
-                  {linetexttwo}
-                </div>
-                <div
-                  className={selectTextSizethree ? selectTextSizethree : "h1"}
-                  style={{
-                    color: textColorthree,
-                    marginBottom: mBottomthree ? mBottomthree + "px" : "0",
-                    fontWeight: fontWeightLinethree,
-                  }}
-                >
-                  {linetextthree}
+                {select == "2" ? (
+                  <div
+                    className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                    style={{
+                      color: textColortwo,
+                      marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                      fontWeight: fontWeightLinetwo,
+                    }}
+                  >
+                    {linetexttwo}
+                  </div>
+                ) : (
+                  ""
+                )}
+                {select == "3" ? (
+                  <>
+                    <div
+                      className={
+                        selectTextSizethree ? selectTextSizethree : "h1"
+                      }
+                      style={{
+                        color: textColorthree,
+                        marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                        fontWeight: fontWeightLinethree,
+                      }}
+                    >
+                      {linetextthree}
+                    </div>
+                    <div
+                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                      style={{
+                        color: textColortwo,
+                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                        fontWeight: fontWeightLinetwo,
+                      }}
+                    >
+                      {linetexttwo}
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
+                <div className={selectCta == "2" ? "ctaArea" : ""}>
+                  {buttonTextOne.length < 18 && buttonTextOne ? (
+                    <a
+                      href={buttonLinkOne}
+                      target="_blank"
+                      className={`button ${
+                        buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
+                      } `}
+                    >
+                      {buttonTextOne}
+                    </a>
+                  ) : (
+                    ""
+                  )}
+
+                  {selectCta == "2" &&
+                  buttonTextTwo.length < 18 &&
+                  buttonTextTwo ? (
+                    <a
+                      href={buttonLinkTwo}
+                      target="_blank"
+                      className={`button ${
+                        buttonColorTwo == "Dark" ? "darkbutton" : "lightbutton"
+                      } `}
+                    >
+                      {buttonTextTwo}
+                    </a>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>
@@ -273,25 +365,76 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
               >
                 {linetext}
               </div>
-              <div
-                className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                style={{
-                  color: textColortwo,
-                  marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                  fontWeight: fontWeightLinetwo,
-                }}
-              >
-                {linetexttwo}
-              </div>
-              <div
-                className={selectTextSizethree ? selectTextSizethree : "h1"}
-                style={{
-                  color: textColorthree,
-                  marginBottom: mBottomthree ? mBottomthree + "px" : "0",
-                  fontWeight: fontWeightLinethree,
-                }}
-              >
-                {linetextthree}
+              {select == "2" ? (
+                <div
+                  className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                  style={{
+                    color: textColortwo,
+                    marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                    fontWeight: fontWeightLinetwo,
+                  }}
+                >
+                  {linetexttwo}
+                </div>
+              ) : (
+                ""
+              )}
+              {select == "3" ? (
+                <>
+                  <div
+                    className={selectTextSizethree ? selectTextSizethree : "h1"}
+                    style={{
+                      color: textColorthree,
+                      marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                      fontWeight: fontWeightLinethree,
+                    }}
+                  >
+                    {linetextthree}
+                  </div>
+                  <div
+                    className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                    style={{
+                      color: textColortwo,
+                      marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                      fontWeight: fontWeightLinetwo,
+                    }}
+                  >
+                    {linetexttwo}
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
+              <div className={selectCta == "2" ? "ctaArea" : ""}>
+                {buttonTextOne.length < 18 && buttonTextOne ? (
+                  <a
+                    href={buttonLinkOne}
+                    target="_blank"
+                    className={`button ${
+                      buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
+                    } `}
+                  >
+                    {buttonTextOne}
+                  </a>
+                ) : (
+                  ""
+                )}
+
+                {selectCta == "2" &&
+                buttonTextTwo.length < 18 &&
+                buttonTextTwo ? (
+                  <a
+                    href={buttonLinkTwo}
+                    target="_blank"
+                    className={`button ${
+                      buttonColorTwo == "Dark" ? "darkbutton" : "lightbutton"
+                    } `}
+                  >
+                    {buttonTextTwo}
+                  </a>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
@@ -327,26 +470,48 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 >
                   {linetext}
                 </div>
-                <div
-                  className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                  style={{
-                    color: textColortwo,
-                    marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                    fontWeight: fontWeightLinetwo,
-                  }}
-                >
-                  {linetexttwo}
-                </div>
-                <div
-                  className={selectTextSizethree ? selectTextSizethree : "h1"}
-                  style={{
-                    color: textColorthree,
-                    marginBottom: mBottomthree ? mBottomthree + "px" : "0",
-                    fontWeight: fontWeightLinethree,
-                  }}
-                >
-                  {linetextthree}
-                </div>
+                {select == "2" ? (
+                  <div
+                    className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                    style={{
+                      color: textColortwo,
+                      marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                      fontWeight: fontWeightLinetwo,
+                    }}
+                  >
+                    {linetexttwo}
+                  </div>
+                ) : (
+                  ""
+                )}
+                {select == "3" ? (
+                  <>
+                    <div
+                      className={
+                        selectTextSizethree ? selectTextSizethree : "h1"
+                      }
+                      style={{
+                        color: textColorthree,
+                        marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                        fontWeight: fontWeightLinethree,
+                      }}
+                    >
+                      {linetextthree}
+                    </div>
+                    <div
+                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                      style={{
+                        color: textColortwo,
+                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                        fontWeight: fontWeightLinetwo,
+                      }}
+                    >
+                      {linetexttwo}
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             </>
           ) : templateM ? (
@@ -386,26 +551,48 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 >
                   {linetext}
                 </div>
-                <div
-                  className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                  style={{
-                    color: textColortwo,
-                    marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                    fontWeight: fontWeightLinetwo,
-                  }}
-                >
-                  {linetexttwo}
-                </div>
-                <div
-                  className={selectTextSizethree ? selectTextSizethree : "h1"}
-                  style={{
-                    color: textColorthree,
-                    marginBottom: mBottomthree ? mBottomthree + "px" : "0",
-                    fontWeight: fontWeightLinethree,
-                  }}
-                >
-                  {linetextthree}
-                </div>
+                {select == "2" ? (
+                  <div
+                    className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                    style={{
+                      color: textColortwo,
+                      marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                      fontWeight: fontWeightLinetwo,
+                    }}
+                  >
+                    {linetexttwo}
+                  </div>
+                ) : (
+                  ""
+                )}
+                {select == "3" ? (
+                  <>
+                    <div
+                      className={
+                        selectTextSizethree ? selectTextSizethree : "h1"
+                      }
+                      style={{
+                        color: textColorthree,
+                        marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                        fontWeight: fontWeightLinethree,
+                      }}
+                    >
+                      {linetextthree}
+                    </div>
+                    <div
+                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                      style={{
+                        color: textColortwo,
+                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                        fontWeight: fontWeightLinetwo,
+                      }}
+                    >
+                      {linetexttwo}
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           ) : (

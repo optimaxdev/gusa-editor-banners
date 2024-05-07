@@ -166,10 +166,17 @@ video {
         text-decoration: none;
         display: block;
         text-align: center;
-        zoom: 1.7;
+        zoom: 2;
         overflow: hidden;
         font-weight: 700;
         max-width: max-content;
+        margin-right: 6px;
+    }
+
+    // 
+    .ctaArea {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -192,20 +199,10 @@ video {
 
 .darkTxt {
     color: #000;
-
-    // .button {
-   //     color: #ffffff;
-   //     background-color: #000;
-   // }
 }
 
 .lightText {
     color: #fff;
-
-    // .button {
-  //     color: #0f0f0f;
-  //     background-color: #fff;
-  // }
 }
 
 .darkbutton {
