@@ -133,6 +133,16 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 {select == "3" ? (
                   <>
                     <div
+                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                      style={{
+                        color: textColortwo,
+                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                        fontWeight: fontWeightLinetwo,
+                      }}
+                    >
+                      {linetexttwo}
+                    </div>
+                    <div
                       className={
                         selectTextSizethree ? selectTextSizethree : "h1"
                       }
@@ -143,16 +153,6 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       }}
                     >
                       {linetextthree}
-                    </div>
-                    <div
-                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                      style={{
-                        color: textColortwo,
-                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                        fontWeight: fontWeightLinetwo,
-                      }}
-                    >
-                      {linetexttwo}
                     </div>
                   </>
                 ) : (
@@ -267,6 +267,16 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 {select == "3" ? (
                   <>
                     <div
+                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                      style={{
+                        color: textColortwo,
+                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                        fontWeight: fontWeightLinetwo,
+                      }}
+                    >
+                      {linetexttwo}
+                    </div>
+                    <div
                       className={
                         selectTextSizethree ? selectTextSizethree : "h1"
                       }
@@ -277,16 +287,6 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       }}
                     >
                       {linetextthree}
-                    </div>
-                    <div
-                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                      style={{
-                        color: textColortwo,
-                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                        fontWeight: fontWeightLinetwo,
-                      }}
-                    >
-                      {linetexttwo}
                     </div>
                   </>
                 ) : (
@@ -395,16 +395,6 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
               {select == "3" ? (
                 <>
                   <div
-                    className={selectTextSizethree ? selectTextSizethree : "h1"}
-                    style={{
-                      color: textColorthree,
-                      marginBottom: mBottomthree ? mBottomthree + "px" : "0",
-                      fontWeight: fontWeightLinethree,
-                    }}
-                  >
-                    {linetextthree}
-                  </div>
-                  <div
                     className={selectTextSizetwo ? selectTextSizetwo : "h1"}
                     style={{
                       color: textColortwo,
@@ -413,6 +403,16 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                     }}
                   >
                     {linetexttwo}
+                  </div>
+                  <div
+                    className={selectTextSizethree ? selectTextSizethree : "h1"}
+                    style={{
+                      color: textColorthree,
+                      marginBottom: mBottomthree ? mBottomthree + "px" : "0",
+                      fontWeight: fontWeightLinethree,
+                    }}
+                  >
+                    {linetextthree}
                   </div>
                 </>
               ) : (
@@ -504,6 +504,16 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 {select == "3" ? (
                   <>
                     <div
+                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                      style={{
+                        color: textColortwo,
+                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                        fontWeight: fontWeightLinetwo,
+                      }}
+                    >
+                      {linetexttwo}
+                    </div>
+                    <div
                       className={
                         selectTextSizethree ? selectTextSizethree : "h1"
                       }
@@ -514,16 +524,6 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       }}
                     >
                       {linetextthree}
-                    </div>
-                    <div
-                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                      style={{
-                        color: textColortwo,
-                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                        fontWeight: fontWeightLinetwo,
-                      }}
-                    >
-                      {linetexttwo}
                     </div>
                   </>
                 ) : (
@@ -585,6 +585,16 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 {select == "3" ? (
                   <>
                     <div
+                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
+                      style={{
+                        color: textColortwo,
+                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
+                        fontWeight: fontWeightLinetwo,
+                      }}
+                    >
+                      {linetexttwo}
+                    </div>
+                    <div
                       className={
                         selectTextSizethree ? selectTextSizethree : "h1"
                       }
@@ -595,16 +605,6 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       }}
                     >
                       {linetextthree}
-                    </div>
-                    <div
-                      className={selectTextSizetwo ? selectTextSizetwo : "h1"}
-                      style={{
-                        color: textColortwo,
-                        marginBottom: mBottomtwo ? mBottomtwo + "px" : "0",
-                        fontWeight: fontWeightLinetwo,
-                      }}
-                    >
-                      {linetexttwo}
                     </div>
                   </>
                 ) : (
