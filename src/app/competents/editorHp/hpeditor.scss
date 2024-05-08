@@ -213,7 +213,7 @@ input[type="date"] {
     justify-content: space-between;
     align-items: center;
 
-    .areaOfType {
+    div[class*="areaTypeTemp-"] {
         width: 45px;
         text-align: center;
         z-index: 1;
@@ -227,6 +227,10 @@ input[type="date"] {
         height: 28px;
         justify-content: center;
         align-items: center;
+
+        svg {
+            z-index: 1px;
+        }
     }
 
     .select {
@@ -577,7 +581,7 @@ input[type="date"] {
     justify-content: space-between;
     align-items: center;
 
-    .areaOfType {
+    div[class*="areaTypeTemp-"] {
         width: 45px;
         text-align: center;
         z-index: 1;

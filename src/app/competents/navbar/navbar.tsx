@@ -5,15 +5,15 @@ import Link from "next/link";
 import "./navbar.scss";
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState("");
+  // const [activeTab, setActiveTab] = useState("");
 
-  const handleLinkClick = (
-    path: string,
-    event: React.MouseEvent<HTMLAnchorElement>
-  ) => {
-    event.preventDefault();
-    setActiveTab(path);
-  };
+  // const handleLinkClick = (
+  //   path: string,
+  //   event: React.MouseEvent<HTMLAnchorElement>
+  // ) => {
+  //   event.preventDefault();
+  //   setActiveTab(path);
+  // };
 
   return (
     <div className="navbar-container">
@@ -26,10 +26,10 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="areaIndicator">
-        <div
+        {/* <div
           className="indicator"
           style={{ left: activeTab === "/hp-editor" ? "50%" : "0%" }}
-        />
+        /> */}
       </div>
     </div>
   );
