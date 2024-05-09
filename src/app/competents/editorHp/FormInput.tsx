@@ -123,7 +123,7 @@ const FormInput: React.FC<FormInputProps> = ({
                   onChange={() => {
                     onChange(option.value);
                     {
-                      classN == "toggleType" || classN === "toggleTypefWeight"
+                      classN === "toggleType" || classN === "toggleTypefWeight"
                         ? activeType()
                         : "";
                     }

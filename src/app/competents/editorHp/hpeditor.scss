@@ -216,7 +216,7 @@ input[type="date"] {
     .areaOfType {
         width: 45px;
         text-align: center;
-        z-index: 1;
+        // z-index: 1;
         cursor: pointer;
         position: relative;
     }
@@ -242,6 +242,13 @@ input[type="date"] {
 
     .activeSelected {
         left: 51px;
+    }
+
+
+}
+.activeSvg {
+    svg {
+        z-index: 1;
     }
 }
 
