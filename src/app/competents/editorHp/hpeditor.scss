@@ -216,9 +216,20 @@ input[type="date"] {
     .areaOfType {
         width: 45px;
         text-align: center;
-        // z-index: 1;
         cursor: pointer;
-        position: relative;
+
+        svg {
+            z-index: 1;
+            appearance: none;
+        }
+    }
+
+    .opacitylayer {
+        opacity: 0;
+        width: 45.33px;
+        height: 28px;
+        position: absolute;
+        z-index: 2;
     }
 
     .areaOfinput {
@@ -246,11 +257,8 @@ input[type="date"] {
 
 
 }
-.activeSvg {
-    svg {
-        z-index: 1;
-    }
-}
+
+
 
 .ContainerOfInputs {
     border-radius: 12px;

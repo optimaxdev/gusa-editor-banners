@@ -158,6 +158,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
           },
         ]}
       />
+
       <FormInput
         label="Format"
         value={formData.format}

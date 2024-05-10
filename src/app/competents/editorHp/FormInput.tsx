@@ -32,10 +32,11 @@ const FormInput: React.FC<FormInputProps> = ({
 
   const activeType = () => {
     const selectType = document.querySelector(`#${id} .select`);
-    if (selectType) {
-      selectType.classList.toggle("activeSelected");
-    }
+    const selectTypeSVG = document.querySelector(`#${id} .opacitylayer`);
+    selectType?.classList.toggle("activeSelected");
+    selectTypeSVG?.classList.toggle("activeSelected");
   };
+
   const activeTypeTheme = () => {
     const ThemeContainer = document.querySelector(`.Theme#${id}`);
     ThemeContainer?.classList.toggle("activeCotainer");
@@ -186,7 +187,14 @@ const FormInput: React.FC<FormInputProps> = ({
               )}
             </label>
           ))}
-          {classN === "toggleType" ? <div className="select"></div> : ""}
+          {classN === "toggleType" ? (
+            <>
+              <div className="select"></div>{" "}
+              <div className="opacitylayer"></div>
+            </>
+          ) : (
+            ""
+          )}
           {classN === "toggleTypefWeight" ? <div className="select"></div> : ""}
           {classN == "Theme" ? <div className="BallSwitch"></div> : ""}
         </div>
