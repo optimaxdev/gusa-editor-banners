@@ -160,15 +160,30 @@ blockquote {
     }
 }
 
+
+
 .flex {
     display: flex;
 }
 
 .imagePreviewHalf {
     width: 100%;
-    object-fit: cover;
     height: 308.87px;
     display: block;
+    object-fit: cover;
+
+    @include desktop() {
+        height: 209px;
+    }
+
+    @include desktop-medium() {
+        height: 159px;
+    }
+
+    @include tablet-large() {
+        height: 180px;
+    }
+
 }
 
 .halfBanner {

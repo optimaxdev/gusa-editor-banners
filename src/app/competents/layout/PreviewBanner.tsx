@@ -36,6 +36,14 @@ interface PreviewBannerProps {
   buttonTextTwo: string;
   buttonLinkTwo: string;
   buttonColorTwo: string;
+  disclaimerleftTxt: string;
+  disclaimerleftTxtFontWeight: string;
+  disclaimerleftTxtColor: string;
+  disclaimerleftbgColor: string;
+  disclaimerrightTxt: string;
+  disclaimerrightTxtFontWeight: string;
+  disclaimerrightTxtColor: string;
+  disclaimerrightbgColor: string;
 }
 
 const PreviewBanner: React.FC<PreviewBannerProps> = ({
@@ -43,7 +51,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
   VideoLink,
   templateD = "0",
   templateM = "0",
-  formatType,
+  formatType = "image",
   deviceType,
   backgroundColor,
   themeMode,
@@ -73,6 +81,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
   buttonTextTwo,
   buttonLinkTwo,
   buttonColorTwo,
+  disclaimerleftTxt,
+  disclaimerleftTxtFontWeight,
+  disclaimerleftTxtColor,
+  disclaimerleftbgColor,
+  disclaimerrightTxt,
+  disclaimerrightTxtFontWeight,
+  disclaimerrightTxtColor,
+  disclaimerrightbgColor,
 }) => {
   return (
     <a
@@ -196,9 +212,31 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                   )}
                 </div>
               </div>
+              <div
+                className={`leftDisclimar ${
+                  disclaimerleftTxtColor == "Dark" ? "Dark" : "Light"
+                }`}
+              >
+                {disclaimerleftTxt}
+              </div>
+              <div className="rightDisclimar">{disclaimerrightTxt}</div>
             </div>
             <div className="halfBanner">
-              {ImageLink ? (
+              {formatType === "video" ? (
+                VideoLink ? (
+                  <video
+                    poster={ImageLink}
+                    className="imagePreviewHalf"
+                    playsInline
+                    autoPlay
+                    loop
+                  >
+                    <source src={VideoLink} type="video/mp4" />
+                  </video>
+                ) : (
+                  ""
+                )
+              ) : ImageLink ? (
                 <Image
                   src={ImageLink}
                   alt={"image"}
@@ -215,7 +253,21 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
         ) : templateD == "4" ? (
           <div className="flex">
             <div className="halfBanner">
-              {ImageLink ? (
+              {formatType == "video" ? (
+                VideoLink ? (
+                  <video
+                    poster={ImageLink}
+                    className="imagePreviewHalf"
+                    playsInline
+                    autoPlay
+                    loop
+                  >
+                    <source src={VideoLink} type="video/mp4" />
+                  </video>
+                ) : (
+                  ""
+                )
+              ) : ImageLink ? (
                 <Image
                   src={ImageLink}
                   alt={"image"}
@@ -339,7 +391,21 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
               themeMode == "Dark" ? "darkTxt" : "lightText"
             }`}
           >
-            {ImageLink ? (
+            {formatType == "video" ? (
+              VideoLink ? (
+                <video
+                  poster={ImageLink}
+                  className="imagePreview"
+                  playsInline
+                  autoPlay
+                  loop
+                >
+                  <source src={VideoLink} type="video/mp4" />
+                </video>
+              ) : (
+                ""
+              )
+            ) : ImageLink ? (
               <Image
                 src={ImageLink}
                 alt={"image"}
@@ -426,7 +492,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       target="_blank"
                       className={`button ${
                         buttonColorOne == "Dark" ? "darkbutton" : "lightbutton"
-                      } `}
+                      } ${selectCta == "1" ? "oneCta" : ""} `}
                     >
                       {buttonTextOne}
                     </a>
@@ -463,14 +529,32 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
           {templateM === "3" ? (
             <>
               <div className="areaImage">
-                <Image
-                  src={ImageLink}
-                  alt={"image"}
-                  width={375}
-                  height={180}
-                  className="imagePreviewHalfMobile"
-                  style={{ objectPosition: backgroundPostion }}
-                />
+                {formatType == "video" ? (
+                  VideoLink ? (
+                    <video
+                      poster={ImageLink}
+                      className="imagePreviewHalfMobile"
+                      playsInline
+                      autoPlay
+                      loop
+                    >
+                      <source src={VideoLink} type="video/mp4" />
+                    </video>
+                  ) : (
+                    ""
+                  )
+                ) : ImageLink ? (
+                  <Image
+                    src={ImageLink}
+                    alt={"image"}
+                    width={375}
+                    height={180}
+                    className="imagePreviewHalfMobile"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
+                ) : (
+                  ""
+                )}
               </div>
               <div
                 className={`halfTxtMobile ${
@@ -529,6 +613,43 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 ) : (
                   ""
                 )}
+                <div className={selectCta == "2" ? "ctaArea" : ""}>
+                  {buttonTextOne ? (
+                    buttonTextOne.length < 15 ? (
+                      <a
+                        href={buttonLinkOne}
+                        target="_blank"
+                        className={`button ${
+                          buttonColorOne == "Dark"
+                            ? "darkbutton"
+                            : "lightbutton"
+                        } `}
+                      >
+                        {buttonTextOne}
+                      </a>
+                    ) : (
+                      ""
+                    )
+                  ) : (
+                    ""
+                  )}
+
+                  {selectCta == "2" &&
+                  buttonTextTwo.length < 15 &&
+                  buttonTextTwo ? (
+                    <a
+                      href={buttonLinkTwo}
+                      target="_blank"
+                      className={`button ${
+                        buttonColorTwo == "Dark" ? "darkbutton" : "lightbutton"
+                      } `}
+                    >
+                      {buttonTextTwo}
+                    </a>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
             </>
           ) : templateM ? (
@@ -537,7 +658,21 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 themeMode == "Dark" ? "darkTxt" : "lightText"
               }`}
             >
-              {ImageLink ? (
+              {formatType == "video" ? (
+                VideoLink ? (
+                  <video
+                    poster={ImageLink}
+                    className="imagePreviewFullimage"
+                    playsInline
+                    autoPlay
+                    loop
+                  >
+                    <source src={VideoLink} type="video/mp4" />
+                  </video>
+                ) : (
+                  ""
+                )
+              ) : ImageLink ? (
                 <Image
                   src={ImageLink}
                   alt={"image"}
@@ -606,22 +741,141 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                     >
                       {linetextthree}
                     </div>
+                    <div className={selectCta == "2" ? "ctaArea" : ""}>
+                      {buttonTextOne ? (
+                        buttonTextOne.length < 18 ? (
+                          <a
+                            href={buttonLinkOne}
+                            target="_blank"
+                            className={`button ${
+                              buttonColorOne == "Dark"
+                                ? "darkbutton"
+                                : "lightbutton"
+                            } `}
+                          >
+                            {buttonTextOne}
+                          </a>
+                        ) : (
+                          ""
+                        )
+                      ) : (
+                        ""
+                      )}
+
+                      {selectCta == "2" &&
+                      buttonTextTwo.length < 18 &&
+                      buttonTextTwo ? (
+                        <a
+                          href={buttonLinkTwo}
+                          target="_blank"
+                          className={`button ${
+                            buttonColorTwo == "Dark"
+                              ? "darkbutton"
+                              : "lightbutton"
+                          } `}
+                        >
+                          {buttonTextTwo}
+                        </a>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </>
                 ) : (
                   ""
                 )}
+                {templateM && templateM !== "2" ? (
+                  <div className={selectCta == "2" ? "ctaArea" : ""}>
+                    {buttonTextOne ? (
+                      buttonTextOne.length < 15 ? (
+                        <a
+                          href={buttonLinkOne}
+                          target="_blank"
+                          className={`button ${
+                            buttonColorOne == "Dark"
+                              ? "darkbutton"
+                              : "lightbutton"
+                          } `}
+                        >
+                          {buttonTextOne}
+                        </a>
+                      ) : (
+                        ""
+                      )
+                    ) : (
+                      ""
+                    )}
+
+                    {selectCta == "2" &&
+                    buttonTextTwo.length < 15 &&
+                    buttonTextTwo ? (
+                      <a
+                        href={buttonLinkTwo}
+                        target="_blank"
+                        className={`button ${
+                          buttonColorTwo == "Dark"
+                            ? "darkbutton"
+                            : "lightbutton"
+                        } `}
+                      >
+                        {buttonTextTwo}
+                      </a>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
+              {templateM == "2" ? (
+                <div
+                  className={`temp2Cta ${selectCta == "2" ? "ctaArea" : ""}`}
+                >
+                  {buttonTextOne ? (
+                    buttonTextOne.length < 15 ? (
+                      <a
+                        href={buttonLinkOne}
+                        target="_blank"
+                        className={`button ${
+                          buttonColorOne == "Dark"
+                            ? "darkbutton"
+                            : "lightbutton"
+                        } `}
+                      >
+                        {buttonTextOne}
+                      </a>
+                    ) : (
+                      ""
+                    )
+                  ) : (
+                    ""
+                  )}
+
+                  {selectCta == "2" &&
+                  buttonTextTwo.length < 15 &&
+                  buttonTextTwo ? (
+                    <a
+                      href={buttonLinkTwo}
+                      target="_blank"
+                      className={`button ${
+                        buttonColorTwo == "Dark" ? "darkbutton" : "lightbutton"
+                      } `}
+                    >
+                      {buttonTextTwo}
+                    </a>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           ) : (
             ""
           )}
         </div>
-      )}
-
-      {VideoLink && (
-        <video poster={ImageLink} playsInline autoPlay>
-          <source src={VideoLink} type="video/mp4" />
-        </video>
       )}
     </a>
   );

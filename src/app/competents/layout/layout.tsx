@@ -77,6 +77,18 @@ const Layout: React.FC<LayoutProps> = ({
                   buttonTextTwo={formDataHp.buttonTextTwo}
                   buttonLinkTwo={formDataHp.buttonLinkTwo}
                   buttonColorTwo={formDataHp.buttonColorTwo}
+                  disclaimerleftTxt={formDataHp.disclaimerleftTxt}
+                  disclaimerleftTxtFontWeight={
+                    formDataHp.disclaimerleftTxtFontWeight
+                  }
+                  disclaimerleftTxtColor={formDataHp.disclaimerleftTxtColor}
+                  disclaimerleftbgColor={formDataHp.disclaimerleftbgColor}
+                  disclaimerrightTxt={formDataHp.disclaimerrightTxt}
+                  disclaimerrightTxtFontWeight={
+                    formDataHp.disclaimerrightTxtFontWeight
+                  }
+                  disclaimerrightTxtColor={formDataHp.disclaimerrightTxtColor}
+                  disclaimerrightbgColor={formDataHp.disclaimerrightbgColor}
                 />
                 <PreviewCode
                   ImageLink={formDataHp.imageLink}

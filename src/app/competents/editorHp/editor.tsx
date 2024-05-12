@@ -380,7 +380,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                 },
               ]}
             />
-            {formData.device == "Desktop" ? (
+            {formData.device == "Desktop" && formData.templateD !== "1" ? (
               <FormInput
                 label="Content position"
                 value={formData.contentPostion}
