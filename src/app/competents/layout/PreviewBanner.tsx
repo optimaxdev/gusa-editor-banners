@@ -244,19 +244,19 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerleftTxt ? (
               disclaimerleftTxt.length < 18 ? (
                 <div
-                  className={`leftDisclimar ${
-                    disclaimerleftTxtColor == "Dark" ? "TextDark" : "TextLight"
-                  } ${
-                    disclaimerleftbgColor !== "Dark" && "Light"
-                      ? ""
-                      : disclaimerleftbgColor == "Dark"
-                      ? "bgDark"
-                      : "bgLight"
-                  } ${
-                    disclaimerleftTxtFontWeight === "normal"
-                      ? "fweightNormal"
-                      : "fweightBold"
-                  }`}
+                  className="leftDisclimar"
+                  style={{
+                    fontWeight:
+                      disclaimerleftTxtFontWeight == "bold" ? "700" : "400",
+                    background:
+                      disclaimerleftbgColor !== "Dark" &&
+                      disclaimerleftbgColor !== "Light"
+                        ? ""
+                        : disclaimerleftbgColor == "Dark"
+                        ? "rgba(0, 0, 0, .4)"
+                        : "hsla(0, 0%, 100%, .4)",
+                    color: disclaimerleftTxtColor == "Dark" ? "#000" : "#fff",
+                  }}
                 >
                   {disclaimerleftTxt}
                 </div>
@@ -269,19 +269,19 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerrightTxt ? (
               disclaimerrightTxt.length < 18 ? (
                 <div
-                  className={`rightDisclimar ${
-                    disclaimerrightTxtColor == "Dark" ? "TextDark" : "TextLight"
-                  } ${
-                    disclaimerrightbgColor !== "Dark" && "Light"
-                      ? ""
-                      : disclaimerrightbgColor == "Dark"
-                      ? "bgDark"
-                      : "bgLight"
-                  } ${
-                    disclaimerrightTxtFontWeight === "normal"
-                      ? "fweightNormal"
-                      : "fweightBold"
-                  }`}
+                  className="rightDisclimar"
+                  style={{
+                    fontWeight:
+                      disclaimerrightTxtFontWeight == "bold" ? "700" : "400",
+                    background:
+                      disclaimerrightbgColor !== "Dark" &&
+                      disclaimerrightbgColor !== "Light"
+                        ? ""
+                        : disclaimerrightbgColor == "Dark"
+                        ? "rgba(0, 0, 0, .4)"
+                        : "hsla(0, 0%, 100%, .4)",
+                    color: disclaimerrightTxtColor == "Dark" ? "#000" : "#fff",
+                  }}
                 >
                   {disclaimerrightTxt}
                 </div>
@@ -429,19 +429,19 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerleftTxt ? (
               disclaimerleftTxt.length < 18 ? (
                 <div
-                  className={`leftDisclimar ${
-                    disclaimerleftTxtColor == "Dark" ? "TextDark" : "TextLight"
-                  } ${
-                    disclaimerleftbgColor !== "Dark" && "Light"
-                      ? ""
-                      : disclaimerleftbgColor == "Dark"
-                      ? "bgDark"
-                      : "bgLight"
-                  } ${
-                    disclaimerleftTxtFontWeight === "normal"
-                      ? "fweightNormal"
-                      : "fweightBold"
-                  }`}
+                  className="leftDisclimar"
+                  style={{
+                    fontWeight:
+                      disclaimerleftTxtFontWeight == "bold" ? "700" : "400",
+                    background:
+                      disclaimerleftbgColor !== "Dark" &&
+                      disclaimerleftbgColor !== "Light"
+                        ? ""
+                        : disclaimerleftbgColor == "Dark"
+                        ? "rgba(0, 0, 0, .4)"
+                        : "hsla(0, 0%, 100%, .4)",
+                    color: disclaimerleftTxtColor == "Dark" ? "#000" : "#fff",
+                  }}
                 >
                   {disclaimerleftTxt}
                 </div>
@@ -454,19 +454,19 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerrightTxt ? (
               disclaimerrightTxt.length < 18 ? (
                 <div
-                  className={`rightDisclimar ${
-                    disclaimerrightTxtColor == "Dark" ? "TextDark" : "TextLight"
-                  } ${
-                    disclaimerrightbgColor !== "Dark" && "Light"
-                      ? ""
-                      : disclaimerrightbgColor == "Dark"
-                      ? "bgDark"
-                      : "bgLight"
-                  } ${
-                    disclaimerrightTxtFontWeight === "normal"
-                      ? "fweightNormal"
-                      : "fweightBold"
-                  }`}
+                  className="rightDisclimar"
+                  style={{
+                    fontWeight:
+                      disclaimerrightTxtFontWeight == "bold" ? "700" : "400",
+                    background:
+                      disclaimerrightbgColor !== "Dark" &&
+                      disclaimerrightbgColor !== "Light"
+                        ? ""
+                        : disclaimerrightbgColor == "Dark"
+                        ? "rgba(0, 0, 0, .4)"
+                        : "hsla(0, 0%, 100%, .4)",
+                    color: disclaimerrightTxtColor == "Dark" ? "#000" : "#fff",
+                  }}
                 >
                   {disclaimerrightTxt}
                 </div>
@@ -615,19 +615,19 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerleftTxt ? (
               disclaimerleftTxt.length < 18 ? (
                 <div
-                  className={`leftDisclimar ${
-                    disclaimerleftTxtColor == "Dark" ? "TextDark" : "TextLight"
-                  } ${
-                    disclaimerleftbgColor !== "Dark" && "Light"
-                      ? ""
-                      : disclaimerleftbgColor == "Dark"
-                      ? "bgDark"
-                      : "bgLight"
-                  } ${
-                    disclaimerleftTxtFontWeight === "normal"
-                      ? "fweightNormal"
-                      : "fweightBold"
-                  }`}
+                  className="leftDisclimar"
+                  style={{
+                    fontWeight:
+                      disclaimerleftTxtFontWeight == "bold" ? "700" : "400",
+                    background:
+                      disclaimerleftbgColor !== "Dark" &&
+                      disclaimerleftbgColor !== "Light"
+                        ? ""
+                        : disclaimerleftbgColor == "Dark"
+                        ? "rgba(0, 0, 0, .4)"
+                        : "hsla(0, 0%, 100%, .4)",
+                    color: disclaimerleftTxtColor == "Dark" ? "#000" : "#fff",
+                  }}
                 >
                   {disclaimerleftTxt}
                 </div>
@@ -640,19 +640,19 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerrightTxt ? (
               disclaimerrightTxt.length < 18 ? (
                 <div
-                  className={`rightDisclimar ${
-                    disclaimerrightTxtColor == "Dark" ? "TextDark" : "TextLight"
-                  } ${
-                    disclaimerrightbgColor !== "Dark" && "Light"
-                      ? ""
-                      : disclaimerrightbgColor == "Dark"
-                      ? "bgDark"
-                      : "bgLight"
-                  } ${
-                    disclaimerrightTxtFontWeight === "normal"
-                      ? "fweightNormal"
-                      : "fweightBold"
-                  }`}
+                  className="rightDisclimar"
+                  style={{
+                    fontWeight:
+                      disclaimerrightTxtFontWeight == "bold" ? "700" : "400",
+                    background:
+                      disclaimerrightbgColor !== "Dark" &&
+                      disclaimerrightbgColor !== "Light"
+                        ? ""
+                        : disclaimerrightbgColor == "Dark"
+                        ? "rgba(0, 0, 0, .4)"
+                        : "hsla(0, 0%, 100%, .4)",
+                    color: disclaimerrightTxtColor == "Dark" ? "#000" : "#fff",
+                  }}
                 >
                   {disclaimerrightTxt}
                 </div>
@@ -1014,6 +1014,42 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 ""
               )}
             </div>
+          ) : (
+            ""
+          )}
+          {disclaimerleftTxt ? (
+            disclaimerleftTxt.length < 18 ? (
+              <div
+                className="leftDisclimar"
+                style={{
+                  fontWeight:
+                    disclaimerleftTxtFontWeight == "bold" ? "700" : "400",
+                  color: disclaimerleftTxtColor == "Dark" ? "#000" : "#fff",
+                }}
+              >
+                {disclaimerleftTxt}
+              </div>
+            ) : (
+              ""
+            )
+          ) : (
+            ""
+          )}
+          {disclaimerrightTxt ? (
+            disclaimerrightTxt.length < 18 ? (
+              <div
+                className="rightDisclimar"
+                style={{
+                  fontWeight:
+                    disclaimerrightTxtFontWeight == "bold" ? "700" : "400",
+                  color: disclaimerrightTxtColor == "Dark" ? "#000" : "#fff",
+                }}
+              >
+                {disclaimerrightTxt}
+              </div>
+            ) : (
+              ""
+            )
           ) : (
             ""
           )}

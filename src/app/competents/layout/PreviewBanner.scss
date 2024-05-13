@@ -119,6 +119,25 @@ video {
         margin: auto;
         padding: 0 40px;
     }
+
+    .leftDisclimar {
+        position: absolute;
+        left: 10px;
+        border-radius: 4px;
+        bottom: 10px;
+        font-size: 13px;
+        font-weight: 400;
+
+    }
+
+    .rightDisclimar {
+        position: absolute;
+        right: 10px;
+        bottom: 12px;
+        font-size: 13px;
+        font-weight: 400;
+        bottom: 10px;
+    }
 }
 
 .DesktopStyle {
@@ -221,51 +240,27 @@ video {
         justify-content: center;
     }
 
-    .TextDark {
-        color: #0f0f0f;
-    }
-
-    .TextLight {
-        color: #fff;
-    }
-
-    .bgDark {
-        background-color: rgba(0, 0, 0, .4);
-    }
-
-    .bgLight {
-        background-color: hsla(0, 0%, 100%, .4);
-
-    }
-
-    .fweightNormal {
-        font-weight: 400;
-    }
-
-    .fweightBold {
-        font-weight: 700;
-    }
-
     .leftDisclimar {
         position: absolute;
-        left: 20px;
+        left: 16px;
         border-radius: 4px;
         bottom: 12px;
         font-size: 14px;
         line-height: 16px;
+        font-weight: 400;
         padding: 4px 8px;
 
     }
 
     .rightDisclimar {
         position: absolute;
-        right: 20px;
+        right: 16px;
         border-radius: 4px;
         bottom: 12px;
         font-size: 14px;
         line-height: 16px;
+        font-weight: 400;
         padding: 4px 8px;
-
     }
 }
 

@@ -1028,65 +1028,64 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   type="text"
                   classN="inputdiscText"
                 />
-                {formData.disclaimerleftTxt ? (
-                  <>
-                    <FormInput
-                      label="Font weight"
-                      value={formData.disclaimerleftTxtFontWeight}
-                      onChange={(value) =>
-                        handleInputChange("disclaimerleftTxtFontWeight", value)
-                      }
-                      type="radio"
-                      id="disclaimerleftTxtFontWeight"
-                      classN="toggleTypefWeight"
-                      options={[
-                        {
-                          value: "normal",
-                          text: "R",
-                        },
-                        {
-                          value: "bold",
-                          text: "B",
-                        },
-                      ]}
-                    />
-                    <FormInput
-                      label="Color"
-                      value={formData.disclaimerleftTxtColor}
-                      onChange={(value) =>
-                        handleInputChange("disclaimerleftTxtColor", value)
-                      }
-                      type="radio"
-                      id="disclaimerleftTxtColor"
-                      classN="Theme"
-                      options={[
-                        {
-                          value: "Light",
-                        },
-                        {
-                          value: "Dark",
-                        },
-                      ]}
-                    />
-                    <FormInput
-                      label="Background Color"
-                      value={formData.disclaimerleftbgColor}
-                      onChange={(value) =>
-                        handleInputChange("disclaimerleftbgColor", value)
-                      }
-                      type="radio"
-                      id="disclaimerleftbgColor"
-                      classN="Theme"
-                      options={[
-                        {
-                          value: "Light",
-                        },
-                        {
-                          value: "Dark",
-                        },
-                      ]}
-                    />
-                  </>
+
+                <FormInput
+                  label="Font weight"
+                  value={formData.disclaimerleftTxtFontWeight}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerleftTxtFontWeight", value)
+                  }
+                  type="radio"
+                  id="disclaimerleftTxtFontWeight"
+                  classN="toggleTypefWeight"
+                  options={[
+                    {
+                      value: "normal",
+                      text: "R",
+                    },
+                    {
+                      value: "bold",
+                      text: "B",
+                    },
+                  ]}
+                />
+                <FormInput
+                  label="Color"
+                  value={formData.disclaimerleftTxtColor}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerleftTxtColor", value)
+                  }
+                  type="radio"
+                  id="disclaimerleftTxtColor"
+                  classN="Theme"
+                  options={[
+                    {
+                      value: "Light",
+                    },
+                    {
+                      value: "Dark",
+                    },
+                  ]}
+                />
+                {formData.device == "Desktop" ? (
+                  <FormInput
+                    label="Background Color"
+                    value={formData.disclaimerleftbgColor}
+                    onChange={(value) =>
+                      handleInputChange("disclaimerleftbgColor", value)
+                    }
+                    type="radio"
+                    id="disclaimerleftbgColor"
+                    classN="Theme"
+                    options={[
+                      {
+                        value: "Light",
+                      },
+                      {
+                        value: "Dark",
+                      },
+                    ]}
+                  />
                 ) : (
                   ""
                 )}
@@ -1107,65 +1106,63 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   type="text"
                   classN="inputdiscText"
                 />
-                {formData.disclaimerrightTxt ? (
-                  <>
-                    <FormInput
-                      label="Font weight"
-                      value={formData.disclaimerrightTxtFontWeight}
-                      onChange={(value) =>
-                        handleInputChange("disclaimerrightTxtFontWeight", value)
-                      }
-                      type="radio"
-                      id="disclaimerrightTxtFontWeight"
-                      classN="toggleTypefWeight"
-                      options={[
-                        {
-                          value: "normal",
-                          text: "R",
-                        },
-                        {
-                          value: "bold",
-                          text: "B",
-                        },
-                      ]}
-                    />
-                    <FormInput
-                      label="Color"
-                      value={formData.disclaimerrightTxtColor}
-                      onChange={(value) =>
-                        handleInputChange("disclaimerrightTxtColor", value)
-                      }
-                      type="radio"
-                      id="disclaimerrightTxtColor"
-                      classN="Theme"
-                      options={[
-                        {
-                          value: "Light",
-                        },
-                        {
-                          value: "Dark",
-                        },
-                      ]}
-                    />
-                    <FormInput
-                      label="Background Color"
-                      value={formData.disclaimerrightbgColor}
-                      onChange={(value) =>
-                        handleInputChange("disclaimerrightbgColor", value)
-                      }
-                      type="radio"
-                      id="disclaimerrightbgColor"
-                      classN="Theme"
-                      options={[
-                        {
-                          value: "Light",
-                        },
-                        {
-                          value: "Dark",
-                        },
-                      ]}
-                    />
-                  </>
+                <FormInput
+                  label="Font weight"
+                  value={formData.disclaimerrightTxtFontWeight}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerrightTxtFontWeight", value)
+                  }
+                  type="radio"
+                  id="disclaimerrightTxtFontWeight"
+                  classN="toggleTypefWeight"
+                  options={[
+                    {
+                      value: "normal",
+                      text: "R",
+                    },
+                    {
+                      value: "bold",
+                      text: "B",
+                    },
+                  ]}
+                />
+                <FormInput
+                  label="Color"
+                  value={formData.disclaimerrightTxtColor}
+                  onChange={(value) =>
+                    handleInputChange("disclaimerrightTxtColor", value)
+                  }
+                  type="radio"
+                  id="disclaimerrightTxtColor"
+                  classN="Theme"
+                  options={[
+                    {
+                      value: "Light",
+                    },
+                    {
+                      value: "Dark",
+                    },
+                  ]}
+                />
+                {formData.device == "Desktop" ? (
+                  <FormInput
+                    label="Background Color"
+                    value={formData.disclaimerrightbgColor}
+                    onChange={(value) =>
+                      handleInputChange("disclaimerrightbgColor", value)
+                    }
+                    type="radio"
+                    id="disclaimerrightbgColor"
+                    classN="Theme"
+                    options={[
+                      {
+                        value: "Light",
+                      },
+                      {
+                        value: "Dark",
+                      },
+                    ]}
+                  />
                 ) : (
                   ""
                 )}
