@@ -220,6 +220,53 @@ video {
         display: flex;
         justify-content: center;
     }
+
+    .TextDark {
+        color: #0f0f0f;
+    }
+
+    .TextLight {
+        color: #fff;
+    }
+
+    .bgDark {
+        background-color: rgba(0, 0, 0, .4);
+    }
+
+    .bgLight {
+        background-color: hsla(0, 0%, 100%, .4);
+
+    }
+
+    .fweightNormal {
+        font-weight: 400;
+    }
+
+    .fweightBold {
+        font-weight: 700;
+    }
+
+    .leftDisclimar {
+        position: absolute;
+        left: 20px;
+        border-radius: 4px;
+        bottom: 12px;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 4px 8px;
+
+    }
+
+    .rightDisclimar {
+        position: absolute;
+        right: 20px;
+        border-radius: 4px;
+        bottom: 12px;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 4px 8px;
+
+    }
 }
 
 .textside {

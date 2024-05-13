@@ -212,14 +212,6 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                   )}
                 </div>
               </div>
-              <div
-                className={`leftDisclimar ${
-                  disclaimerleftTxtColor == "Dark" ? "Dark" : "Light"
-                }`}
-              >
-                {disclaimerleftTxt}
-              </div>
-              <div className="rightDisclimar">{disclaimerrightTxt}</div>
             </div>
             <div className="halfBanner">
               {formatType === "video" ? (
@@ -249,6 +241,56 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 ""
               )}
             </div>
+            {disclaimerleftTxt ? (
+              disclaimerleftTxt.length < 18 ? (
+                <div
+                  className={`leftDisclimar ${
+                    disclaimerleftTxtColor == "Dark" ? "TextDark" : "TextLight"
+                  } ${
+                    disclaimerleftbgColor !== "Dark" && "Light"
+                      ? ""
+                      : disclaimerleftbgColor == "Dark"
+                      ? "bgDark"
+                      : "bgLight"
+                  } ${
+                    disclaimerleftTxtFontWeight === "normal"
+                      ? "fweightNormal"
+                      : "fweightBold"
+                  }`}
+                >
+                  {disclaimerleftTxt}
+                </div>
+              ) : (
+                ""
+              )
+            ) : (
+              ""
+            )}
+            {disclaimerrightTxt ? (
+              disclaimerrightTxt.length < 18 ? (
+                <div
+                  className={`rightDisclimar ${
+                    disclaimerrightTxtColor == "Dark" ? "TextDark" : "TextLight"
+                  } ${
+                    disclaimerrightbgColor !== "Dark" && "Light"
+                      ? ""
+                      : disclaimerrightbgColor == "Dark"
+                      ? "bgDark"
+                      : "bgLight"
+                  } ${
+                    disclaimerrightTxtFontWeight === "normal"
+                      ? "fweightNormal"
+                      : "fweightBold"
+                  }`}
+                >
+                  {disclaimerrightTxt}
+                </div>
+              ) : (
+                ""
+              )
+            ) : (
+              ""
+            )}
           </div>
         ) : templateD == "4" ? (
           <div className="flex">
@@ -384,6 +426,56 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 </div>
               </div>
             </div>
+            {disclaimerleftTxt ? (
+              disclaimerleftTxt.length < 18 ? (
+                <div
+                  className={`leftDisclimar ${
+                    disclaimerleftTxtColor == "Dark" ? "TextDark" : "TextLight"
+                  } ${
+                    disclaimerleftbgColor !== "Dark" && "Light"
+                      ? ""
+                      : disclaimerleftbgColor == "Dark"
+                      ? "bgDark"
+                      : "bgLight"
+                  } ${
+                    disclaimerleftTxtFontWeight === "normal"
+                      ? "fweightNormal"
+                      : "fweightBold"
+                  }`}
+                >
+                  {disclaimerleftTxt}
+                </div>
+              ) : (
+                ""
+              )
+            ) : (
+              ""
+            )}
+            {disclaimerrightTxt ? (
+              disclaimerrightTxt.length < 18 ? (
+                <div
+                  className={`rightDisclimar ${
+                    disclaimerrightTxtColor == "Dark" ? "TextDark" : "TextLight"
+                  } ${
+                    disclaimerrightbgColor !== "Dark" && "Light"
+                      ? ""
+                      : disclaimerrightbgColor == "Dark"
+                      ? "bgDark"
+                      : "bgLight"
+                  } ${
+                    disclaimerrightTxtFontWeight === "normal"
+                      ? "fweightNormal"
+                      : "fweightBold"
+                  }`}
+                >
+                  {disclaimerrightTxt}
+                </div>
+              ) : (
+                ""
+              )
+            ) : (
+              ""
+            )}
           </div>
         ) : templateD ? (
           <div
@@ -520,6 +612,56 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 )}
               </div>
             </div>
+            {disclaimerleftTxt ? (
+              disclaimerleftTxt.length < 18 ? (
+                <div
+                  className={`leftDisclimar ${
+                    disclaimerleftTxtColor == "Dark" ? "TextDark" : "TextLight"
+                  } ${
+                    disclaimerleftbgColor !== "Dark" && "Light"
+                      ? ""
+                      : disclaimerleftbgColor == "Dark"
+                      ? "bgDark"
+                      : "bgLight"
+                  } ${
+                    disclaimerleftTxtFontWeight === "normal"
+                      ? "fweightNormal"
+                      : "fweightBold"
+                  }`}
+                >
+                  {disclaimerleftTxt}
+                </div>
+              ) : (
+                ""
+              )
+            ) : (
+              ""
+            )}
+            {disclaimerrightTxt ? (
+              disclaimerrightTxt.length < 18 ? (
+                <div
+                  className={`rightDisclimar ${
+                    disclaimerrightTxtColor == "Dark" ? "TextDark" : "TextLight"
+                  } ${
+                    disclaimerrightbgColor !== "Dark" && "Light"
+                      ? ""
+                      : disclaimerrightbgColor == "Dark"
+                      ? "bgDark"
+                      : "bgLight"
+                  } ${
+                    disclaimerrightTxtFontWeight === "normal"
+                      ? "fweightNormal"
+                      : "fweightBold"
+                  }`}
+                >
+                  {disclaimerrightTxt}
+                </div>
+              ) : (
+                ""
+              )
+            ) : (
+              ""
+            )}
           </div>
         ) : (
           ""

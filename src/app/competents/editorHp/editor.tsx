@@ -1129,7 +1129,6 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                         },
                       ]}
                     />
-
                     <FormInput
                       label="Color"
                       value={formData.disclaimerrightTxtColor}
@@ -1141,10 +1140,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       classN="Theme"
                       options={[
                         {
-                          value: "Dark",
+                          value: "Light",
                         },
                         {
-                          value: "Light",
+                          value: "Dark",
                         },
                       ]}
                     />
@@ -1159,10 +1158,10 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       classN="Theme"
                       options={[
                         {
-                          value: "Dark",
+                          value: "Light",
                         },
                         {
-                          value: "Light",
+                          value: "Dark",
                         },
                       ]}
                     />
