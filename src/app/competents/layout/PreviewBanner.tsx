@@ -101,19 +101,17 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
       style={{
         backgroundColor: backgroundColor === "" ? "#a29f9f" : backgroundColor,
       }}
-      className={
+      className={`${
         deviceType == "Mobile"
           ? "previewBanner MobileStyle"
           : "previewBanner DesktopStyle"
-      }
+      } ${themeMode == "Dark" ? "darkTxt" : "lightText"}`}
     >
       {deviceType == "Desktop" ? (
         templateD == "5" ? (
           <div className="flex">
             <div
-              className={`halfBanner ${
-                themeMode == "Dark" ? "darkTxt" : "lightText"
-              } ${
+              className={`halfBanner  ${
                 contentPostion == "right"
                   ? "textright"
                   : contentPostion == "center"
@@ -180,11 +178,12 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       <a
                         href={buttonLinkOne}
                         target="_blank"
-                        className={`button ${
-                          buttonColorOne == "Dark"
-                            ? "darkbutton"
-                            : "lightbutton"
-                        } `}
+                        className="button"
+                        style={{
+                          backgroundColor:
+                            buttonColorOne == "Dark" ? "#000" : "#fff",
+                          color: buttonColorOne == "Dark" ? "#fff" : "#000",
+                        }}
                       >
                         {buttonTextOne}
                       </a>
@@ -244,7 +243,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerleftTxt ? (
               disclaimerleftTxt.length < 18 ? (
                 <div
-                  className="leftDisclimar"
+                  className="leftDisclimar themeColor"
                   style={{
                     fontWeight:
                       disclaimerleftTxtFontWeight == "bold" ? "700" : "400",
@@ -269,7 +268,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerrightTxt ? (
               disclaimerrightTxt.length < 18 ? (
                 <div
-                  className="rightDisclimar"
+                  className="rightDisclimar themeColor"
                   style={{
                     fontWeight:
                       disclaimerrightTxtFontWeight == "bold" ? "700" : "400",
@@ -429,7 +428,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerleftTxt ? (
               disclaimerleftTxt.length < 18 ? (
                 <div
-                  className="leftDisclimar"
+                  className="leftDisclimar themeColor"
                   style={{
                     fontWeight:
                       disclaimerleftTxtFontWeight == "bold" ? "700" : "400",
@@ -454,7 +453,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerrightTxt ? (
               disclaimerrightTxt.length < 18 ? (
                 <div
-                  className="rightDisclimar"
+                  className="rightDisclimar themeColor"
                   style={{
                     fontWeight:
                       disclaimerrightTxtFontWeight == "bold" ? "700" : "400",
@@ -477,7 +476,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
               ""
             )}
           </div>
-        ) : templateD ? (
+        ) : templateD && templateD !== "0" ? (
           <div
             className={`fullImage ${
               themeMode == "Dark" ? "darkTxt" : "lightText"
@@ -615,7 +614,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerleftTxt ? (
               disclaimerleftTxt.length < 18 ? (
                 <div
-                  className="leftDisclimar"
+                  className="leftDisclimar themeColor"
                   style={{
                     fontWeight:
                       disclaimerleftTxtFontWeight == "bold" ? "700" : "400",
@@ -640,7 +639,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             {disclaimerrightTxt ? (
               disclaimerrightTxt.length < 18 ? (
                 <div
-                  className="rightDisclimar"
+                  className="rightDisclimar themeColor"
                   style={{
                     fontWeight:
                       disclaimerrightTxtFontWeight == "bold" ? "700" : "400",
@@ -1017,10 +1016,10 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
           ) : (
             ""
           )}
-          {disclaimerleftTxt ? (
+          {disclaimerleftTxt && templateM !== "0" ? (
             disclaimerleftTxt.length < 18 ? (
               <div
-                className="leftDisclimar"
+                className="leftDisclimar themeColor"
                 style={{
                   fontWeight:
                     disclaimerleftTxtFontWeight == "bold" ? "700" : "400",
@@ -1035,10 +1034,10 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
           ) : (
             ""
           )}
-          {disclaimerrightTxt ? (
+          {disclaimerrightTxt && templateM !== "0" ? (
             disclaimerrightTxt.length < 18 ? (
               <div
-                className="rightDisclimar"
+                className="rightDisclimar themeColor"
                 style={{
                   fontWeight:
                     disclaimerrightTxtFontWeight == "bold" ? "700" : "400",

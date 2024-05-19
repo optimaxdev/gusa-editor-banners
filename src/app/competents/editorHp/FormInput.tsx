@@ -41,6 +41,12 @@ const FormInput: React.FC<FormInputProps> = ({
     const ThemeContainer = document.querySelector(`.Theme#${id}`);
     ThemeContainer?.classList.toggle("activeCotainer");
   };
+  const activeall = () => {
+    document.querySelectorAll(".Theme").forEach((e) => {
+      e?.classList.toggle("activeCotainer");
+    });
+    activeTypeTheme();
+  };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const contentPosition = (_value: string) => {
     const contentPositions = document.querySelectorAll(`#${id} .postion`);
@@ -129,7 +135,21 @@ const FormInput: React.FC<FormInputProps> = ({
                         : "";
                     }
                     {
-                      classN === "Theme" ? activeTypeTheme() : "";
+                      id === "Theme" ? activeall() : "";
+                    }
+                    // {
+                    //   id === "Theme" ? activeTypeTheme() : "";
+                    // }
+                    {
+                      id === "btnColor" ||
+                      id === "btnColortwo" ||
+                      id == "disclaimerleftTxtColor" ||
+                      id == "disclaimerrightTxtColor" ||
+                      id == "disclaimerrightbgColor" ||
+                      id == "disclaimerleftbgColor" ||
+                      id === "Theme"
+                        ? activeTypeTheme()
+                        : "";
                     }
                     {
                       id == "Contentposition" || "backgroundPostion"
