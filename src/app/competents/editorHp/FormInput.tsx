@@ -37,16 +37,21 @@ const FormInput: React.FC<FormInputProps> = ({
     selectTypeSVG?.classList.toggle("activeSelected");
   };
 
-  const activeTypeTheme = () => {
+  const activeTypeTheme = (value: string) => {
     const ThemeContainer = document.querySelector(`.Theme#${id}`);
-    ThemeContainer?.classList.toggle("activeCotainer");
+    console.log(value);
+    if (value == "Dark") {
+      ThemeContainer?.classList.add("activeCotainer");
+    } else {
+      ThemeContainer?.classList.remove("activeCotainer");
+    }
   };
-  const activeall = () => {
-    document.querySelectorAll(".Theme").forEach((e) => {
-      e?.classList.toggle("activeCotainer");
-    });
-    activeTypeTheme();
-  };
+  // const activeall = () => {
+  //   document.querySelectorAll(".Theme").forEach((e) => {
+  //     e?.classList.toggle("activeCotainer");
+  //   });
+  //   activeTypeTheme();
+  // };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const contentPosition = (_value: string) => {
     const contentPositions = document.querySelectorAll(`#${id} .postion`);
@@ -135,21 +140,7 @@ const FormInput: React.FC<FormInputProps> = ({
                         : "";
                     }
                     {
-                      id === "Theme" ? activeall() : "";
-                    }
-                    // {
-                    //   id === "Theme" ? activeTypeTheme() : "";
-                    // }
-                    {
-                      id === "btnColor" ||
-                      id === "btnColortwo" ||
-                      id == "disclaimerleftTxtColor" ||
-                      id == "disclaimerrightTxtColor" ||
-                      id == "disclaimerrightbgColor" ||
-                      id == "disclaimerleftbgColor" ||
-                      id === "Theme"
-                        ? activeTypeTheme()
-                        : "";
+                      classN === "Theme" ? activeTypeTheme(option.value) : "";
                     }
                     {
                       id == "Contentposition" || "backgroundPostion"

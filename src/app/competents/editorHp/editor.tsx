@@ -50,6 +50,7 @@ interface FormData {
   stripLink: string;
   stripbgColor: string;
   striptxtColor: string;
+  stripthemeColor: string;
   disclaimerleftTxt: string;
   disclaimerleftTxtFontWeight: string;
   disclaimerleftTxtColor: string;
@@ -107,6 +108,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
     stripLink: "",
     stripbgColor: "",
     striptxtColor: "",
+    stripthemeColor: "",
     disclaimerleftTxt: "",
     disclaimerleftTxtFontWeight: "",
     disclaimerleftTxtColor: "",
@@ -364,22 +366,27 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               id="backgroundColor"
               backgroundColor={formData.backgroundColor}
             />
-            <FormInput
-              label="Theme mode"
-              value={formData.Theme}
-              onChange={(value) => handleInputChange("Theme", value)}
-              type="radio"
-              id="Theme"
-              classN="Theme"
-              options={[
-                {
-                  value: "Light",
-                },
-                {
-                  value: "Dark",
-                },
-              ]}
-            />
+            {/* {formData.templateD == "0" && formData.templateM == "0" ? (
+              ""
+            ) : (
+              <FormInput
+                label="Theme mode"
+                value={formData.Theme}
+                onChange={(value) => handleInputChange("Theme", value)}
+                type="radio"
+                id="Theme"
+                classN="Theme"
+                options={[
+                  {
+                    value: "Light",
+                  },
+                  {
+                    value: "Dark",
+                  },
+                ]}
+              />
+            )} */}
+
             {formData.device == "Desktop" && formData.templateD !== "1" ? (
               <FormInput
                 label="Content position"
@@ -579,9 +586,17 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   label="Text color"
                   value={formData.textColor}
                   onChange={(value) => handleInputChange("textColor", value)}
-                  type="color"
-                  id="backgroundColor"
-                  backgroundColor={formData.textColor}
+                  type="radio"
+                  id="textColor"
+                  classN="Theme"
+                  options={[
+                    {
+                      value: "Light",
+                    },
+                    {
+                      value: "Dark",
+                    },
+                  ]}
                 />
               </div>
               {formData.select === "2" && (
@@ -665,9 +680,17 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       onChange={(value) =>
                         handleInputChange("textColortwo", value)
                       }
-                      type="color"
-                      id="backgroundColor"
-                      backgroundColor={formData.textColortwo}
+                      type="radio"
+                      id="textColortwo"
+                      classN="Theme"
+                      options={[
+                        {
+                          value: "Light",
+                        },
+                        {
+                          value: "Dark",
+                        },
+                      ]}
                     />
                   </div>
                 </>
@@ -753,9 +776,17 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       onChange={(value) =>
                         handleInputChange("textColortwo", value)
                       }
-                      type="color"
-                      id="backgroundColor"
-                      backgroundColor={formData.textColortwo}
+                      type="radio"
+                      id="textColortwo"
+                      classN="Theme"
+                      options={[
+                        {
+                          value: "Light",
+                        },
+                        {
+                          value: "Dark",
+                        },
+                      ]}
                     />
                   </div>
                   <div className="areaofInputPostion">
@@ -837,9 +868,17 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                       onChange={(value) =>
                         handleInputChange("textColorthree", value)
                       }
-                      type="color"
-                      id="backgroundColor"
-                      backgroundColor={formData.textColorthree}
+                      type="radio"
+                      id="textColorthree"
+                      classN="Theme"
+                      options={[
+                        {
+                          value: "Light",
+                        },
+                        {
+                          value: "Dark",
+                        },
+                      ]}
                     />
                   </div>
                 </>
@@ -987,6 +1026,28 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                   type="url"
                   classN="inputCtaText"
                 />
+                {formData.device == "Desktop" ? (
+                  <FormInput
+                    label="Text color"
+                    value={formData.stripthemeColor}
+                    onChange={(value) =>
+                      handleInputChange("stripthemeColor", value)
+                    }
+                    type="radio"
+                    id="stripthemecolor"
+                    classN="Theme"
+                    options={[
+                      {
+                        value: "Light",
+                      },
+                      {
+                        value: "Dark",
+                      },
+                    ]}
+                  />
+                ) : (
+                  ""
+                )}
                 {formData.device == "Mobile" && (
                   <>
                     <FormInput

@@ -47,6 +47,7 @@ interface PreviewCodeProps {
   stripLink: string;
   stripbgColor: string;
   striptxtColor: string;
+  stripthemeColor: string;
   disclaimerleftTxt: string;
   disclaimerleftTxtFontWeight: string;
   disclaimerleftTxtColor: string;
@@ -101,6 +102,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   stripLink,
   stripbgColor,
   striptxtColor,
+  stripthemeColor,
   disclaimerleftTxt,
   disclaimerleftTxtFontWeight,
   disclaimerleftTxtColor,
@@ -160,7 +162,7 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
           backgroundPostion ? backgroundPostion : "left"
         }",
         "backgroundColor":"${backgroundColor ? backgroundColor : "#000000"}",
-        "theme":"${themeMode ? themeMode.toLowerCase() : "light"}",
+        "theme":"${stripthemeColor ? stripthemeColor.toLowerCase() : "light"}",
        ${
          deviceType == "Desktop" && templateD !== "1"
            ? `"contentPosition":"${contentPostion ? contentPostion : "left"}",`
@@ -185,13 +187,8 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
            (templateM !== "0" && deviceType == "Mobile")
              ? `
          "lines": [{
-          "text":"${
-            linetext
-              ? textColor
-                ? `<span style='color:${textColor}'>` + linetext + "</span>"
-                : linetext
-              : ""
-          }",
+          "text":"${linetext ? linetext : ""}",
+          "color":"${textColor.toLocaleLowerCase()}",
           "weight":"${fontWeightLineOne ? fontWeightLineOne : "normal"}",
           "size": "${selectTextSize ? selectTextSize : "h1"}"
           ${mBottom ? `,"marginBottom":"${mBottom}px"` : ""}
@@ -199,15 +196,8 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
         ${
           select == "2"
             ? `,{
-            "text":"${
-              linetexttwo
-                ? textColortwo
-                  ? `<span style='color:${textColortwo}'>` +
-                    linetexttwo +
-                    "</span>"
-                  : linetexttwo
-                : ""
-            }",
+            "text":"${linetexttwo ? linetexttwo : ""}",
+            "color":"${textColortwo.toLocaleLowerCase()}",
             "weight":"${fontWeightLinetwo ? fontWeightLinetwo : "normal"}",
             "size": "${selectTextSizetwo ? selectTextSizetwo : "h1"}"
             ${mBottomtwo ? `,"marginBottom":"${mBottomtwo}px"` : ""}
@@ -219,15 +209,8 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
           select == "3"
             ? `
             ,{
-              "text":"${
-                linetexttwo
-                  ? textColortwo
-                    ? `<span style='color:${textColortwo}'>` +
-                      linetexttwo +
-                      "</span>"
-                    : linetexttwo
-                  : ""
-              }",
+              "text":"${linetexttwo ? linetexttwo : ""}",
+              "color":"${textColortwo.toLocaleLowerCase()}",
               "weight":"${fontWeightLinetwo ? fontWeightLinetwo : "normal"}",
               "size": "${selectTextSizetwo ? selectTextSizetwo : "h1"}"
               ${mBottomtwo ? `,"marginBottom":"${mBottomtwo}px"` : ""}
@@ -235,15 +218,8 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
           }
             
             ,{
-            "text":"${
-              linetextthree
-                ? textColorthree
-                  ? `<span style='color:${textColorthree}'>` +
-                    linetextthree +
-                    "</span>"
-                  : linetextthree
-                : ""
-            }",
+            "text":"${linetextthree ? linetextthree : ""}",
+            "color":"${textColorthree.toLocaleLowerCase()}",
             "weight":"${fontWeightLinethree ? fontWeightLinethree : "normal"}",
             "size": "${selectTextSizethree ? selectTextSizethree : "h1"}"
             ${mBottomthree ? `,"marginBottom":"${mBottomthree}px"` : ""}

@@ -294,13 +294,8 @@ video {
 .darkTxt {
     color: #000;
 
-    .button {
-        color: #ffffff;
-        background-color: #000;
-    }
-
     .themeColor {
-        color: #000 !important;
+        color: #000;
     }
 
 
@@ -309,23 +304,18 @@ video {
 .lightText {
     color: #fff;
 
-    .button {
-        color: #0f0f0f;
-        background-color: #fff;
-    }
-
 
 }
 
-// .lightbutton {
-//     color: #0f0f0f;
-//     background-color: #fff;
-// }
+.darkbutton {
+    color: #ffffff;
+    background-color: #000;
+}
 
-// .darkbutton {
-//     color: #ffffff;
-//     background-color: #000;
-// }
+.lightbutton {
+    color: #0f0f0f;
+    background-color: #fff;
+}
 
 // .darkbutton {
 //     color: #ffffff !important;

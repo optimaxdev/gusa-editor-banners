@@ -99,7 +99,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
           : "#"
       }
       style={{
-        backgroundColor: backgroundColor === "" ? "#a29f9f" : backgroundColor,
+        backgroundColor: backgroundColor === "" ? "#000000" : backgroundColor,
       }}
       className={`${
         deviceType == "Mobile"
@@ -178,12 +178,12 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       <a
                         href={buttonLinkOne}
                         target="_blank"
-                        className="button"
-                        style={{
-                          backgroundColor:
-                            buttonColorOne == "Dark" ? "#000" : "#fff",
-                          color: buttonColorOne == "Dark" ? "#fff" : "#000",
-                        }}
+                        className={`button ${
+                          buttonColorOne == "Dark"
+                            ? "darkbutton"
+                            : "lightbutton"
+                        }
+                        `}
                       >
                         {buttonTextOne}
                       </a>
