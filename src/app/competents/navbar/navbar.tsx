@@ -22,7 +22,7 @@ const Navbar = () => {
           <Link href="/hp-editor">HP</Link>
         </li>
         <li>
-          <Link href="/ctp-editor">CTP</Link>
+          <Link href="/ctp-editor"></Link>
         </li>
       </ul>
       <div className="areaIndicator">

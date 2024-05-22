@@ -77,6 +77,11 @@ const Layout: React.FC<LayoutProps> = ({
                   buttonTextTwo={formDataHp.buttonTextTwo}
                   buttonLinkTwo={formDataHp.buttonLinkTwo}
                   buttonColorTwo={formDataHp.buttonColorTwo}
+                  stripText={formDataHp.stripText}
+                  stripLink={formDataHp.stripLink}
+                  stripbgColor={formDataHp.stripbgColor}
+                  striptxtColor={formDataHp.striptxtColor}
+                  stripthemeColor={formDataHp.stripthemeColor}
                   disclaimerleftTxt={formDataHp.disclaimerleftTxt}
                   disclaimerleftTxtFontWeight={
                     formDataHp.disclaimerleftTxtFontWeight

@@ -39,19 +39,12 @@ const FormInput: React.FC<FormInputProps> = ({
 
   const activeTypeTheme = (value: string) => {
     const ThemeContainer = document.querySelector(`.Theme#${id}`);
-    console.log(value);
     if (value == "Dark") {
       ThemeContainer?.classList.add("activeCotainer");
     } else {
       ThemeContainer?.classList.remove("activeCotainer");
     }
   };
-  // const activeall = () => {
-  //   document.querySelectorAll(".Theme").forEach((e) => {
-  //     e?.classList.toggle("activeCotainer");
-  //   });
-  //   activeTypeTheme();
-  // };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const contentPosition = (_value: string) => {
     const contentPositions = document.querySelectorAll(`#${id} .postion`);
