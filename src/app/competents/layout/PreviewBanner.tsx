@@ -217,7 +217,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                   ) : (
                     ""
                   )}
-                  <div className={selectCta == "2" ? "ctaArea" : ""}>
+                  <div className="ctaArea">
                     {buttonTextOne ? (
                       buttonTextOne.length < 18 ? (
                         <a
@@ -466,7 +466,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                     ""
                   )}
 
-                  <div className={selectCta == "2" ? "ctaArea" : ""}>
+                  <div className="ctaArea">
                     {buttonTextOne ? (
                       buttonTextOne.length < 18 ? (
                         <a
@@ -690,7 +690,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 ) : (
                   ""
                 )}
-                <div className={selectCta == "2" ? "ctaArea" : ""}>
+                <div className="ctaArea">
                   {buttonTextOne ? (
                     buttonTextOne.length < 18 && buttonTextOne ? (
                       <a
@@ -904,7 +904,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                   ) : (
                     ""
                   )}
-                  <div className={selectCta == "2" ? "ctaArea" : ""}>
+                  <div className="ctaArea">
                     {buttonTextOne ? (
                       buttonTextOne.length < 15 ? (
                         <a
@@ -1041,7 +1041,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                     ""
                   )}
                   {templateM && templateM !== "2" ? (
-                    <div className={selectCta == "2" ? "ctaArea" : ""}>
+                    <div className="ctaArea">
                       {buttonTextOne ? (
                         buttonTextOne.length < 15 ? (
                           <a

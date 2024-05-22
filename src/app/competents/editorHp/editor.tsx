@@ -200,34 +200,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
       ) : (
         ""
       )}
-      <FormInput
-        label="Background position"
-        value={formData.backgroundPostion}
-        onChange={(value) => handleInputChange("backgroundPostion", value)}
-        type="radio"
-        id="backgroundPostion"
-        classN="Contentposition"
-        options={[
-          {
-            value: "left",
-            svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.5 17V15.5H17.5V17H0.5ZM0.5 13.125V11.625H11.5V13.125H0.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM0.5 5.37498V3.875H11.5V5.37498H0.5ZM0.5 1.49998V0H17.5V1.49998H0.5Z" fill="black"/>
-                  </svg>
-                  `,
-          },
-          {
-            value: "center",
-            svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.5 17V15.5H17.5V17H0.5ZM4.5 13.125V11.625H13.5V13.125H4.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM4.5 5.37498V3.875H13.5V5.37498H4.5ZM0.5 1.49998V0H17.5V1.49998H0.5Z" fill="#1C1B1F"/> </svg>`,
-          },
-          {
-            value: "right",
-            svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.5 1.49998V0H17.5V1.49998H0.5ZM6.5 5.37498V3.875H17.5V5.37498H6.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM6.5 13.125V11.625H17.5V13.125H6.5ZM0.5 17V15.5H17.5V17H0.5Z" fill="#1C1B1F"/>
-                  </svg>
-                  `,
-          },
-        ]}
-      />
+
       <div className="ContainerOfInputs">
         <div className="title">Layout</div>
         <div className="innerDiv">
@@ -358,6 +331,36 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
             <div className="template"></div>
           </div>
           <div className="innerInputs">
+            <FormInput
+              label="Background position"
+              value={formData.backgroundPostion}
+              onChange={(value) =>
+                handleInputChange("backgroundPostion", value)
+              }
+              type="radio"
+              id="backgroundPostion"
+              classN="Contentposition"
+              options={[
+                {
+                  value: "left",
+                  svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 17V15.5H17.5V17H0.5ZM0.5 13.125V11.625H11.5V13.125H0.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM0.5 5.37498V3.875H11.5V5.37498H0.5ZM0.5 1.49998V0H17.5V1.49998H0.5Z" fill="black"/>
+                  </svg>
+                  `,
+                },
+                {
+                  value: "center",
+                  svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.5 17V15.5H17.5V17H0.5ZM4.5 13.125V11.625H13.5V13.125H4.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM4.5 5.37498V3.875H13.5V5.37498H4.5ZM0.5 1.49998V0H17.5V1.49998H0.5Z" fill="#1C1B1F"/> </svg>`,
+                },
+                {
+                  value: "right",
+                  svg: `<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 1.49998V0H17.5V1.49998H0.5ZM6.5 5.37498V3.875H17.5V5.37498H6.5ZM0.5 9.24995V7.75H17.5V9.24995H0.5ZM6.5 13.125V11.625H17.5V13.125H6.5ZM0.5 17V15.5H17.5V17H0.5Z" fill="#1C1B1F"/>
+                  </svg>
+                  `,
+                },
+              ]}
+            />
             <FormInput
               label="Background color"
               value={formData.backgroundColor}
@@ -495,6 +498,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
       (formData.templateM !== "0" && formData.device == "Mobile") ? (
         <>
           <div className="ContainerOfInputs UniqueSpaceCounter">
+            <div className="title">Text</div>
             <div className="innerDiv">
               <FormInput
                 label="Number of lines text"
@@ -892,8 +896,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
           </div>
           {/*Add button*/}
           <div className="ContainerOfInputs UniqueSpaceCounter">
-            <div className="titleSection">Add button</div>
-            <div className="innerDiv mtopSection">
+            <div className="title">Buttons</div>
+            <div className="innerDiv">
               <FormInput
                 label="Number of buttons"
                 value={formData.selectCta}
@@ -1014,8 +1018,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
           </div>
           {/*Add strip bottom*/}
           <div className="ContainerOfInputs UniqueSpaceCounter">
-            <div className="titleSection">Add bottom strip</div>
-            <div className="innerDiv ptop">
+            <div className="title">Bottom strip</div>
+            <div className="innerDiv">
               <div className="areaofInputCta">
                 <FormInput
                   label="Text"
@@ -1082,8 +1086,9 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
           </div>
           {/*Disclaimer left */}
           <div className="ContainerOfInputs UniqueSpaceCounter">
+            <div className="title">Disclaimers</div>
             <div className="titleSection">Disclaimer left</div>
-            <div className="innerDiv ptop">
+            <div className="innerDiv">
               <div className="areaofInputCta">
                 <FormInput
                   label="Disclaimer text"
@@ -1157,11 +1162,8 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
                 )}
               </div>
             </div>
-          </div>
-          {/*Disclaimer Right */}
-          <div className="ContainerOfInputs UniqueSpaceCounter">
             <div className="titleSection">Disclaimer right</div>
-            <div className="innerDiv ptop">
+            <div className="innerDiv ">
               <div className="areaofInputCta">
                 <FormInput
                   label="Disclaimer text"

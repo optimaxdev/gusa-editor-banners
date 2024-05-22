@@ -709,10 +709,6 @@ input[type="date"] {
     }
 }
 
-.mtopSection {
-    padding-top: 17.5px;
-}
-
 // Cta style
 .inputCtaText {
     width: 324px !important;
@@ -725,6 +721,14 @@ input[type="date"] {
 .areaofInputCta {
     .form-input {
         padding-top: 12px;
+
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+
+    .ptop {
+        padding-top: 0;
     }
 }
 
@@ -734,10 +738,4 @@ input[type="date"] {
     font-weight: 600;
     line-height: normal;
     padding-top: 17.5px;
-}
-
-// strip Bottom
-
-.ptop {
-    padding-top: 0;
 }
