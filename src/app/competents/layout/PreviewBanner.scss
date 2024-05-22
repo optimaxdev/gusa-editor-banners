@@ -150,11 +150,11 @@ video {
         flex-direction: column;
 
         @include desktop-medium() {
-            zoom: 0.4;
+            zoom: 0.3;
         }
 
         @include tablet-large {
-            zoom: 0.38;
+            zoom: 0.2;
         }
     }
 
@@ -282,11 +282,11 @@ video {
     flex-direction: column;
 
     @include desktop-medium() {
-        zoom: 0.4;
+        zoom: 0.33;
     }
 
     @include tablet-large {
-        zoom: 0.38;
+        zoom: 0.2;
     }
 }
 
