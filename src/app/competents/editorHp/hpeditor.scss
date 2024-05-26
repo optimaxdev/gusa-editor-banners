@@ -485,6 +485,11 @@ input[type="date"] {
     .Dark {
         opacity: 0;
     }
+
+    input[type="radio"] {
+        width: 62px;
+        height: 20px;
+    }
 }
 
 .themeMode {
@@ -508,6 +513,15 @@ input[type="date"] {
     transition: left 0.2s;
 }
 
+input[value="Dark"] {
+    z-index: 1;
+    left: -38px;
+}
+
+input[value="Light"] {
+    left: 0px;
+}
+
 .activeCotainer {
     .BallSwitch {
         left: 42.5px;
@@ -519,6 +533,10 @@ input[type="date"] {
     .Dark {
         opacity: 1;
         transform: translateX(-24px);
+    }
+
+    input[value="Light"] {
+        z-index: 2;
     }
 
     .Light {
@@ -738,4 +756,11 @@ input[type="date"] {
     font-weight: 600;
     line-height: normal;
     padding-top: 17.5px;
+}
+
+.maskChangeTheme {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
 }
