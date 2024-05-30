@@ -10,12 +10,44 @@
 .sideBar {
     width: 600px;
     background-color: #fff;
+    position: relative;
+    transition: 0.4s;
 
     @include tablet-large() {
         width: 478px;
     }
 }
 
+.cricleClose {
+    width: 58px;
+    height: 58px;
+    background: #2196F3;
+    position: absolute;
+    right: -32px;
+    border-radius: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: 0.4s;
+}
+
+.hidSideBar {
+    transform: translateX(-100%);
+    width: 0;
+
+    .cricleClose {
+        transform: rotate(180deg);
+        right: -58px;
+    }
+
+    // .nav {
+   //     opacity: 0;
+   // }
+}
 
 .scrollBar {
     padding-bottom: 40px;
@@ -26,7 +58,10 @@
 
     &::-webkit-scrollbar {
         width: 5px;
+        background-color: transparent;
     }
+
+
 
     /* Track */
     &::-webkit-scrollbar-track {
@@ -35,10 +70,15 @@
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        background: #DEDEDE;
+        background: #ffffff;
         border-radius: 10px;
-        ;
+    }
+
+    &:hover {
+        &::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background: #DEDEDE;
+        }
     }
 
     /* Handle on hover */

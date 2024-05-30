@@ -1,6 +1,6 @@
 // components/Layout.tsx
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Navbar from "../navbar/navbar";
 import PreviewBanner from "./PreviewBanner";
 import PreviewCode from "./PreviewCode";
@@ -15,10 +15,53 @@ const Layout: React.FC<LayoutProps> = ({
   currentPage,
   formDataHp,
 }) => {
+  const btnCloseRef = useRef<HTMLDivElement>(null);
+  const sideBarRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const btnClose = btnCloseRef.current;
+    const sideBar = sideBarRef.current;
+    const container = containerRef.current;
+    const handleToggleSidebar = () => {
+      if (sideBar) {
+        sideBar.classList.toggle("hidSideBar");
+      }
+      if (container) {
+        container.classList.toggle("fullwidth");
+      }
+    };
+
+    if (btnClose) {
+      btnClose.addEventListener("click", handleToggleSidebar);
+    }
+
+    return () => {
+      if (btnClose) {
+        btnClose.removeEventListener("click", handleToggleSidebar);
+      }
+    };
+  }, []);
   return (
     <div className="allContainer">
-      <main className="container">
-        <div className="sideBar">
+      <main className="container" ref={containerRef}>
+        <div className="sideBar" ref={sideBarRef}>
+          <div className="cricleClose" ref={btnCloseRef}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="22"
+              viewBox="0 0 14 22"
+              fill="none"
+            >
+              <path
+                d="M12 2L2 11L12 20"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
           <header>
             <Navbar />
           </header>
