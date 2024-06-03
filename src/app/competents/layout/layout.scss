@@ -18,36 +18,51 @@
     }
 }
 
-.cricleClose {
-    width: 58px;
-    height: 58px;
-    background: #2196F3;
-    position: absolute;
-    right: -32px;
-    border-radius: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transform: rotate(0deg);
-    transition: 0.4s;
-}
+// .cricleClose {
+//     width: 58px;
+//     height: 58px;
+//     background: #2196F3;
+//     position: absolute;
+//     right: -32px;
+//     border-radius: 50px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     cursor: pointer;
+//     transform: rotate(0deg);
+//     transition: 0.4s;
+//     z-index: 33;
+// }
 
-.hidSideBar {
-    transform: translateX(-100%);
-    width: 0;
+// .hidSideBar {
+    //     transform: translateX(-100%);
 
-    .cricleClose {
-        transform: rotate(180deg);
-        right: -58px;
-    }
 
-    // .nav {
-   //     opacity: 0;
-   // }
-}
+    //     .cricleClose {
+    //         transform: rotate(180deg);
+    //         right: -58px;
+    //     }
+
+    //     // .nav {
+    //     //     opacity: 0;
+    //     // }
+    // }
+
+    // .fullwidth {
+    //     .PreviewSide {
+    //         position: absolute;
+    //         width: 100%;
+    //         left: 0;
+    //         top: 0;
+    //         margin: 0;
+    //     }
+
+    //     .DesktopStyle {
+    //         height: 500px;
+    //     }
+    // }
 
 .scrollBar {
     padding-bottom: 40px;

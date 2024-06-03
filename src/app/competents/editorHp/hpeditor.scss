@@ -347,6 +347,7 @@ input[type="date"] {
     @include tablet-large {
         width: 310px;
         gap: 34px 0px;
+        margin: auto;
     }
 
     div[class*=areaTypeTemp-] {

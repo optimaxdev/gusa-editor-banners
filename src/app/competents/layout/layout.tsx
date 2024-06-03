@@ -15,37 +15,37 @@ const Layout: React.FC<LayoutProps> = ({
   currentPage,
   formDataHp,
 }) => {
-  const btnCloseRef = useRef<HTMLDivElement>(null);
-  const sideBarRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const btnClose = btnCloseRef.current;
-    const sideBar = sideBarRef.current;
-    const container = containerRef.current;
-    const handleToggleSidebar = () => {
-      if (sideBar) {
-        sideBar.classList.toggle("hidSideBar");
-      }
-      if (container) {
-        container.classList.toggle("fullwidth");
-      }
-    };
+  // const btnCloseRef = useRef<HTMLDivElement>(null);
+  // const sideBarRef = useRef<HTMLDivElement>(null);
+  // const containerRef = useRef<HTMLDivElement>(null);
+  // useEffect(() => {
+  //   const btnClose = btnCloseRef.current;
+  //   const sideBar = sideBarRef.current;
+  //   const container = containerRef.current;
+  //   const handleToggleSidebar = () => {
+  //     if (sideBar) {
+  //       sideBar.classList.toggle("hidSideBar");
+  //     }
+  //     if (container) {
+  //       container.classList.toggle("fullwidth");
+  //     }
+  //   };
 
-    if (btnClose) {
-      btnClose.addEventListener("click", handleToggleSidebar);
-    }
+  //   if (btnClose) {
+  //     btnClose.addEventListener("click", handleToggleSidebar);
+  //   }
 
-    return () => {
-      if (btnClose) {
-        btnClose.removeEventListener("click", handleToggleSidebar);
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (btnClose) {
+  //       btnClose.removeEventListener("click", handleToggleSidebar);
+  //     }
+  //   };
+  // }, []);
   return (
     <div className="allContainer">
-      <main className="container" ref={containerRef}>
-        <div className="sideBar" ref={sideBarRef}>
-          <div className="cricleClose" ref={btnCloseRef}>
+      <main className="container">
+        <div className="sideBar">
+          <div className="cricleClose">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
