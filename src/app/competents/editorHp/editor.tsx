@@ -139,7 +139,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
   return (
     <form className="hpEditor" onSubmit={handleSubmit}>
       <FormInput
-        label="Device"
+        label="Devices"
         value={formData.device}
         onChange={(value) => handleInputChange("device", value)}
         type="radio"
