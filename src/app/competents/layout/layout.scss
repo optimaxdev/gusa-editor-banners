@@ -276,11 +276,12 @@ blockquote {
     }
 
     .previewBanner {
+        min-height: 500px;
         height: 100%;
-        max-height: 500px;
 
         @include desktop-medium {
             max-height: 500px;
+            height: 60vh;
             min-height: 278px;
         }
     }
