@@ -61,7 +61,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
   backgroundColor,
   themeMode,
   backgroundPostion,
-  link,
+  link = "http://localhost:3000/gusa-editor-banners/df ",
   contentPostion,
   select,
   linetext,
@@ -102,13 +102,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
 }) => {
   return (
     <>
-      <a
-        href={
-          (deviceType == "Desktop" && templateD === "0") ||
-          (deviceType == "Mobile" && templateM === "0")
-            ? link
-            : "#"
-        }
+      <div
         style={{
           backgroundColor:
             backgroundColor === ""
@@ -123,6 +117,21 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             : "previewBanner DesktopStyle"
         } ${themeMode == "Dark" ? "darkTxt" : "lightText"}`}
       >
+        {(deviceType == "Desktop" && templateD === "0") ||
+        (deviceType == "Mobile" && templateM === "0") ? (
+          <a
+            href={
+              (deviceType == "Desktop" && templateD === "0") ||
+              (deviceType == "Mobile" && templateM === "0")
+                ? link
+                : "#"
+            }
+            className="fullLinkBanner"
+          ></a>
+        ) : (
+          ""
+        )}
+
         {templateD == "0" && deviceType !== "Mobile" ? (
           <>
             {formatType == "video" ? (
@@ -1176,7 +1185,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             )}
           </div>
         )}
-      </a>
+      </div>
       {deviceType == "Mobile" && stripText ? (
         <a
           href={stripLink}

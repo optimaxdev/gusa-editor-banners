@@ -304,6 +304,10 @@ blockquote {
     .halfBanner {
         width: 50%;
         min-height: 500px;
+
+        @include desktop-medium {
+            min-height: 278px;
+        }
     }
 
     .imagePreviewHalf {
@@ -319,5 +323,9 @@ blockquote {
 
     blockquote {
         display: none;
+    }
+
+    .textside {
+        left: 14%;
     }
 }
