@@ -2,7 +2,6 @@
 
 .nav {
     height: 80px;
-    display: flex;
     margin: 0;
     padding: 0;
 
@@ -13,7 +12,6 @@
 
     a {
         text-decoration: none;
-        width: 600px;
         display: block;
         font-size: 24px;
         font-style: normal;
@@ -21,9 +19,6 @@
         text-align: center;
         color: #000;
 
-        @include tablet-large {
-            width: 239px;
-        }
     }
 }
 
@@ -34,14 +29,4 @@
 .areaIndicator {
     height: 8px;
     background-color: #DEDEDE;
-}
-
-.indicator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 8px;
-    width: 50%;
-    background-color: #2196F3;
-    transition: left 0.3s ease;
 }

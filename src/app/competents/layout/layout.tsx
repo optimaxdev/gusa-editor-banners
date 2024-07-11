@@ -1,13 +1,15 @@
 // components/Layout.tsx
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Navbar from "../navbar/navbar";
 import PreviewBanner from "./PreviewBanner";
 import PreviewCode from "./PreviewCode";
+import FullScreen from "./fullscreen";
+
 interface LayoutProps {
   children: React.ReactNode;
   currentPage: string;
-  formDataHp: any;
+  formDataHp: any; // Replace with appropriate type if available
 }
 
 const Layout: React.FC<LayoutProps> = ({
@@ -15,53 +17,16 @@ const Layout: React.FC<LayoutProps> = ({
   currentPage,
   formDataHp,
 }) => {
-  // const btnCloseRef = useRef<HTMLDivElement>(null);
-  // const sideBarRef = useRef<HTMLDivElement>(null);
-  // const containerRef = useRef<HTMLDivElement>(null);
-  // useEffect(() => {
-  //   const btnClose = btnCloseRef.current;
-  //   const sideBar = sideBarRef.current;
-  //   const container = containerRef.current;
-  //   const handleToggleSidebar = () => {
-  //     if (sideBar) {
-  //       sideBar.classList.toggle("hidSideBar");
-  //     }
-  //     if (container) {
-  //       container.classList.toggle("fullwidth");
-  //     }
-  //   };
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
-  //   if (btnClose) {
-  //     btnClose.addEventListener("click", handleToggleSidebar);
-  //   }
+  const handleFullScreenClick = () => {
+    setIsFullScreen(!isFullScreen);
+  };
 
-  //   return () => {
-  //     if (btnClose) {
-  //       btnClose.removeEventListener("click", handleToggleSidebar);
-  //     }
-  //   };
-  // }, []);
   return (
-    <div className="allContainer">
+    <div className={`allContainer ${isFullScreen ? "activeFullScreen" : ""}`}>
       <main className="container">
         <div className="sideBar">
-          <div className="cricleClose">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="22"
-              viewBox="0 0 14 22"
-              fill="none"
-            >
-              <path
-                d="M12 2L2 11L12 20"
-                stroke="white"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
           <header>
             <Navbar />
           </header>
@@ -85,6 +50,14 @@ const Layout: React.FC<LayoutProps> = ({
             )}
             {currentPage === "HP" && (
               <div>
+                {formDataHp.device == "Desktop" ? (
+                  <div onClick={handleFullScreenClick}>
+                    <FullScreen isActive={isFullScreen} />
+                  </div>
+                ) : (
+                  ""
+                )}
+
                 <PreviewBanner
                   ImageLink={formDataHp.imageLink}
                   VideoLink={formDataHp.videoLink}

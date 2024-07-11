@@ -110,7 +110,12 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
             : "#"
         }
         style={{
-          backgroundColor: backgroundColor === "" ? "#000000" : backgroundColor,
+          backgroundColor:
+            backgroundColor === ""
+              ? ImageLink
+                ? ""
+                : "#000"
+              : backgroundColor,
         }}
         className={`${
           deviceType == "Mobile"

@@ -11,58 +11,12 @@
     width: 600px;
     background-color: #fff;
     position: relative;
-    transition: 0.4s;
+    transition: 0.2s;
 
     @include tablet-large() {
         width: 478px;
     }
 }
-
-// .cricleClose {
-//     width: 58px;
-//     height: 58px;
-//     background: #2196F3;
-//     position: absolute;
-//     right: -32px;
-//     border-radius: 50px;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     cursor: pointer;
-//     transform: rotate(0deg);
-//     transition: 0.4s;
-//     z-index: 33;
-// }
-
-// .hidSideBar {
-    //     transform: translateX(-100%);
-
-
-    //     .cricleClose {
-    //         transform: rotate(180deg);
-    //         right: -58px;
-    //     }
-
-    //     // .nav {
-    //     //     opacity: 0;
-    //     // }
-    // }
-
-    // .fullwidth {
-    //     .PreviewSide {
-    //         position: absolute;
-    //         width: 100%;
-    //         left: 0;
-    //         top: 0;
-    //         margin: 0;
-    //     }
-
-    //     .DesktopStyle {
-    //         height: 500px;
-    //     }
-    // }
 
 .scrollBar {
     padding-bottom: 40px;
@@ -70,6 +24,11 @@
     overflow-y: scroll;
     overflow-x: hidden;
     max-height: 90vh;
+    width: 600px;
+
+    @include tablet-large {
+        width: 239px;
+    }
 
     &::-webkit-scrollbar {
         width: 5px;
@@ -106,6 +65,7 @@
 .PreviewSide {
     margin: 100px auto;
     width: 1101.304px;
+    transition: 0.4s;
 
     @include desktop() {
         width: 746px;
@@ -271,4 +231,92 @@ blockquote {
     margin: auto;
     height: 360px;
     overflow: hidden;
+}
+
+.fullScreen {
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05), 0px 6px 13px 0px rgba(0, 0, 0, 0.06), 0px 1px 6px 0px rgba(0, 0, 0, 0.04);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    justify-content: center;
+    margin-bottom: 32px;
+    cursor: pointer;
+}
+
+.flexEnd {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*Active full screen*/
+.activeFullScreen {
+    .sideBar {
+        transform: translateX(-100%);
+    }
+
+    .PreviewSide {
+        width: 100%;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    .flexEnd {
+        position: absolute;
+        z-index: 1;
+        top: 20px;
+        right: 20px;
+    }
+
+    .previewBanner {
+        height: 100%;
+        max-height: 500px;
+
+        @include desktop-medium {
+            max-height: 500px;
+            min-height: 278px;
+        }
+    }
+
+    .imagePreview {
+        aspect-ratio: auto;
+        display: block;
+        height: 60vh;
+        max-height: 500px;
+    }
+
+    .contentPostion {
+        zoom: 1;
+    }
+
+    .button {
+        zoom: 1;
+    }
+
+    .halfBanner {
+        width: 50%;
+        min-height: 500px;
+    }
+
+    .imagePreviewHalf {
+        aspect-ratio: auto;
+        display: block;
+        height: 60vh;
+        max-height: 500px;
+    }
+
+    .textside {
+        zoom: 1;
+    }
+
+    blockquote {
+        display: none;
+    }
 }

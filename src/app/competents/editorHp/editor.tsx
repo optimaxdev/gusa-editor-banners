@@ -446,7 +446,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
           </div>
         </div>
       </div>
-      {formData.templateD == "0" || formData.templateM == "0" ? (
+      {formData.templateD == "0" && formData.templateM == "0" ? (
         ""
       ) : (
         <div className="ContainerOfInputs UniqueSpaceCounter">
