@@ -146,10 +146,14 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
         "template": ${
           deviceType == "Mobile"
             ? templateM
-              ? templateM
+              ? templateM == "0"
+                ? "1"
+                : templateM
               : 0
             : templateD
-            ? templateD
+            ? templateD == "0"
+              ? "1"
+              : templateD
             : 0
         }
         ${
@@ -179,7 +183,12 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
            (deviceType == "Mobile" && templateM === "0")
              ? `"linkAnalytics":"${`Unknown >> slider (control) >> Slide 1 >>${
                  event ? event : ""
-               }`}"`
+               }`}" ,
+               
+               "lines": [{
+          "text":""
+    }]
+               `
              : ""
          }
          ${

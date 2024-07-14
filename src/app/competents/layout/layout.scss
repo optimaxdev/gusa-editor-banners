@@ -246,6 +246,7 @@ blockquote {
     justify-content: center;
     margin-bottom: 32px;
     cursor: pointer;
+    z-index: 20;
 }
 
 .flexEnd {
@@ -270,7 +271,6 @@ blockquote {
 
     .flexEnd {
         position: absolute;
-        z-index: 1;
         top: 20px;
         right: 20px;
     }
