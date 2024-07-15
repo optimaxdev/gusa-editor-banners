@@ -137,7 +137,19 @@ const PreviewCode: React.FC<PreviewCodeProps> = ({
   const jsonString = `{
     "value": [
       {
-        "image": "${ImageLink}",
+        "image": "${
+          ImageLink
+            ? ImageLink
+            : templateD == "4" || templateD == "5"
+            ? "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/desktop-image-d-hp.png"
+            : templateD == "1"
+            ? "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/hp-new-banner-d-sale-new.png"
+            : templateD == "2"
+            ? "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/spring-fever-d-hp-banner.png"
+            : templateD == "3"
+            ? "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/Winter_Sale_-_HP_Desktop_Banner.png"
+            : "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/v1669122489/banner-poster-d.png"
+        }",
         ${
           formatType === "video" && VideoLink
             ? `"video": [{ "source": "${VideoLink}", "type": "video/mp4" }],`

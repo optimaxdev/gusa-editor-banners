@@ -146,7 +146,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                   <source src={VideoLink} type="video/mp4" />
                 </video>
               ) : (
-                ""
+                <Image
+                  src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/v1669122489/banner-poster-d.png"
+                  alt={"image"}
+                  width={1024}
+                  height={800}
+                  className="imagePreview"
+                  style={{ objectPosition: backgroundPostion }}
+                />
               )
             ) : ImageLink ? (
               <Image
@@ -158,7 +165,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                 style={{ objectPosition: backgroundPostion }}
               />
             ) : (
-              ""
+              <Image
+                src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/v1669122489/banner-poster-d.png"
+                alt={"image"}
+                width={1024}
+                height={800}
+                className="imagePreview"
+                style={{ objectPosition: backgroundPostion }}
+              />
             )}
           </>
         ) : (
@@ -316,7 +330,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       <source src={VideoLink} type="video/mp4" />
                     </video>
                   ) : (
-                    ""
+                    <Image
+                      src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/desktop-image-d-hp.png"
+                      alt={"image"}
+                      width={1024}
+                      height={256}
+                      className="imagePreviewHalf"
+                      style={{ objectPosition: backgroundPostion }}
+                    />
                   )
                 ) : ImageLink ? (
                   <Image
@@ -328,7 +349,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                     style={{ objectPosition: backgroundPostion }}
                   />
                 ) : (
-                  ""
+                  <Image
+                    src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/desktop-image-d-hp.png"
+                    alt={"image"}
+                    width={1024}
+                    height={256}
+                    className="imagePreviewHalf"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
                 )}
               </div>
               {disclaimerleftTxt ? (
@@ -398,7 +426,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       <source src={VideoLink} type="video/mp4" />
                     </video>
                   ) : (
-                    ""
+                    <Image
+                      src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/desktop-image-d-hp.png"
+                      alt={"image"}
+                      width={1024}
+                      height={256}
+                      className="imagePreviewHalf"
+                      style={{ objectPosition: backgroundPostion }}
+                    />
                   )
                 ) : ImageLink ? (
                   <Image
@@ -410,7 +445,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                     style={{ objectPosition: backgroundPostion }}
                   />
                 ) : (
-                  ""
+                  <Image
+                    src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/desktop-image-d-hp.png"
+                    alt={"image"}
+                    width={1024}
+                    height={256}
+                    className="imagePreviewHalf"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
                 )}
               </div>
               <div
@@ -620,8 +662,42 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                   >
                     <source src={VideoLink} type="video/mp4" />
                   </video>
+                ) : templateD == "3" ? (
+                  <Image
+                    src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/Winter_Sale_-_HP_Desktop_Banner.png"
+                    alt={"image"}
+                    width={1024}
+                    height={800}
+                    className="imagePreview"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
+                ) : templateD == "2" ? (
+                  <Image
+                    src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/spring-fever-d-hp-banner.png"
+                    alt={"image"}
+                    width={1024}
+                    height={800}
+                    className="imagePreview"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
+                ) : templateD == "1" ? (
+                  <Image
+                    src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/hp-new-banner-d-sale-new.png"
+                    alt={"image"}
+                    width={1024}
+                    height={800}
+                    className="imagePreview"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
                 ) : (
-                  ""
+                  <Image
+                    src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/Winter_Sale_-_HP_Desktop_Banner.png"
+                    alt={"image"}
+                    width={1024}
+                    height={800}
+                    className="imagePreview"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
                 )
               ) : ImageLink ? (
                 <Image
@@ -632,8 +708,42 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                   className="imagePreview"
                   style={{ objectPosition: backgroundPostion }}
                 />
+              ) : templateD == "3" ? (
+                <Image
+                  src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/Winter_Sale_-_HP_Desktop_Banner.png"
+                  alt={"image"}
+                  width={1024}
+                  height={800}
+                  className="imagePreview"
+                  style={{ objectPosition: backgroundPostion }}
+                />
+              ) : templateD == "2" ? (
+                <Image
+                  src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/spring-fever-d-hp-banner.png"
+                  alt={"image"}
+                  width={1024}
+                  height={800}
+                  className="imagePreview"
+                  style={{ objectPosition: backgroundPostion }}
+                />
+              ) : templateD == "1" ? (
+                <Image
+                  src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/hp-new-banner-d-sale-new.png"
+                  alt={"image"}
+                  width={1024}
+                  height={800}
+                  className="imagePreview"
+                  style={{ objectPosition: backgroundPostion }}
+                />
               ) : (
-                ""
+                <Image
+                  src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/Winter_Sale_-_HP_Desktop_Banner.png"
+                  alt={"image"}
+                  width={1024}
+                  height={800}
+                  className="imagePreview"
+                  style={{ objectPosition: backgroundPostion }}
+                />
               )}
               <div
                 className={`contentPostion ${
@@ -844,7 +954,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                         <source src={VideoLink} type="video/mp4" />
                       </video>
                     ) : (
-                      ""
+                      <Image
+                        src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/mobile-image-d-hp.png"
+                        alt={"image"}
+                        width={375}
+                        height={180}
+                        className="imagePreviewHalfMobile"
+                        style={{ objectPosition: backgroundPostion }}
+                      />
                     )
                   ) : ImageLink ? (
                     <Image
@@ -856,7 +973,14 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                       style={{ objectPosition: backgroundPostion }}
                     />
                   ) : (
-                    ""
+                    <Image
+                      src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/mobile-image-d-hp.png"
+                      alt={"image"}
+                      width={375}
+                      height={180}
+                      className="imagePreviewHalfMobile"
+                      style={{ objectPosition: backgroundPostion }}
+                    />
                   )}
                 </div>
                 <div
@@ -976,8 +1100,24 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                     >
                       <source src={VideoLink} type="video/mp4" />
                     </video>
+                  ) : templateM == "0" ? (
+                    <Image
+                      src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/v1669122489/banner-poster-m.png"
+                      alt={"image"}
+                      width={375}
+                      height={360}
+                      className="imagePreviewFullimage"
+                      style={{ objectPosition: backgroundPostion }}
+                    />
                   ) : (
-                    ""
+                    <Image
+                      src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/spring-fever-m-hp-banner.png"
+                      alt={"image"}
+                      width={375}
+                      height={360}
+                      className="imagePreviewFullimage"
+                      style={{ objectPosition: backgroundPostion }}
+                    />
                   )
                 ) : ImageLink ? (
                   <Image
@@ -988,8 +1128,24 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
                     className="imagePreviewFullimage"
                     style={{ objectPosition: backgroundPostion }}
                   />
+                ) : templateM == "0" ? (
+                  <Image
+                    src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/v1669122489/banner-poster-m.png"
+                    alt={"image"}
+                    width={375}
+                    height={360}
+                    className="imagePreviewFullimage"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
                 ) : (
-                  ""
+                  <Image
+                    src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/spring-fever-m-hp-banner.png"
+                    alt={"image"}
+                    width={375}
+                    height={360}
+                    className="imagePreviewFullimage"
+                    style={{ objectPosition: backgroundPostion }}
+                  />
                 )}
                 <div
                   className={`contentPostion ${
