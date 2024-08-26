@@ -1,6 +1,7 @@
 @import './resoultion.scss';
-@import './PreviewBanner.scss';
-
+@import '../editorHp/PreviewBanner.scss';
+@import '../editorCtp/PreviewBanner.scss';
+@import'./form.scss';
 
 .container {
     display: flex;
@@ -84,6 +85,7 @@
     height: 100vh;
     width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
 
     &::-webkit-scrollbar {
         width: 5px;
@@ -257,8 +259,13 @@ blockquote {
 
 /*Active full screen*/
 .activeFullScreen {
+
     .sideBar {
-        transform: translateX(-100%);
+        transform: translateX(-2000px);
+    }
+
+    .navbar-container {
+        opacity: 0;
     }
 
     .PreviewSide {
@@ -327,5 +334,138 @@ blockquote {
 
     .textside {
         left: 14%;
+    }
+}
+
+// Navbar
+
+.nav {
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: -50px;
+    transition: 0.4s;
+    opacity: 0;
+    margin-top: 6px;
+
+    li {
+        list-style: none;
+        margin-bottom: 13px;
+        transition: 0.3s;
+    }
+
+    a {
+        text-decoration: none;
+        color: #2196F3;
+        font-size: 14px;
+        font-weight: 400;
+        padding-left: 17px;
+    }
+}
+
+.navbar-container {
+    position: relative;
+    width: 34px;
+    transition: 0.2s;
+    background-color: #E7F4FE;
+
+}
+
+.arrow {
+    border-radius: 0px 10px 10px 0px;
+    background: #2196F3;
+    display: flex;
+    width: 34px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 1;
+    position: relative;
+}
+
+.wide {
+    width: 260px;
+
+
+    .arrow {
+        transform: rotate(180deg);
+        position: absolute;
+        background-color: #E7F4FE;
+        right: 0;
+
+        svg,
+        path {
+            stroke: #2196F3;
+        }
+
+
+    }
+
+    @include desktop-medium {
+        width: 180px;
+    }
+
+    .nav {
+        left: 0px;
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes slideLeft {
+    from {
+        margin-left: -20%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+
+.activeLink {
+    border-radius: 5px;
+    background: #2196F3;
+    width: 114px;
+    height: 26px;
+    z-index: 5;
+    position: relative;
+    line-height: 26px;
+    margin-left: 6px;
+
+    a {
+        color: #fff;
+        padding-left: 11px;
+
+    }
+
+}
+
+.activeScroll {
+    transition: 0.2s;
+
+    .sideBar {
+
+        @include desktop-medium {
+            width: 50%;
+            overflow-x: auto;
+        }
+    }
+
+    .scollPreviewside {
+        @include desktop-medium {
+            width: 50%;
+        }
+    }
+
+    .PreviewSide {
+        @include desktop-medium {
+            width: 100%;
+            margin-left: 20px;
+        }
+
     }
 }

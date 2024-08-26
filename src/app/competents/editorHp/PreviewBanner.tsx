@@ -51,7 +51,7 @@ interface PreviewBannerProps {
   stripthemeColor: string;
 }
 
-const PreviewBanner: React.FC<PreviewBannerProps> = ({
+const PreviewBannerHp: React.FC<PreviewBannerProps> = ({
   ImageLink,
   VideoLink,
   templateD = "0",
@@ -1378,4 +1378,4 @@ const PreviewBanner: React.FC<PreviewBannerProps> = ({
   );
 };
 
-export default PreviewBanner;
+export default PreviewBannerHp;

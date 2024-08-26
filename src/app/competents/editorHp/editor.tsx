@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FormInput from "./FormInput";
+import FormInput from "../layout/FormInput";
 interface FormProps {
   onFormSubmit: (formData: FormData) => void;
 }
@@ -137,7 +137,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
   };
 
   return (
-    <form className="hpEditor" onSubmit={handleSubmit}>
+    <form className="editorLayout" onSubmit={handleSubmit}>
       <FormInput
         label="Devices"
         value={formData.device}
@@ -452,7 +452,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
         <div className="ContainerOfInputs UniqueSpaceCounter">
           <div className="innerDiv flexTwoinput">
             <FormInput
-              label=""
+              label="counter"
               value={formData.checkactive}
               onChange={() => {
                 const newValue =
@@ -462,14 +462,21 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               type="checkbox"
               classN="checkactive"
             />
-            <div className="pickerDate">
-              <FormInput
-                label="Counter"
-                value={formData.date}
-                onChange={(value) => handleInputChange("date", value)}
-                type="date"
-                classN="inputCounter"
-              />
+            <div
+              className={`pickerDate ${
+                formData.checkactive == "true" ? "activePicker" : ""
+              }`}
+            >
+              <div className="disabled">
+                <div className="maskHide"></div>
+                <FormInput
+                  label="Counter"
+                  value={formData.date}
+                  onChange={(value) => handleInputChange("date", value)}
+                  type="date"
+                  classN="inputCounter"
+                />
+              </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -917,7 +924,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               />
 
               <div className="areaofInputCta">
-                <div className="titleofBtn">Button 1:</div>
+                <div className="titleBold">Button 1:</div>
                 <FormInput
                   label="Text"
                   value={formData.buttonTextOne}
@@ -966,7 +973,7 @@ const EditorHp: React.FC<FormProps> = ({ onFormSubmit }) => {
               </div>
               {formData.selectCta === "2" && (
                 <div className="areaofInputCta">
-                  <div className="titleofBtn">Button 2:</div>
+                  <div className="titleBold">Button 2:</div>
                   <FormInput
                     label="Text"
                     value={formData.buttonTextTwo}

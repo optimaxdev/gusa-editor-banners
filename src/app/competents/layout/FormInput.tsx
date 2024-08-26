@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./hpeditor.scss";
 
 interface FormInputProps {
   id?: string;
@@ -55,15 +54,7 @@ const FormInput: React.FC<FormInputProps> = ({
     });
   };
   const [isActive, setActive] = useState(false);
-  const checkBoxToActiveCounter = () => {
-    const checkbox = document.querySelector(".checkactive");
-    const inputDate = document.querySelector(".inputCounter");
-    const pickerDate = document.querySelector(".pickerDate");
-    if (checkbox) {
-      inputDate?.toggleAttribute("disabled");
-      pickerDate?.classList.toggle("activePicker");
-    }
-  };
+
   const activeTabHandler = (value: string) => {
     setActiveTab(value);
     contentPosition(value);
@@ -97,8 +88,10 @@ const FormInput: React.FC<FormInputProps> = ({
       {classN == "layoutTemplateArea" ? (
         ""
       ) : (
-        <label className={`labelTxt ${label ? "pr" : ""}`}>
-          {label ? label + ":" : ""}
+        <label
+          className={`labelTxt ${label && label !== "counter" ? "pr" : ""}`}
+        >
+          {label && label !== "counter" ? label + ":" : ""}
         </label>
       )}
       {type === "radio" ? (
@@ -274,12 +267,6 @@ const FormInput: React.FC<FormInputProps> = ({
             onChange={(e) => {
               onChange(e.target.value);
             }}
-            onClick={
-              type === "checkbox"
-                ? (checkBoxToActiveCounter as React.MouseEventHandler<HTMLInputElement>)
-                : undefined
-            }
-            disabled={classN === "inputCounter" ? true : false}
             placeholder={classN === "inputLineText" ? placeholder : ""}
             max={max}
             min={min}
@@ -296,7 +283,7 @@ const FormInput: React.FC<FormInputProps> = ({
           className="pxValue"
           style={parseInt(value) >= 10 ? { right: "22px" } : { right: "22px" }}
         >
-          px
+          {classN == "campaignTime" ? "" : "px"}
         </span>
       )}
       {type === "color" ? (

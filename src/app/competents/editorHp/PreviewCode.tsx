@@ -58,7 +58,7 @@ interface PreviewCodeProps {
   disclaimerrightbgColor: string;
 }
 
-const PreviewCode: React.FC<PreviewCodeProps> = ({
+const PreviewCodeHp: React.FC<PreviewCodeProps> = ({
   ImageLink,
   VideoLink,
   templateD = "0",
@@ -452,4 +452,4 @@ ${
   );
 };
 
-export default PreviewCode;
+export default PreviewCodeHp;

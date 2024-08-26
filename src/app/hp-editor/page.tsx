@@ -28,7 +28,7 @@ const HpPage: React.FC = () => {
   };
 
   return (
-    <Layout currentPage="HP" formDataHp={formDataHp}>
+    <Layout currentPage="HP" formData={formDataHp}>
       <div>
         <EditorHp onFormSubmit={handleFormSubmit} />
       </div>
