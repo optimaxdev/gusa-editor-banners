@@ -1,0 +1,34 @@
+:root {
+  --max-width: 1296px;
+}
+@media (max-width: 1440px) {
+  :root {
+    --max-width: 1296px;
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --max-width: 1300px;
+  }
+}
+@media ((min-width: 1164px) and (max-width: 1439.9px)) {
+  :root {
+    --max-width: 1164px;
+  }
+}
+@media (max-width: 1164px) {
+  :root {
+    --max-width: 936px;
+  }
+}
+@media (max-width: 900px) {
+  :root {
+    --max-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .allContainer {
+    display: none;
+  }
+}/*# sourceMappingURL=resoultion.css.map */

@@ -164,13 +164,20 @@ ${
         select == "1"
           ? linetext
             ? `{
-    ${linetext ? `"title": "${linetext}"` : ""} 
+    ${linetext.length <= 30 ? `"title": "${linetext}"` : ""} 
     ${code ? `,"code":"${code}"` : ""}
     ${
       selectDsicountType == "Percentage"
-        ? `,"discount_type": "Percentage",
-        "discount_value": "${discountValue ? discountValue : ""}"`
-        : `,"discount_type": "Bogo"`
+        ? `,"discount_type": "Percentage", "discount_value": "${
+            discountValue ? discountValue : ""
+          }"`
+        : `${
+            selectDsicountType === "Bogo"
+              ? `,"discount_type": "Bogo"`
+              : `,"discount_type": "dollars","discount_value": "${
+                  discountValue ? discountValue : ""
+                }"`
+          }`
     }
 ${mdHeadline ? `,"details_title":"${mdHeadline}"` : ""}
 ${mdContent ? `,"details_description":"${mdContent}"` : ""}
@@ -214,13 +221,19 @@ ${
     ${
       linetext
         ? `  {
-    ${linetext ? `"title": "${linetext}"` : ""} 
+    ${linetext.length <= 30 ? `"title": "${linetext}"` : ""} 
     ${code ? `,"code":"${code}"` : ""}
     ${
       selectDsicountType == "Percentage"
         ? `,"discount_type": "Percentage",
         "discount_value": "${discountValue ? discountValue : ""}"`
-        : `,"discount_type": "Bogo"`
+        : `${
+            selectDsicountType === "Bogo"
+              ? `,"discount_type": "Bogo"`
+              : `,"discount_type": "dollars","discount_value": "${
+                  discountValue ? discountValue : ""
+                }"`
+          }`
     }
 ${mdHeadline ? `,"details_title":"${mdHeadline}"` : ""}
 ${mdContent ? `,"details_description":"${mdContent}"` : ""}
@@ -254,7 +267,7 @@ ${
         : ""
     }
 ${
-  linetexttwo
+  linetexttwo.length <= 30
     ? `  ,{
   "title": "${linetexttwo}"
    ${codeTwo ? `,"code":"${codeTwo}"` : ""}
@@ -262,7 +275,13 @@ ${
       selectDsicountTypeTwo == "Percentage"
         ? `,"discount_type": "Percentage",
         "discount_value": "${discountValueTwo ? discountValueTwo : ""}"`
-        : `,"discount_type": "Bogo"`
+        : `${
+            selectDsicountTypeTwo === "Bogo"
+              ? `,"discount_type": "Bogo"`
+              : `,"discount_type": "dollars","discount_value": "${
+                  discountValueTwo ? discountValueTwo : ""
+                }"`
+          }`
     }
 ${mdHeadlineTwo ? `,"details_title":"${mdHeadlineTwo}"` : ""}
 ${mdContentTwo ? `,"details_description":"${mdContentTwo}"` : ""}
@@ -301,7 +320,7 @@ ${
       select == "3"
         ? `
         ${
-          linetext
+          linetext.length <= 30
             ? `{
     ${linetext ? `"title": "${linetext}"` : ""} 
     ${code ? `,"code":"${code}"` : ""}
@@ -343,7 +362,7 @@ ${
             : ""
         }
      ${
-       linetexttwo
+       linetexttwo.length <= 30
          ? `,{
       "title": "${linetexttwo}"
        ${codeTwo ? `,"code":"${codeTwo}"` : ""}
@@ -351,7 +370,13 @@ ${
           selectDsicountTypeTwo == "Percentage"
             ? `,"discount_type": "Percentage",
             "discount_value": "${discountValueTwo ? discountValueTwo : ""}"`
-            : `,"discount_type": "Bogo"`
+            : `${
+                selectDsicountTypeTwo === "Bogo"
+                  ? `,"discount_type": "Bogo"`
+                  : `,"discount_type": "dollars","discount_value": "${
+                      discountValueTwo ? discountValueTwo : ""
+                    }"`
+              }`
         }
     ${mdHeadlineTwo ? `,"details_title":"${mdHeadlineTwo}"` : ""}
     ${mdContentTwo ? `,"details_description":"${mdContentTwo}"` : ""}
@@ -388,7 +413,7 @@ ${
      }
    
         ${
-          linetextthree
+          linetextthree.length <= 30
             ? ` ,{
   "title": "${linetextthree}"
    ${codeThree ? `,"code":"${codeThree}"` : ""}
@@ -396,7 +421,13 @@ ${
      selectDsicountTypeThree == "Percentage"
        ? `,"discount_type": "Percentage",
         "discount_value": "${discountValueThree ? discountValueThree : ""}"`
-       : `,"discount_type": "Bogo"`
+       : `${
+           selectDsicountTypeThree === "Bogo"
+             ? `,"discount_type": "Bogo"`
+             : `,"discount_type": "dollars","discount_value": "${
+                 discountValueThree ? discountValueThree : ""
+               }"`
+         }`
    }
 ${mdHeadlineThree ? `,"details_title":"${mdHeadlineThree}"` : ""}
 ${mdContentThree ? `,"details_description":"${mdContentThree}"` : ""}

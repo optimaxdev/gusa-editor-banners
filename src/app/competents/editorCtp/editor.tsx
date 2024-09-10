@@ -290,12 +290,17 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                     text: "Percentage",
                   },
                   {
+                    value: "Dollars",
+                    text: "Dollars",
+                  },
+                  {
                     value: "Bogo",
                     text: "Bogo",
                   },
                 ]}
               />
-              {formData.selectDsicountType === "Percentage" ? (
+              {formData.selectDsicountType === "Percentage" ||
+              formData.selectDsicountType === "Dollars" ? (
                 <>
                   <FormInput
                     label="Discount Value"
@@ -325,7 +330,7 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                 label=""
                 value={formData.mdContent}
                 onChange={(value) => handleInputChange("mdContent", value)}
-                type="text"
+                type="textarea"
                 classN="inputLineText"
                 placeholder="Details - Offer Disclamier "
               />
@@ -443,12 +448,17 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                         text: "Percentage",
                       },
                       {
+                        value: "Dollars",
+                        text: "Dollars",
+                      },
+                      {
                         value: "Bogo",
                         text: "Bogo",
                       },
                     ]}
                   />
-                  {formData.selectDsicountTypeTwo === "Percentage" ? (
+                  {formData.selectDsicountTypeTwo === "Percentage" ||
+                  formData.selectDsicountTypeTwo === "Dollars" ? (
                     <>
                       <FormInput
                         label="Discount Value"
@@ -481,7 +491,7 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                     onChange={(value) =>
                       handleInputChange("mdContentTwo", value)
                     }
-                    type="text"
+                    type="textarea"
                     classN="inputLineText"
                     placeholder="Details - Offer Disclamier"
                   />
@@ -602,12 +612,17 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                         text: "Percentage",
                       },
                       {
+                        value: "Dollars",
+                        text: "Dollars",
+                      },
+                      {
                         value: "Bogo",
                         text: "Bogo",
                       },
                     ]}
                   />
-                  {formData.selectDsicountTypeTwo === "Percentage" ? (
+                  {formData.selectDsicountTypeTwo === "Percentage" ||
+                  formData.selectDsicountTypeTwo === "Dollars" ? (
                     <>
                       <FormInput
                         label="Discount Value"
@@ -640,7 +655,7 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                     onChange={(value) =>
                       handleInputChange("mdContentTwo", value)
                     }
-                    type="text"
+                    type="textarea"
                     classN="inputLineText"
                     placeholder="Details - Offer Disclamier"
                   />
@@ -757,12 +772,17 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                         text: "Percentage",
                       },
                       {
+                        value: "Dollars",
+                        text: "Dollars",
+                      },
+                      {
                         value: "Bogo",
                         text: "Bogo",
                       },
                     ]}
                   />
-                  {formData.selectDsicountTypeThree === "Percentage" ? (
+                  {formData.selectDsicountTypeThree === "Percentage" ||
+                  formData.selectDsicountTypeThree === "Dollars" ? (
                     <>
                       <FormInput
                         label="Discount Value"
@@ -795,7 +815,7 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                     onChange={(value) =>
                       handleInputChange("mdContentThree", value)
                     }
-                    type="text"
+                    type="textarea"
                     classN="inputLineText"
                     placeholder="Details - Offer Disclamier"
                   />
@@ -894,7 +914,7 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
                 onChange={(value) =>
                   handleInputChange("generalDisclamier", value)
                 }
-                type="text"
+                type="textarea"
                 classN="inputLineText"
                 placeholder="Details - General Disclamier"
               />

@@ -469,3 +469,16 @@ blockquote {
 
     }
 }
+
+
+
+.popup-content {
+    @include desktop-medium {
+        transform: scale(0.6);
+    }
+
+    @include tablet-large {
+        transform: scale(0.6);
+    }
+
+}

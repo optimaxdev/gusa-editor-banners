@@ -257,25 +257,35 @@ const FormInput: React.FC<FormInputProps> = ({
           ) : (
             ""
           )}
-          <input
-            type={type}
-            value={type === "number" && value === "" ? "0" : value}
-            className={`inputText ${
-              classN === "inputText" || "checkactive" ? classN : ""
-            }
+          {type !== "textarea" ? (
+            <input
+              type={type}
+              value={type === "number" && value === "" ? "0" : value}
+              className={`inputText ${
+                classN === "inputText" || "checkactive" ? classN : ""
+              }
             `}
-            onChange={(e) => {
-              onChange(e.target.value);
-            }}
-            placeholder={classN === "inputLineText" ? placeholder : ""}
-            max={max}
-            min={min}
-            style={
-              classN === "mBottom" && parseInt(value) >= 10
-                ? { width: "70px" }
-                : {}
-            }
-          />
+              onChange={(e) => {
+                onChange(e.target.value);
+              }}
+              placeholder={classN === "inputLineText" ? placeholder : ""}
+              max={max}
+              min={min}
+              style={
+                classN === "mBottom" && parseInt(value) >= 10
+                  ? { width: "70px" }
+                  : {}
+              }
+            />
+          ) : (
+            <textarea
+              onChange={(e) => {
+                onChange(e.target.value);
+              }}
+              placeholder={placeholder}
+              className={`textArea ${classN}`}
+            ></textarea>
+          )}
         </>
       )}
       {type === "number" && (

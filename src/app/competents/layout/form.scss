@@ -22,7 +22,6 @@ input[type="url"] {
     width: 281px;
     border-radius: 4px;
     border: 1px solid #E5E8E8;
-    background: #FFF;
     height: 32px;
     padding-block: 0;
     outline: 0;
@@ -31,6 +30,21 @@ input[type="url"] {
     @include tablet-large {
         width: 266px;
     }
+}
+
+.textArea {
+    border-radius: 4px;
+    border: 1px solid #E5E8E8;
+    outline: 0;
+    height: 150px;
+    padding: 8px 16px 0 16px;
+    resize: none;
+    max-width: 418px;
+
+    @include tablet-large {
+        width: 266px;
+    }
+
 }
 
 input[type="number"] {

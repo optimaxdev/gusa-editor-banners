@@ -4,39 +4,392 @@
     width: 100%
 }
 
+.dark {
+    background-color: #010523;
+    color: #fff;
+
+    .hoverArrow {
+
+        &:hover {
+            background-color: hsla(0, 0%, 100%, .2);
+        }
+
+    }
+
+
+}
+
+.light {
+    background-color: #f4f9ff;
+
+    .hoverArrow {
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .05);
+        }
+    }
+
+    .moreDetails {
+        color: #4d4d4d;
+    }
+}
+
 .mobileStyle {
+    width: 375px;
+    margin: auto;
+
     .imageCtpbanner {
-        width: 375px;
+        width: 100%;
         height: 200px;
-        margin: auto;
         display: block;
     }
+
+    .carousel-container {
+        width: 100%;
+    }
+
+    .strip {
+        height: 64px;
+        width: 340px;
+        border-radius: 4px;
+        margin: 0 auto 20px;
+    }
+
+    .breakLine {
+        display: block;
+        margin-top: 6px;
+    }
+
+    .spread {
+        display: inline-block;
+        height: 12px;
+        margin: 0 8px;
+        width: 1px;
+    }
+
+    .moreDetails,
+    .mbetween {
+        font: 13px / 15px Roboto, Arial, sans-serif;
+    }
+
+    .carousel-control {
+        width: 40px;
+    }
+
+    .areaCarousel {
+        width: 100%;
+    }
+
+    .dark {
+        .moreDetails {
+            color: #ffffff;
+        }
+
+
+    }
+
+    .light {
+
+        .mbetween,
+        .spread {
+            color: #4d4d4d;
+        }
+    }
+
 }
 
 .desktopStyle {
     .imageCtpbanner {
         margin: auto;
         display: block;
+    }
+
+    .large {
         height: 266px;
+    }
+
+    .small {
+        height: 194px;
+    }
+
+    .moreDetails {
+        cursor: pointer;
+        font: 400 14px / 17px Roboto, Arial, sans-serif;
+        text-decoration: underline;
+    }
+
+    .mbetween {
+        margin: 0 40px 0 16px;
+    }
+
+    .carousel-container {
+        width: 650px;
+    }
+
+    .strip {
+        height: 46px;
+        font: 400 16px / 18px Roboto, Arial, sans-serif;
+        margin-bottom: 4px;
+        padding: 20px;
+        min-width: 100%;
+    }
+
+    .carousel-control {
+        width: 24px;
+    }
+
+    .dark {
+        .moreDetails {
+            color: #dbe1e5;
+        }
+    }
+
+    .trustpilot {
+        width: 100%;
+        margin-top: 2px;
     }
 }
 
 .strip {
     align-items: center;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
-    color: #0f0f0f;
     display: flex;
-    font: 400 16px / 18px Roboto, Arial, sans-serif;
-    height: 46px;
     justify-content: center;
     width: 100%;
-    margin-bottom: 4px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-.dark {
-    background-color: #010523;
+
+
+.areaCarousel {
+    position: relative;
 }
 
-.light {
-    background-color: #f4f9ff;
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-strip {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 4px;
+}
+
+.hoverArrow {
+    transition: 0.3s;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, .05);
+    }
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.areaCarousel {
+    position: relative;
+}
+
+//popup
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    display: none;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    position: relative;
+    width: 834px;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0px 1px 5px 0px rgba(58, 72, 80, 0.07), 0px 12px 16px 0px rgba(176, 189, 197, 0.17), 0px 6px 12px 1px rgba(176, 189, 197, 0.15);
+    padding: 24px 36px 28px 36px;
+
+    .popup-content {
+        @include desktop-medium {
+            transform: scale(0.6);
+        }
+
+        @include tablet-large {
+            transform: scale(0.6);
+        }
+
+    }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.copyIconCode {
+    margin-left: 8px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.popupTitle {
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    padding-bottom: 22px;
+}
+
+.disclaimer {
+    color: #5B6971;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    width: 762px;
+    overflow-wrap: break-word;
+    margin: auto;
+}
+
+.vCopied {
+    width: 12px;
+    margin-right: 4px;
+    position: relative;
+    bottom: 2px;
+}
+
+.scollPreviewside {
+    position: relative;
+}
+
+
+.true {
+    display: flex;
+}
+
+.offerContainer {
+    border-radius: 8px;
+    border: 1px solid #F1F3F4;
+    background: #F7F8F9;
+    width: 762px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    color: #0F0F0F;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.mdSpread {
+    align-self: stretch;
+    border-right: 1px solid #dbe1e5;
+    height: inherit;
+    margin-right: 20px;
+}
+
+.percentage {
+    font-size: 80px;
+    font-weight: 700;
+    position: relative;
+    height: 80px;
+    width: max-content;
+}
+
+.mdHeadline {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    padding-bottom: 8px;
+}
+
+.mdContent {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.mdWidthTxt {
+    width: 366px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    margin: 0 20px 0 60px;
+}
+
+.areaCode {
+    text-align: center;
+    font-size: 14px;
+    width: 127px;
+}
+
+.lightWeight {
+    font-weight: 300;
+    color: #3A4850;
+}
+
+.mdcode {
+    font-weight: 500;
+    padding: 8px 0 18px;
+    word-break: break-all;
+}
+
+.btnCopy {
+    background: #2196F3;
+    width: 127px;
+    height: 40px;
+    color: #fff;
+    line-height: 40px;
+    border-radius: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        margin-right: 8px;
+    }
+}
+
+.dollarDiscount {
+    position: absolute;
+    bottom: -4px;
+    right: 1px;
+    z-index: 1;
+    height: 30px;
+    background: #F7F8F9;
+    width: 42px;
+}
+
+.percentageDiscount {
+    position: absolute;
+    bottom: 3px;
+    right: -23px;
+    z-index: 2;
 }
