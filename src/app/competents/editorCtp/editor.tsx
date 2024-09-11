@@ -15,6 +15,7 @@ interface FormData {
   imageLink: string;
   height: string;
   trustpilot: string;
+  displayTitle: string;
   backgroundColorStrip: string;
   txtColorCounter: string;
   date: string;
@@ -71,6 +72,7 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
     backgroundColorCounter: "",
     txtColorCounter: "",
     trustpilot: "",
+    displayTitle: "false",
     checkactive: "false",
     txtColorCountertwo: "",
     txtColorCounterthree: "",
@@ -210,22 +212,27 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
         <div className="title">CMS strip</div>
         <div className="innerDiv">
           <div className="LayoutTemplate">
-            <FormInput
-              label="Dark/light mode"
-              value={formData.themeMode}
-              onChange={(value) => handleInputChange("themeMode", value)}
-              type="radio"
-              id="themeMode"
-              classN="Theme"
-              options={[
-                {
-                  value: "Light",
-                },
-                {
-                  value: "Dark",
-                },
-              ]}
-            />
+            {formData.backgroundColorStrip ? (
+              ""
+            ) : (
+              <FormInput
+                label="Dark/light mode"
+                value={formData.themeMode}
+                onChange={(value) => handleInputChange("themeMode", value)}
+                type="radio"
+                id="themeMode"
+                classN="Theme"
+                options={[
+                  {
+                    value: "Light",
+                  },
+                  {
+                    value: "Dark",
+                  },
+                ]}
+              />
+            )}
+
             <FormInput
               label="Background color"
               value={formData.backgroundColorStrip}
@@ -982,27 +989,65 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
               classN="pr trustCheck"
             />
 
-            <div className="labelTxt pb">Banner Headline:</div>
-            <div className="areaOftext">
+            <div
+              className={`areaOftext ${
+                formData.displayTitle == "false" ? "pb" : ""
+              } `}
+            >
               <FormInput
-                label=""
-                value={formData.headline}
-                onChange={(value) => handleInputChange("headline", value)}
-                type="text"
-                classN="inputLineText pr"
-                placeholder=""
+                label="Display category title on banner"
+                value={formData.displayTitle}
+                onChange={() => {
+                  const newValue =
+                    formData.displayTitle === "true" ? "false" : "true";
+                  handleInputChange("displayTitle", newValue);
+                }}
+                type="checkbox"
+                classN="pr trustCheck"
               />
-              <FormInput
-                label=""
-                value={formData.textcolorheadline}
-                onChange={(value) =>
-                  handleInputChange("textcolorheadline", value)
-                }
-                type="color"
-                id="backgroundColor"
-                backgroundColor={formData.textcolorheadline}
-              />
+              {formData.displayTitle == "true" ? (
+                <FormInput
+                  label=""
+                  value={formData.textcolorheadline}
+                  onChange={(value) =>
+                    handleInputChange("textcolorheadline", value)
+                  }
+                  type="color"
+                  id="backgroundColor"
+                  backgroundColor={formData.textcolorheadline}
+                />
+              ) : (
+                ""
+              )}
             </div>
+            {formData.displayTitle !== "true" ? (
+              <>
+                <div className="labelTxt pb">Banner Headline:</div>
+                <div className="areaOftext">
+                  <FormInput
+                    label=""
+                    value={formData.headline}
+                    onChange={(value) => handleInputChange("headline", value)}
+                    type="text"
+                    classN="inputLineText pr"
+                    placeholder=""
+                  />
+                  <FormInput
+                    label=""
+                    value={formData.textcolorheadline}
+                    onChange={(value) =>
+                      handleInputChange("textcolorheadline", value)
+                    }
+                    type="color"
+                    id="backgroundColor"
+                    backgroundColor={formData.textcolorheadline}
+                  />
+                </div>{" "}
+              </>
+            ) : (
+              ""
+            )}
+
             <div className="labelTxt pt">Banner Subheadline:</div>
             <div className="areaOftext">
               <FormInput
@@ -1028,91 +1073,6 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
         </div>
         <div className="innerInputs"></div>
       </div>
-
-      {/* <>
-        <div className="ContainerOfInputs UniqueSpaceCounter">
-          <div className="title">Text</div>
-          <div className="innerDiv">
-            <FormInput
-              label="Number of lines text"
-              value={formData.select}
-              onChange={(value) => handleInputChange("select", value)}
-              type="select"
-              classN="event"
-              options={[
-                {
-                  value: "1",
-                  text: "1",
-                },
-                {
-                  value: "2",
-                  text: "2",
-                },
-                {
-                  value: "3",
-                  text: "3",
-                },
-              ]}
-            />
-
-            <div className="areaofContent">
-              <FormInput
-                label=""
-                value={formData.linetext}
-                onChange={(value) => handleInputChange("linetext", value)}
-                type="text"
-                classN="inputLineText"
-                placeholder="line 1"
-              />
-            </div>
-            <div className="areaofContent spaceLeft"></div>
-            {formData.select === "2" && (
-              <>
-                <div className="areaofContent">
-                  <FormInput
-                    label=""
-                    value={formData.linetexttwo}
-                    onChange={(value) =>
-                      handleInputChange("linetexttwo", value)
-                    }
-                    type="text"
-                    classN="inputLineText"
-                    placeholder="line 2"
-                  />
-                </div>
-              </>
-            )}
-            {formData.select === "3" && (
-              <>
-                <div className="areaofContent">
-                  <FormInput
-                    label=""
-                    value={formData.linetexttwo}
-                    onChange={(value) =>
-                      handleInputChange("linetexttwo", value)
-                    }
-                    type="text"
-                    classN="inputLineText"
-                    placeholder="line 2"
-                  />
-                </div>
-                <div className="areaofContent">
-                  <FormInput
-                    label=""
-                    value={formData.linetextthree}
-                    onChange={(value) =>
-                      handleInputChange("linetextthree", value)
-                    }
-                    type="text"
-                    classN="inputLineText"
-                    placeholder="line 3"
-                  />
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      </> */}
     </form>
   );
 };

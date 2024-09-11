@@ -4,7 +4,7 @@
     margin: auto;
 
     @include tablet-large {
-        padding: 26px 0;
+        padding: 26px 20px;
         width: 454px;
     }
 }
@@ -898,6 +898,10 @@ input[value="Light"] {
 
     .form-input {
         margin-bottom: 0;
+    }
+
+    @include tablet-large {
+        flex-wrap: wrap;
     }
 }
 

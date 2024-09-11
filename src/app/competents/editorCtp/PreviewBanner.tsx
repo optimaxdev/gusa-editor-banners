@@ -11,6 +11,7 @@ interface PreviewBannerProps {
   backgroundColorStrip: string;
   height: string;
   trustpilot: string;
+  displayTitle: string;
   headline: string;
   textcolorheadline: string;
   subheadline: string;
@@ -60,6 +61,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
   backgroundColorStrip,
   height = "Large",
   trustpilot,
+  displayTitle = "false",
   headline,
   textcolorheadline,
   subheadline,
@@ -140,12 +142,45 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
       setTimeout(() => setCopied(null), 2000); // Reset after 2 seconds
     });
   };
+  const getBrightness = (color: string): number => {
+    let r = 0,
+      g = 0,
+      b = 0;
 
+    // Check if the color is in hex format
+    if (color[0] === "#") {
+      const hex = color.replace("#", "");
+
+      r = parseInt(hex.substring(0, 2), 16);
+      g = parseInt(hex.substring(2, 4), 16);
+      b = parseInt(hex.substring(4, 6), 16);
+    } else if (color.startsWith("rgb")) {
+      const rgbValues = color.match(/\d+/g);
+      if (rgbValues) {
+        r = parseInt(rgbValues[0]);
+        g = parseInt(rgbValues[1]);
+        b = parseInt(rgbValues[2]);
+      }
+    }
+
+    // Calculate brightness using the formula
+    return (r * 299 + g * 587 + b * 114) / 1000;
+  };
+
+  // Determine if the text should be light or dark based on brightness
+  const brightness = backgroundColorStrip
+    ? getBrightness(backgroundColorStrip)
+    : 255; // Default brightness for white
+  const textColor = brightness > 125 ? "black" : "white";
+  const moreDetailsColor = brightness > 125 ? "#4d4d4d" : "white";
   return (
     <div className={`${device === "Desktop" ? "desktopStyle" : "mobileStyle"}`}>
       <div
         className={`strip ${themeMode === "Dark" ? "dark" : "light"}`}
-        style={{ backgroundColor: backgroundColorStrip }}
+        style={{
+          backgroundColor: backgroundColorStrip ? backgroundColorStrip : "",
+          color: backgroundColorStrip ? textColor : "",
+        }}
       >
         {device === "Desktop" ? (
           <>
@@ -176,6 +211,12 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                         <span
                           className="moreDetails"
                           onClick={handleMoreDetailsClick}
+                          style={{
+                            backgroundColor: backgroundColorStrip
+                              ? backgroundColorStrip
+                              : "",
+                            color: backgroundColorStrip ? moreDetailsColor : "",
+                          }}
                         >
                           More Details
                         </span>
@@ -237,6 +278,12 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                     <span
                       className="moreDetails"
                       onClick={handleMoreDetailsClick}
+                      style={{
+                        backgroundColor: backgroundColorStrip
+                          ? backgroundColorStrip
+                          : "",
+                        color: backgroundColorStrip ? moreDetailsColor : "",
+                      }}
                     >
                       More Details
                     </span>
@@ -272,6 +319,14 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                           <span
                             className="moreDetails"
                             onClick={handleMoreDetailsClick}
+                            style={{
+                              backgroundColor: backgroundColorStrip
+                                ? backgroundColorStrip
+                                : "",
+                              color: backgroundColorStrip
+                                ? moreDetailsColor
+                                : "",
+                            }}
                           >
                             <u>Details</u>
                           </span>
@@ -397,6 +452,12 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                       <span
                         className="moreDetails"
                         onClick={handleMoreDetailsClick}
+                        style={{
+                          backgroundColor: backgroundColorStrip
+                            ? backgroundColorStrip
+                            : "",
+                          color: backgroundColorStrip ? moreDetailsColor : "",
+                        }}
                       >
                         <u>Details</u>
                       </span>
@@ -471,23 +532,61 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
           </>
         )}
       </div>
-      <Image
-        src={
-          device === "Desktop"
-            ? ImageLink
-              ? ImageLink
-              : height == "Small"
-              ? "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/small-banner.png"
-              : "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/hp24/map-hp-d-new.png"
-            : ImageLink ||
-              "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto:eco/media/wysiwyg/lp23/main-desktopmobile.png"
-        }
-        alt={"image"}
-        width={1024}
-        height={100}
-        className={`imageCtpbanner ${height === "Small" ? "small" : "large"}`}
-      />
 
+      {displayTitle == "true" ? (
+        ""
+      ) : device == "Mobile" ? (
+        <div className="titleCtp">Prescription Glasses</div>
+      ) : (
+        ""
+      )}
+      <div className="areaImageBanner">
+        <Image
+          src={
+            device === "Desktop"
+              ? ImageLink
+                ? ImageLink
+                : height == "Small"
+                ? "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/small-banner.png"
+                : "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/hp24/map-hp-d-new.png"
+              : ImageLink ||
+                "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto:eco/media/wysiwyg/lp23/main-desktopmobile.png"
+          }
+          alt={"image"}
+          width={1024}
+          height={100}
+          className={`imageCtpbanner ${height === "Small" ? "small" : "large"}`}
+        />
+
+        {device == "Desktop" ? (
+          <div className="txt">
+            <h1 style={{ color: textcolorheadline ? textcolorheadline : "" }}>
+              {displayTitle == "true" ? <> Prescription Glasses </> : headline}
+            </h1>
+            <h2
+              style={{
+                color: textcolorsubheadline ? textcolorsubheadline : "",
+              }}
+            >
+              {subheadline ? subheadline : ""}
+            </h2>
+          </div>
+        ) : (
+          <div className="txt">
+            <h1 style={{ color: textcolorheadline ? textcolorheadline : "" }}>
+              {displayTitle == "true" ? <> Prescription Glasses </> : headline}
+            </h1>
+            <h2
+              style={{
+                color: textcolorsubheadline ? textcolorsubheadline : "",
+              }}
+            >
+              {subheadline ? subheadline : ""}
+            </h2>
+          </div>
+        )}
+      </div>
+      {/*Turst*/}
       {trustpilot == "true" ? (
         device == "Desktop" ? (
           <svg
@@ -845,6 +944,18 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
       ) : (
         ""
       )}
+      {/*Title*/}
+      {displayTitle == "true" ? (
+        ""
+      ) : device == "Desktop" ? (
+        <div className="titleCtp">
+          Prescription Glasses <span> (1,431 Items) </span>
+        </div>
+      ) : (
+        ""
+      )}
+
+      {/*Pop up*/}
       <div className={`popup ${isPopupVisible ? true : ""}  `}>
         <div className="popup-content">
           <div className="closePopup" onClick={handleClosePopup}>

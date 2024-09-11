@@ -13,6 +13,7 @@ interface PreviewCodeProps {
   backgroundColorStrip: string;
   height: string;
   trustpilot: string;
+  displayTitle: string;
   headline: string;
   textcolorheadline: string;
   subheadline: string;
@@ -62,6 +63,7 @@ const PreviewCodeCtp: React.FC<PreviewCodeProps> = ({
   backgroundColorStrip,
   height,
   trustpilot,
+  displayTitle,
   headline,
   textcolorheadline,
   subheadline,
@@ -128,7 +130,18 @@ ${
     ? `"campaign_time":"${campaignTime ? campaignTime : "0"}",`
     : ""
 }
-${ImageLink ? `"image":"${ImageLink}",` : ``}
+${
+  ImageLink
+    ? `"image":"${
+        device == "Mobile"
+          ? `/${ImageLink.replace(
+              /^https:\/\/optimaxweb.glassesusa.com\/image\/upload\/f_auto,q_auto\//,
+              ""
+            )}`
+          : ImageLink
+      }",`
+    : ``
+}
     "theme": "${themeMode ? themeMode.toLowerCase() : "light"}"
     ${
       backgroundColorStrip
@@ -141,6 +154,11 @@ ${ImageLink ? `"image":"${ImageLink}",` : ``}
         : ""
     }    
  ${trustpilot == "true" ? `,"trust_strip": "${trustpilot}"` : ""}
+  ${
+    displayTitle == "true"
+      ? `,"display_title_inside_banner": "${displayTitle}"`
+      : ""
+  }
  ${
    headline
      ? `,"banner_h1_text": "${headline}" ${

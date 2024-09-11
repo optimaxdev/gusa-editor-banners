@@ -69,54 +69,55 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, formData }) => {
             {currentPage === "CTP" && (
               <div>
                 <PreviewBannerCtp
-                 device={formData.device}
-                 selectCampaign={formData.selectCampaign}
-                 campaign={formData.campaign}
-                 campaignTime={formData.campaignTime}
-                 ImageLink={formData.imageLink}
-                 themeMode={formData.themeMode}
-                 backgroundColorStrip={formData.backgroundColorStrip}
-                 height={formData.height}
-                 trustpilot={formData.trustpilot}
-                 headline={formData.headline}
-                 textcolorheadline={formData.textcolorheadline}
-                 subheadline={formData.subheadline}
-                 textcolorsubheadline={formData.textcolorsubheadline}
-                 linetext={formData.linetext}
-                 selectDsicountType={formData.selectDsicountType}
-                 discountValue={formData.discountValue}
-                 code={formData.code}
-                 mdHeadline={formData.mdHeadline}
-                 mdContent={formData.mdContent}
-                 generalDisclamier={formData.generalDisclamier}
-                 linetexttwo={formData.linetexttwo}
-                 codeTwo={formData.codeTwo}
-                 selectDsicountTypeTwo={formData.selectDsicountTypeTwo}
-                 discountValueTwo={formData.discountValueTwo}
-                 mdHeadlineTwo={formData.mdHeadlineTwo}
-                 mdContentTwo={formData.mdContentTwo}
-                 linetextthree={formData.linetextthree}
-                 codeThree={formData.codeThree}
-                 selectDsicountTypeThree={formData.selectDsicountTypeThree}
-                 discountValueThree={formData.discountValueThree}
-                 mdHeadlineThree={formData.mdHeadlineThree}
-                 mdContentThree={formData.mdContentThree}
-                 select={formData.select}
-                 mdsaleName={formData.mdsaleName}
-                 txtColorCounter={formData.txtColorCounter}
-                 date={formData.date}
-                 backgroundColorCounter={formData.backgroundColorCounter}
-                 checkactive={formData.checkactive}
-                 txtColorCountertwo={formData.txtColorCountertwo}
-                 datetwo={formData.datetwo}
-                 backgroundColorCountertwo={formData.backgroundColorCountertwo}
-                 checkactivetwo={formData.checkactivetwo}
-                 txtColorCounterthree={formData.txtColorCounterthree}
-                 datethree={formData.datethree}
-                 backgroundColorCounterthree={
-                   formData.backgroundColorCounterthree
-                 }
-                 checkactivethree={formData.checkactivethree}
+                  device={formData.device}
+                  selectCampaign={formData.selectCampaign}
+                  campaign={formData.campaign}
+                  campaignTime={formData.campaignTime}
+                  ImageLink={formData.imageLink}
+                  themeMode={formData.themeMode}
+                  backgroundColorStrip={formData.backgroundColorStrip}
+                  height={formData.height}
+                  trustpilot={formData.trustpilot}
+                  displayTitle={formData.displayTitle}
+                  headline={formData.headline}
+                  textcolorheadline={formData.textcolorheadline}
+                  subheadline={formData.subheadline}
+                  textcolorsubheadline={formData.textcolorsubheadline}
+                  linetext={formData.linetext}
+                  selectDsicountType={formData.selectDsicountType}
+                  discountValue={formData.discountValue}
+                  code={formData.code}
+                  mdHeadline={formData.mdHeadline}
+                  mdContent={formData.mdContent}
+                  generalDisclamier={formData.generalDisclamier}
+                  linetexttwo={formData.linetexttwo}
+                  codeTwo={formData.codeTwo}
+                  selectDsicountTypeTwo={formData.selectDsicountTypeTwo}
+                  discountValueTwo={formData.discountValueTwo}
+                  mdHeadlineTwo={formData.mdHeadlineTwo}
+                  mdContentTwo={formData.mdContentTwo}
+                  linetextthree={formData.linetextthree}
+                  codeThree={formData.codeThree}
+                  selectDsicountTypeThree={formData.selectDsicountTypeThree}
+                  discountValueThree={formData.discountValueThree}
+                  mdHeadlineThree={formData.mdHeadlineThree}
+                  mdContentThree={formData.mdContentThree}
+                  select={formData.select}
+                  mdsaleName={formData.mdsaleName}
+                  txtColorCounter={formData.txtColorCounter}
+                  date={formData.date}
+                  backgroundColorCounter={formData.backgroundColorCounter}
+                  checkactive={formData.checkactive}
+                  txtColorCountertwo={formData.txtColorCountertwo}
+                  datetwo={formData.datetwo}
+                  backgroundColorCountertwo={formData.backgroundColorCountertwo}
+                  checkactivetwo={formData.checkactivetwo}
+                  txtColorCounterthree={formData.txtColorCounterthree}
+                  datethree={formData.datethree}
+                  backgroundColorCounterthree={
+                    formData.backgroundColorCounterthree
+                  }
+                  checkactivethree={formData.checkactivethree}
                 />
                 <PreviewCodeCtp
                   device={formData.device}
@@ -128,6 +129,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, formData }) => {
                   backgroundColorStrip={formData.backgroundColorStrip}
                   height={formData.height}
                   trustpilot={formData.trustpilot}
+                  displayTitle={formData.displayTitle}
                   headline={formData.headline}
                   textcolorheadline={formData.textcolorheadline}
                   subheadline={formData.subheadline}

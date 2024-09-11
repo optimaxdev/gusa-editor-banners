@@ -1,7 +1,9 @@
 .imageCtpbanner {
     object-fit: cover;
     margin: auto;
-    width: 100%
+    width: 100%;
+
+
 }
 
 .dark {
@@ -32,6 +34,8 @@
     .moreDetails {
         color: #4d4d4d;
     }
+
+
 }
 
 .mobileStyle {
@@ -96,6 +100,36 @@
         }
     }
 
+    .titleCtp {
+        display: block;
+        color: #393939;
+        font: 700 20px / 28px Roboto, Arial, sans-serif;
+        padding: 0 0px 20px 20px;
+    }
+
+    .txt {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: 340px;
+        line-break: anywhere;
+
+        h1 {
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 28px;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            margin: 12px 0 0 0;
+        }
+    }
 }
 
 .desktopStyle {
@@ -106,10 +140,27 @@
 
     .large {
         height: 266px;
+
+        @include desktop-medium {
+            height: 166px;
+        }
+
+
+        @include tablet-large {
+            height: 133px;
+        }
     }
 
     .small {
         height: 194px;
+
+        @include desktop-medium {
+            height: 124px;
+        }
+
+        @include tablet-large {
+            height: 100px;
+        }
     }
 
     .moreDetails {
@@ -148,6 +199,53 @@
         width: 100%;
         margin-top: 2px;
     }
+
+    .titleCtp {
+        font: 700 28px / 42px Roboto, Arial, sans-serif;
+        margin-top: 20px;
+
+        span {
+            font: 18px / 42px Roboto, Arial, sans-serif;
+            display: inline-block;
+            margin-top: -4px;
+        }
+    }
+
+    .txt {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 3%;
+        width: 566px;
+        line-break: anywhere;
+
+        @include desktop-medium() {
+            zoom: 0.7;
+        }
+
+        @include tablet-large {
+            zoom: 0.6;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 700;
+            line-height: normal;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 28px;
+            margin: 12px 0 0 0;
+        }
+    }
+}
+
+.areaImageBanner {
+    position: relative;
+
 }
 
 .strip {
@@ -234,16 +332,16 @@
     box-shadow: 0px 1px 5px 0px rgba(58, 72, 80, 0.07), 0px 12px 16px 0px rgba(176, 189, 197, 0.17), 0px 6px 12px 1px rgba(176, 189, 197, 0.15);
     padding: 24px 36px 28px 36px;
 
-    .popup-content {
-        @include desktop-medium {
-            transform: scale(0.6);
-        }
 
-        @include tablet-large {
-            transform: scale(0.6);
-        }
-
+    @include desktop-medium {
+        transform: scale(0.6);
     }
+
+    @include tablet-large {
+        transform: scale(0.6);
+    }
+
+
 }
 
 .close {
