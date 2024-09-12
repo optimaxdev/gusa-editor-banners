@@ -234,7 +234,7 @@ const EditorCtp: React.FC<FormProps> = ({ onFormSubmit }) => {
             )}
 
             <FormInput
-              label="Background color"
+              label="Background color strip"
               value={formData.backgroundColorStrip}
               onChange={(value) =>
                 handleInputChange("backgroundColorStrip", value)

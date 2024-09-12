@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface PreviewBannerProps {
@@ -104,7 +104,9 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
   const [animating, setAnimating] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [copied, setCopied] = useState<string | null>(null); // Track copied strip
-
+  const [countdown, setCountdown] = useState<string>("");
+  const [countdownTwo, setCountdownTwo] = useState<string>("");
+  const [countdownThree, setCountdownThree] = useState<string>("");
   const strips = [
     { linetext: linetext, code: code, id: 1 },
     { linetext: linetexttwo, code: codeTwo, id: 2 },
@@ -173,8 +175,69 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
     : 255; // Default brightness for white
   const textColor = brightness > 125 ? "black" : "white";
   const moreDetailsColor = brightness > 125 ? "#4d4d4d" : "white";
+  const copySvg = brightness > 125 ? "#4d4d4d" : "white";
+
+  {
+    /*Date */
+  }
+
+  const updateCountdown = (
+    targetDate: string,
+    setCountdown: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    const target = new Date(`${targetDate} 00:00:00 GMT-0800`).getTime();
+    const now = new Date().getTime();
+    const distance = target - now;
+
+    if (distance <= 0) {
+      setCountdown("00:00:00:00s"); // Display 0 time or any other message
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const pad = (num: number) => num.toString().padStart(2, "0");
+
+    setCountdown(`${pad(days)}:${pad(hours)}:${pad(minutes)}:${pad(seconds)}s`);
+  };
+
+  useEffect(() => {
+    const intervalIds: NodeJS.Timeout[] = [];
+
+    if (date) {
+      updateCountdown(date, setCountdown);
+      intervalIds.push(
+        setInterval(() => updateCountdown(date, setCountdown), 1000)
+      );
+    }
+
+    if (datetwo) {
+      updateCountdown(datetwo, setCountdownTwo);
+      intervalIds.push(
+        setInterval(() => updateCountdown(datetwo, setCountdownTwo), 1000)
+      );
+    }
+
+    if (datethree) {
+      updateCountdown(datethree, setCountdownThree);
+      intervalIds.push(
+        setInterval(() => updateCountdown(datethree, setCountdownThree), 1000)
+      );
+    }
+
+    return () => {
+      intervalIds.forEach((intervalId) => clearInterval(intervalId));
+    };
+  }, [date, datetwo, datethree]);
   return (
     <div className={`${device === "Desktop" ? "desktopStyle" : "mobileStyle"}`}>
+      {countdown}
+      {countdownTwo}
       <div
         className={`strip ${themeMode === "Dark" ? "dark" : "light"}`}
         style={{
@@ -228,37 +291,81 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                   className="carousel-control prev hoverArrow"
                   onClick={() => handleChangeStrip(false)}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 12 20"
-                    height="12"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M11 1 1 10l10 9"
-                    ></path>
-                  </svg>
+                  {themeMode == "Dark" ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="12"
+                      viewBox="0 0 9 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
+                        stroke="#DBE1E5"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="12"
+                      viewBox="0 0 9 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
+                        stroke="#4D4D4D"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
+                      />
+                    </svg>
+                  )}
                 </div>
                 <div
                   className="carousel-control next hoverArrow"
                   onClick={() => handleChangeStrip(true)}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 12 20"
-                    height="12"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m1 19 10-9L1 1"
-                    ></path>
-                  </svg>
+                  {themeMode == "Dark" ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="12"
+                      viewBox="0 0 9 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
+                        stroke="#DBE1E5"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="12"
+                      viewBox="0 0 9 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
+                        stroke="#4D4D4D"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
+                      />
+                    </svg>
+                  )}
                 </div>
               </div>
             ) : (
@@ -353,17 +460,41 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                                     }}
                                   >
                                     <path
+                                      style={{
+                                        color: backgroundColorStrip
+                                          ? copySvg
+                                          : "",
+                                      }}
                                       stroke="currentColor"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
                                       d="m11.33 1.714-6.428 7.66-3.83-3.214"
                                     ></path>
                                   </svg>
-                                  Code copied
+                                  <span
+                                    style={{
+                                      color: backgroundColorStrip
+                                        ? moreDetailsColor
+                                        : "",
+                                    }}
+                                  >
+                                    Code copied
+                                  </span>
                                 </>
                               ) : (
                                 <>
-                                  <u>Code:{code}</u>
+                                  <u
+                                    style={{
+                                      backgroundColor: backgroundColorStrip
+                                        ? backgroundColorStrip
+                                        : "",
+                                      color: backgroundColorStrip
+                                        ? moreDetailsColor
+                                        : "",
+                                    }}
+                                  >
+                                    Code:{code}
+                                  </u>
                                   <svg
                                     className="copyIconCode"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -373,6 +504,11 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                                     fill="none"
                                   >
                                     <rect
+                                      style={{
+                                        color: backgroundColorStrip
+                                          ? copySvg
+                                          : "",
+                                      }}
                                       x="4.44531"
                                       y="4.44531"
                                       width="8.51562"
@@ -384,6 +520,11 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                                       strokeLinejoin="round"
                                     />
                                     <path
+                                      style={{
+                                        color: backgroundColorStrip
+                                          ? copySvg
+                                          : "",
+                                      }}
                                       d="M7.85156 1.03906H1.89062C1.42032 1.03906 1.03906 1.42032 1.03906 1.89062V7.85156"
                                       stroke="currentColor"
                                       strokeWidth="1.2"
@@ -404,37 +545,79 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                   className="carousel-control prev"
                   onClick={() => handleChangeStrip(false)}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 12 20"
-                    height="12"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M11 1 1 10l10 9"
-                    ></path>
-                  </svg>
+                  {themeMode == "Dark" ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="12"
+                      viewBox="0 0 9 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
+                        stroke="#DBE1E5"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="12"
+                      viewBox="0 0 9 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
+                        stroke="#4D4D4D"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
                 </div>
                 <div
                   className="carousel-control next"
                   onClick={() => handleChangeStrip(true)}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 12 20"
-                    height="12"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m1 19 10-9L1 1"
-                    ></path>
-                  </svg>
+                  {themeMode == "Dark" ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="12"
+                      viewBox="0 0 9 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
+                        stroke="#DBE1E5"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="12"
+                      viewBox="0 0 9 12"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
+                        stroke="#4D4D4D"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
                 </div>
               </div>
             ) : (
@@ -482,17 +665,36 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                                 }}
                               >
                                 <path
+                                  style={{
+                                    color: backgroundColorStrip ? copySvg : "",
+                                  }}
                                   stroke="currentColor"
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
                                   d="m11.33 1.714-6.428 7.66-3.83-3.214"
                                 ></path>
                               </svg>
-                              Code copied
+                              <span
+                                style={{
+                                  color: backgroundColorStrip
+                                    ? moreDetailsColor
+                                    : "",
+                                }}
+                              >
+                                Code copied
+                              </span>
                             </>
                           ) : (
                             <>
-                              <u>Code:{code}</u>
+                              <u
+                                style={{
+                                  color: backgroundColorStrip
+                                    ? moreDetailsColor
+                                    : "",
+                                }}
+                              >
+                                Code:{code}
+                              </u>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="14"
@@ -511,6 +713,9 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
                                   stroke="currentColor"
+                                  style={{
+                                    color: backgroundColorStrip ? copySvg : "",
+                                  }}
                                 />
                                 <path
                                   d="M7.85156 1.03906H1.89062C1.42032 1.03906 1.03906 1.42032 1.03906 1.89062V7.85156"
@@ -518,6 +723,9 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                                   strokeLinecap="square"
                                   strokeLinejoin="round"
                                   stroke="currentColor"
+                                  style={{
+                                    color: backgroundColorStrip ? copySvg : "",
+                                  }}
                                 />
                               </svg>
                             </>
@@ -982,7 +1190,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
               {selectDsicountType == "Percentage" && (
                 <div className="areaDiscount">
                   <div className="percentage">
-                    <span>{discountValue} </span>
+                    <span>{discountValue ? discountValue : "0"} </span>
                     <svg
                       className="percentageDiscount"
                       width="43"
@@ -1008,7 +1216,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
               {selectDsicountType == "Dollars" && (
                 <div className="areaDiscount">
                   <div className="percentage">
-                    <span> {discountValue} </span>
+                    <span> {discountValue ? discountValue : "0"} </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="41"
@@ -1191,7 +1399,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
               {selectDsicountTypeTwo == "Percentage" && (
                 <div className="areaDiscount">
                   <div className="percentage">
-                    <span>{discountValueTwo} </span>
+                    <span>{discountValueTwo ? discountValueTwo : "0"} </span>
                     <svg
                       className="percentageDiscount"
                       width="43"
@@ -1217,7 +1425,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
               {selectDsicountTypeTwo == "Dollars" && (
                 <div className="areaDiscount">
                   <div className="percentage">
-                    <span> {discountValueTwo} </span>
+                    <span> {discountValueTwo ? discountValueTwo : "0"} </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="41"
@@ -1401,7 +1609,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                 {selectDsicountTypeTwo == "Percentage" && (
                   <div className="areaDiscount">
                     <div className="percentage">
-                      <span>{discountValueTwo} </span>
+                      <span>{discountValueTwo ? discountValueTwo : "0"} </span>
                       <svg
                         className="percentageDiscount"
                         width="43"
@@ -1427,7 +1635,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                 {selectDsicountTypeTwo == "Dollars" && (
                   <div className="areaDiscount">
                     <div className="percentage">
-                      <span> {discountValueTwo} </span>
+                      <span> {discountValueTwo ? discountValueTwo : "0"} </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="41"
@@ -1606,7 +1814,9 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                 {selectDsicountTypeThree == "Percentage" && (
                   <div className="areaDiscount">
                     <div className="percentage">
-                      <span>{discountValueThree} </span>
+                      <span>
+                        {discountValueThree ? discountValueThree : "0"}
+                      </span>
                       <svg
                         className="percentageDiscount"
                         width="43"
@@ -1632,7 +1842,9 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                 {selectDsicountTypeThree == "Dollars" && (
                   <div className="areaDiscount">
                     <div className="percentage">
-                      <span> {discountValueThree} </span>
+                      <span>
+                        {discountValueThree ? discountValueThree : ""}
+                      </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="41"
@@ -1771,7 +1983,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                             d="m11.33 1.714-6.428 7.66-3.83-3.214"
                           ></path>
                         </svg>
-                        <span> Code copied </span>
+                        <span>Code copied</span>
                       </>
                     ) : (
                       <>
