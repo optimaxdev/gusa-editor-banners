@@ -18,7 +18,10 @@
 
     }
 
-
+    .counterArea {
+        color: #020621;
+        background-color: #FFF;
+    }
 
 }
 
@@ -36,6 +39,10 @@
         color: #4d4d4d;
     }
 
+    .counterArea {
+        background-color: #020621;
+        color: #FFF;
+    }
 
 }
 
@@ -47,6 +54,14 @@
         width: 100%;
         height: 200px;
         display: block;
+    }
+
+    .counterArea {
+        margin-left: 8px;
+        min-width: 104px;
+        height: 19px;
+        border-radius: 2px;
+        font-size: 14px;
     }
 
     .carousel-container {
@@ -140,6 +155,14 @@
         display: block;
     }
 
+    .counterArea {
+        margin: 0 40px 0 -24px;
+        width: 119px;
+        height: 24px;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
     .large {
         height: 266px;
 
@@ -185,6 +208,7 @@
         margin-bottom: 4px;
         padding: 20px;
         min-width: 100%;
+        align-items: center;
     }
 
     .carousel-control {
@@ -492,4 +516,14 @@
     bottom: 3px;
     right: -23px;
     z-index: 2;
+}
+
+.counterArea {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
 }

@@ -108,9 +108,30 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
   const [countdownTwo, setCountdownTwo] = useState<string>("");
   const [countdownThree, setCountdownThree] = useState<string>("");
   const strips = [
-    { linetext: linetext, code: code, id: 1 },
-    { linetext: linetexttwo, code: codeTwo, id: 2 },
-    { linetext: linetextthree, code: codeThree, id: 3 },
+    {
+      linetext: linetext,
+      code: code,
+      id: 1,
+      checkactive: checkactive,
+      date: date,
+      countdown: countdown,
+    },
+    {
+      linetext: linetexttwo,
+      code: codeTwo,
+      id: 2,
+      checkactive: checkactivetwo,
+      date: datetwo,
+      countdown: countdownTwo,
+    },
+    {
+      linetext: linetextthree,
+      code: codeThree,
+      id: 3,
+      checkactive: checkactivethree,
+      date: datethree,
+      countdown: countdownThree,
+    },
   ].filter((strip) => strip.linetext);
 
   const handleChangeStrip = (next: boolean) => {
@@ -190,7 +211,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
     const distance = target - now;
 
     if (distance <= 0) {
-      setCountdown("00:00:00:00s"); // Display 0 time or any other message
+      setCountdown(""); // Display 0 time or any other message
       return;
     }
 
@@ -236,8 +257,6 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
   }, [date, datetwo, datethree]);
   return (
     <div className={`${device === "Desktop" ? "desktopStyle" : "mobileStyle"}`}>
-      {countdown}
-      {countdownTwo}
       <div
         className={`strip ${themeMode === "Dark" ? "dark" : "light"}`}
         style={{
@@ -271,6 +290,21 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                         <span className="mbetween">
                           Code:<b>{strip.code}</b>
                         </span>
+                        {strip.checkactive === "true" && strip.countdown ? (
+                          <span
+                            className="counterArea"
+                            style={{
+                              backgroundColor: backgroundColorCounter
+                                ? backgroundColorCounter
+                                : "",
+                              color: txtColorCounter ? txtColorCounter : "",
+                            }}
+                          >
+                            {strip.countdown}
+                          </span>
+                        ) : (
+                          ""
+                        )}
                         <span
                           className="moreDetails"
                           onClick={handleMoreDetailsClick}
@@ -382,6 +416,21 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                     <span className="mbetween">
                       Code:<b>{code}</b>
                     </span>
+                    {checkactive === "true" && countdown ? (
+                      <span
+                        className="counterArea"
+                        style={{
+                          backgroundColor: backgroundColorCounter
+                            ? backgroundColorCounter
+                            : "",
+                          color: txtColorCounter ? txtColorCounter : "",
+                        }}
+                      >
+                        {countdown}
+                      </span>
+                    ) : (
+                      ""
+                    )}
                     <span
                       className="moreDetails"
                       onClick={handleMoreDetailsClick}
@@ -421,6 +470,21 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                           <b>
                             {strip.linetext.length <= 30 ? strip.linetext : ""}
                           </b>
+                          {strip.checkactive == "true" && strip.countdown ? (
+                            <span
+                              className="counterArea"
+                              style={{
+                                backgroundColor: backgroundColorCounter
+                                  ? backgroundColorCounter
+                                  : "",
+                                color: txtColorCounter ? txtColorCounter : "",
+                              }}
+                            >
+                              {strip.countdown}
+                            </span>
+                          ) : (
+                            ""
+                          )}
                         </span>
                         <div className="breakLine">
                           <span
@@ -630,6 +694,21 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                   >
                     <span>
                       <b> {linetext.length <= 30 ? linetext : ""}</b>
+                      {checkactive == "true" && countdown ? (
+                        <span
+                          className="counterArea"
+                          style={{
+                            backgroundColor: backgroundColorCounter
+                              ? backgroundColorCounter
+                              : "",
+                            color: txtColorCounter ? txtColorCounter : "",
+                          }}
+                        >
+                          {countdown}
+                        </span>
+                      ) : (
+                        ""
+                      )}
                     </span>
                     <div className="breakLine">
                       <span
