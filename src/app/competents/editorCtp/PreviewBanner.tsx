@@ -114,6 +114,8 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
       id: 1,
       checkactive: checkactive,
       date: date,
+      backgroundCounter: backgroundColorCounter,
+      txtcolorCounter: txtColorCounter,
       countdown: countdown,
     },
     {
@@ -122,6 +124,8 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
       id: 2,
       checkactive: checkactivetwo,
       date: datetwo,
+      backgroundCounter: backgroundColorCountertwo,
+      txtcolorCounter: txtColorCountertwo,
       countdown: countdownTwo,
     },
     {
@@ -130,6 +134,8 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
       id: 3,
       checkactive: checkactivethree,
       date: datethree,
+      backgroundCounter: backgroundColorCounterthree,
+      txtcolorCounter: txtColorCounterthree,
       countdown: countdownThree,
     },
   ].filter((strip) => strip.linetext);
@@ -224,7 +230,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
 
     const pad = (num: number) => num.toString().padStart(2, "0");
 
-    setCountdown(`${pad(days)}:${pad(hours)}:${pad(minutes)}:${pad(seconds)}s`);
+    setCountdown(`${pad(days)}:${pad(hours)}:${pad(minutes)}:${pad(seconds)}`);
   };
 
   useEffect(() => {
@@ -294,10 +300,12 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                           <span
                             className="counterArea"
                             style={{
-                              backgroundColor: backgroundColorCounter
-                                ? backgroundColorCounter
+                              backgroundColor: strip.backgroundCounter
+                                ? strip.backgroundCounter
                                 : "",
-                              color: txtColorCounter ? txtColorCounter : "",
+                              color: strip.txtcolorCounter
+                                ? strip.txtcolorCounter
+                                : "",
                             }}
                           >
                             {strip.countdown}
@@ -474,8 +482,8 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                             <span
                               className="counterArea"
                               style={{
-                                backgroundColor: backgroundColorCounter
-                                  ? backgroundColorCounter
+                                backgroundColor: strip.backgroundCounter
+                                  ? strip.backgroundCounter
                                   : "",
                                 color: txtColorCounter ? txtColorCounter : "",
                               }}
