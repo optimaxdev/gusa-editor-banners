@@ -5,6 +5,8 @@ import PreviewBannerHp from "../editorHp/PreviewBanner";
 import PreviewCodeHp from "../editorHp/PreviewCode";
 import PreviewCodeCtp from "../editorCtp/PreviewCode";
 import PreviewBannerCtp from "../editorCtp/PreviewBanner";
+import PreviewCodePdp from "../editorPdp/PreviewCode";
+import PreviewBannerPdp from "../editorPdp/PreviewBanner";
 import FullScreen from "./fullscreen";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -58,6 +60,9 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, formData }) => {
             </li>
             <li className={pathname === "/ctp-editor" ? "activeLink" : ""}>
               <Link href="/ctp-editor">CTP</Link>
+            </li>
+            <li className={pathname === "/pdp-editor" ? "activeLink" : ""}>
+              <Link href="/pdp-editor">PDP</Link>
             </li>
           </ul>
         </div>
@@ -292,6 +297,94 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, formData }) => {
                   }
                   disclaimerrightTxtColor={formData.disclaimerrightTxtColor}
                   disclaimerrightbgColor={formData.disclaimerrightbgColor}
+                />
+              </div>
+            )}
+            {currentPage === "PDP" && (
+              <div>
+                <PreviewBannerPdp
+                  device={formData.device}
+                  themeMode={formData.themeMode}
+                  backgroundColorStrip={formData.backgroundColorStrip}
+                  selectDsicountType={formData.selectDsicountType}
+                  discountValue={formData.discountValue}
+                  code={formData.code}
+                  mdHeadline={formData.mdHeadline}
+                  mdContent={formData.mdContent}
+                  generalDisclamier={formData.generalDisclamier}
+                  linetexttwo={formData.linetexttwo}
+                  codeTwo={formData.codeTwo}
+                  selectDsicountTypeTwo={formData.selectDsicountTypeTwo}
+                  discountValueTwo={formData.discountValueTwo}
+                  mdHeadlineTwo={formData.mdHeadlineTwo}
+                  mdContentTwo={formData.mdContentTwo}
+                  linetextthree={formData.linetextthree}
+                  codeThree={formData.codeThree}
+                  selectDsicountTypeThree={formData.selectDsicountTypeThree}
+                  discountValueThree={formData.discountValueThree}
+                  mdHeadlineThree={formData.mdHeadlineThree}
+                  mdContentThree={formData.mdContentThree}
+                  select={formData.select}
+                  mdsaleName={formData.mdsaleName}
+                  txtColorCounter={formData.txtColorCounter}
+                  date={formData.date}
+                  backgroundColorCounter={formData.backgroundColorCounter}
+                  checkactive={formData.checkactive}
+                  txtColorCountertwo={formData.txtColorCountertwo}
+                  datetwo={formData.datetwo}
+                  backgroundColorCountertwo={formData.backgroundColorCountertwo}
+                  checkactivetwo={formData.checkactivetwo}
+                  txtColorCounterthree={formData.txtColorCounterthree}
+                  datethree={formData.datethree}
+                  backgroundColorCounterthree={
+                    formData.backgroundColorCounterthree
+                  }
+                  checkactivethree={formData.checkactivethree}
+                  id={formData.id}
+                  selectlayout={formData.selectlayout}
+                  linetext={formData.linetext}
+                />
+                <PreviewCodePdp
+                  device={formData.device}
+                  themeMode={formData.themeMode}
+                  backgroundColorStrip={formData.backgroundColorStrip}
+                  selectDsicountType={formData.selectDsicountType}
+                  discountValue={formData.discountValue}
+                  code={formData.code}
+                  mdHeadline={formData.mdHeadline}
+                  mdContent={formData.mdContent}
+                  generalDisclamier={formData.generalDisclamier}
+                  linetexttwo={formData.linetexttwo}
+                  codeTwo={formData.codeTwo}
+                  selectDsicountTypeTwo={formData.selectDsicountTypeTwo}
+                  discountValueTwo={formData.discountValueTwo}
+                  mdHeadlineTwo={formData.mdHeadlineTwo}
+                  mdContentTwo={formData.mdContentTwo}
+                  linetextthree={formData.linetextthree}
+                  codeThree={formData.codeThree}
+                  selectDsicountTypeThree={formData.selectDsicountTypeThree}
+                  discountValueThree={formData.discountValueThree}
+                  mdHeadlineThree={formData.mdHeadlineThree}
+                  mdContentThree={formData.mdContentThree}
+                  select={formData.select}
+                  mdsaleName={formData.mdsaleName}
+                  txtColorCounter={formData.txtColorCounter}
+                  date={formData.date}
+                  backgroundColorCounter={formData.backgroundColorCounter}
+                  checkactive={formData.checkactive}
+                  txtColorCountertwo={formData.txtColorCountertwo}
+                  datetwo={formData.datetwo}
+                  backgroundColorCountertwo={formData.backgroundColorCountertwo}
+                  checkactivetwo={formData.checkactivetwo}
+                  txtColorCounterthree={formData.txtColorCounterthree}
+                  datethree={formData.datethree}
+                  backgroundColorCounterthree={
+                    formData.backgroundColorCounterthree
+                  }
+                  checkactivethree={formData.checkactivethree}
+                  id={formData.id}
+                  selectlayout={formData.selectlayout}
+                  linetext={formData.linetext}
                 />
               </div>
             )}

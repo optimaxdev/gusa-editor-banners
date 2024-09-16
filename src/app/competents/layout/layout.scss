@@ -356,7 +356,7 @@ blockquote {
     left: -50px;
     transition: 0.4s;
     opacity: 0;
-    margin-top: 6px;
+    margin-top: 10px;
 
     li {
         list-style: none;
@@ -370,6 +370,8 @@ blockquote {
         font-size: 14px;
         font-weight: 400;
         padding-left: 17px;
+        width: 100%;
+        display: block;
     }
 }
 
@@ -474,4 +476,25 @@ blockquote {
     }
 
 
+}
+
+/*Pdp strip Mobile*/
+.stripPdp {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400px;
+    width: 375px;
+    height: 46px;
+    margin: auto;
+    line-height: 46px;
+    text-align: center;
+}
+
+.offer {
+    font-weight: 700;
+    padding-right: 16px;
+}
+
+.codeMobile {
+    padding-left: 2px;
 }
