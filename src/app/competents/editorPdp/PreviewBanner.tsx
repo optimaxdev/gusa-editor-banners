@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 interface PreviewBannerProps {
   id: string;
   device: string;
@@ -462,6 +463,23 @@ const PreviewBannerPdp: React.FC<PreviewBannerProps> = ({
         </div>
       ) : (
         ""
+      )}
+      {device == "Desktop" ? (
+        <Image
+          src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp24/product-page-d.png"
+          layout="responsive"
+          width={100}
+          height={100}
+          alt="Picture of the author"
+        />
+      ) : (
+        <Image
+          src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/v1726501266/media/wysiwyg/lp24/product-page-m.png"
+          layout="responsive"
+          width={100}
+          height={100}
+          alt="Picture of the author"
+        />
       )}
 
       {/*Pop up*/}
