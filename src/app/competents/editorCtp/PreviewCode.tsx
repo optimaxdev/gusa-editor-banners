@@ -198,7 +198,13 @@ ${
           }`
     }
 ${mdHeadline ? `,"details_title":"${mdHeadline}"` : ""}
-${mdContent ? `,"details_description":"${mdContent}"` : ""}
+${
+  mdContent
+    ? `,"details_description":${JSON.stringify(mdContent).replace(/\\n/g, "")}`
+    : ""
+}
+
+
 ${
   checkactive == "true"
     ? `${
@@ -254,7 +260,11 @@ ${
           }`
     }
 ${mdHeadline ? `,"details_title":"${mdHeadline}"` : ""}
-${mdContent ? `,"details_description":"${mdContent}"` : ""}
+${
+  mdContent
+    ? `,"details_description":${JSON.stringify(mdContent).replace(/\\n/g, "")}`
+    : ""
+}
 ${
   checkactive == "true"
     ? `${
@@ -302,7 +312,14 @@ ${
           }`
     }
 ${mdHeadlineTwo ? `,"details_title":"${mdHeadlineTwo}"` : ""}
-${mdContentTwo ? `,"details_description":"${mdContentTwo}"` : ""}
+${
+  mdContentTwo
+    ? `,"details_description":${JSON.stringify(mdContentTwo).replace(
+        /\\n/g,
+        ""
+      )}`
+    : ""
+}
 ${
   checkactivetwo == "true"
     ? `${
@@ -349,7 +366,11 @@ ${
         : `,"discount_type": "Bogo"`
     }
 ${mdHeadline ? `,"details_title":"${mdHeadline}"` : ""}
-${mdContent ? `,"details_description":"${mdContent}"` : ""}
+${
+  mdContent
+    ? `,"details_description":${JSON.stringify(mdContent).replace(/\\n/g, "")}`
+    : ""
+}
 ${
   checkactive == "true"
     ? `${
@@ -397,7 +418,14 @@ ${
               }`
         }
     ${mdHeadlineTwo ? `,"details_title":"${mdHeadlineTwo}"` : ""}
-    ${mdContentTwo ? `,"details_description":"${mdContentTwo}"` : ""}
+    ${
+      mdContentTwo
+        ? `,"details_description":${JSON.stringify(mdContentTwo).replace(
+            /\\n/g,
+            ""
+          )}`
+        : ""
+    }
     ${
       checkactivetwo == "true"
         ? `${
@@ -448,7 +476,14 @@ ${
          }`
    }
 ${mdHeadlineThree ? `,"details_title":"${mdHeadlineThree}"` : ""}
-${mdContentThree ? `,"details_description":"${mdContentThree}"` : ""}
+ ${
+   mdContentThree
+     ? `,"details_description":${JSON.stringify(mdContentThree).replace(
+         /\\n/g,
+         ""
+       )}`
+     : ""
+ }
 ${
   checkactivethree == "true"
     ? `${
