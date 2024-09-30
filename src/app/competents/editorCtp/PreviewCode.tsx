@@ -51,6 +51,9 @@ interface PreviewCodeProps {
   datethree: string;
   backgroundColorCounterthree: string;
   checkactivethree: string;
+  offerSelect: string;
+  offerSelectTwo: string;
+  offerSelectThree: string;
 }
 
 const PreviewCodeCtp: React.FC<PreviewCodeProps> = ({
@@ -101,6 +104,9 @@ const PreviewCodeCtp: React.FC<PreviewCodeProps> = ({
   datethree,
   backgroundColorCounterthree,
   checkactivethree,
+  offerSelect,
+  offerSelectTwo,
+  offerSelectThree,
 }) => {
   const beautifyJson = (jsonData: string) => {
     const beautifiedJson = beautify(jsonData, {
@@ -180,7 +186,7 @@ ${
   select
     ? `,"coupons": [  ${
         select == "1"
-          ? linetext
+          ? linetext && offerSelect !== "Choose offer"
             ? `{
     ${linetext.length <= 30 ? `"title": "${linetext}"` : ""} 
     ${code ? `,"code":"${code}"` : ""}
@@ -240,7 +246,7 @@ ${
 
    
 ${
-  select == "2"
+  select == "2" && offerSelect !== "Choose offer"
     ? `
     ${
       linetext
@@ -295,7 +301,7 @@ ${
         : ""
     }
 ${
-  linetexttwo.length <= 30
+  linetexttwo.length <= 30 && offerSelectTwo !== "Choose offer"
     ? `  ,{
   "title": "${linetexttwo}"
    ${codeTwo ? `,"code":"${codeTwo}"` : ""}
@@ -355,7 +361,7 @@ ${
       select == "3"
         ? `
         ${
-          linetext.length <= 30
+          linetext.length <= 30 && offerSelect !== "Choose offer"
             ? `{
     ${linetext ? `"title": "${linetext}"` : ""} 
     ${code ? `,"code":"${code}"` : ""}
@@ -401,7 +407,7 @@ ${
             : ""
         }
      ${
-       linetexttwo.length <= 30
+       linetexttwo.length <= 30 && offerSelectTwo !== "Choose offer"
          ? `,{
       "title": "${linetexttwo}"
        ${codeTwo ? `,"code":"${codeTwo}"` : ""}
@@ -459,7 +465,7 @@ ${
      }
    
         ${
-          linetextthree.length <= 30
+          linetextthree.length <= 30 && offerSelectThree !== "Choose offer"
             ? ` ,{
   "title": "${linetextthree}"
    ${codeThree ? `,"code":"${codeThree}"` : ""}

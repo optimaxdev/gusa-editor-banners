@@ -629,7 +629,9 @@ input[value="Light"] {
         margin-right: 10px;
     }
 
-
+    .titleBold {
+        padding-top: 17px;
+    }
 }
 
 .checkactive {
@@ -819,7 +821,7 @@ input[value="Light"] {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    padding-top: 17.5px;
+
 }
 
 .maskChangeTheme {
@@ -853,6 +855,8 @@ input[value="Light"] {
 
     margin-top: 20px;
 
+
+
 }
 
 .optionStripBanner {
@@ -881,15 +885,10 @@ input[value="Light"] {
 
     .form-input {
         display: block;
-        margin: 20px 0 0;
     }
 
     .titleBold {
-        padding-top: 20px;
-    }
-
-    .fpt {
-        padding-top: 0;
+        padding-bottom: 20px;
     }
 }
 

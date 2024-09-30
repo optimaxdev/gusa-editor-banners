@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import beautify from "js-beautify";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import { cmsBlockOffers } from "../offers";
 interface PreviewCodeProps {
   id: string;
   device: string;
@@ -97,7 +97,7 @@ const PreviewCodePdp: React.FC<PreviewCodeProps> = ({
   // Variables for action and label events
   // const actionEvent = "${action}";
   // const labelEvent = "${label}";
-
+  console.log(cmsBlockOffers[0].offer + "a");
   const jsonString = `[{
   "campaign":"default",
 

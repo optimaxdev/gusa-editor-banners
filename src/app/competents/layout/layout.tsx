@@ -123,6 +123,9 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, formData }) => {
                     formData.backgroundColorCounterthree
                   }
                   checkactivethree={formData.checkactivethree}
+                  // offerSelect={formData.offerSelect}
+                  // offerSelectTwo={formData.offerSelectTwo}
+                  // offerSelectThree={formData.offerSelectThree}
                 />
                 <PreviewCodeCtp
                   device={formData.device}
@@ -174,6 +177,9 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, formData }) => {
                     formData.backgroundColorCounterthree
                   }
                   checkactivethree={formData.checkactivethree}
+                  offerSelect={formData.offerSelect}
+                  offerSelectTwo={formData.offerSelectTwo}
+                  offerSelectThree={formData.offerSelectThree}
                 />
               </div>
             )}
