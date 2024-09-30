@@ -49,6 +49,9 @@ interface PreviewBannerProps {
   datethree: string;
   backgroundColorCounterthree: string;
   checkactivethree: string;
+  offerSelect: string;
+  offerSelectTwo: string;
+  offerSelectThree: string;
 }
 
 const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
@@ -99,6 +102,9 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
   datethree,
   backgroundColorCounterthree,
   checkactivethree,
+  offerSelect,
+  offerSelectTwo,
+  offerSelectThree,
 }) => {
   const [currentStrip, setCurrentStrip] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -117,6 +123,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
       backgroundCounter: backgroundColorCounter,
       txtcolorCounter: txtColorCounter,
       countdown: countdown,
+      offerSelectStrip: offerSelect,
     },
     {
       linetext: linetexttwo,
@@ -127,6 +134,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
       backgroundCounter: backgroundColorCountertwo,
       txtcolorCounter: txtColorCountertwo,
       countdown: countdownTwo,
+      offerSelectStrip: offerSelectTwo,
     },
     {
       linetext: linetextthree,
@@ -137,6 +145,7 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
       backgroundCounter: backgroundColorCounterthree,
       txtcolorCounter: txtColorCounterthree,
       countdown: countdownThree,
+      offerSelectStrip: offerSelectThree,
     },
   ].filter((strip) => strip.linetext);
 
@@ -288,127 +297,152 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                           minWidth: "100%",
                         }}
                       >
-                        <span>
-                          <b>
-                            {strip.linetext.length <= 30 ? strip.linetext : ""}
-                          </b>
-                        </span>
-                        <span className="mbetween">
-                          Code:<b>{strip.code}</b>
-                        </span>
-                        {strip.checkactive === "true" && strip.countdown ? (
-                          <span
-                            className="counterArea"
-                            style={{
-                              backgroundColor: strip.backgroundCounter
-                                ? strip.backgroundCounter
-                                : "",
-                              color: strip.txtcolorCounter
-                                ? strip.txtcolorCounter
-                                : "",
-                            }}
-                          >
-                            {strip.countdown}
-                          </span>
+                        {strip.offerSelectStrip !== "Choose offer" ? (
+                          <>
+                            <span>
+                              <b>
+                                {strip.linetext.length <= 30
+                                  ? strip.linetext
+                                  : ""}
+                              </b>
+                            </span>
+                            <span className="mbetween">
+                              Code:<b>{strip.code}</b>
+                            </span>
+                            {strip.checkactive === "true" && strip.countdown ? (
+                              <span
+                                className="counterArea"
+                                style={{
+                                  backgroundColor: strip.backgroundCounter
+                                    ? strip.backgroundCounter
+                                    : "",
+                                  color: strip.txtcolorCounter
+                                    ? strip.txtcolorCounter
+                                    : "",
+                                }}
+                              >
+                                {strip.countdown}
+                              </span>
+                            ) : (
+                              ""
+                            )}
+                            <span
+                              className="moreDetails"
+                              onClick={handleMoreDetailsClick}
+                              style={{
+                                backgroundColor: backgroundColorStrip
+                                  ? backgroundColorStrip
+                                  : "",
+                                color: backgroundColorStrip
+                                  ? moreDetailsColor
+                                  : "",
+                              }}
+                            >
+                              More Details
+                            </span>
+                          </>
                         ) : (
                           ""
                         )}
-                        <span
-                          className="moreDetails"
-                          onClick={handleMoreDetailsClick}
-                          style={{
-                            backgroundColor: backgroundColorStrip
-                              ? backgroundColorStrip
-                              : "",
-                            color: backgroundColorStrip ? moreDetailsColor : "",
-                          }}
-                        >
-                          More Details
-                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
-                <div
-                  className="carousel-control prev hoverArrow"
-                  onClick={() => handleChangeStrip(false)}
-                >
-                  {themeMode == "Dark" ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="9"
-                      height="12"
-                      viewBox="0 0 9 12"
-                      fill="none"
+                {offerSelectTwo !== "Choose offer" ||
+                offerSelectThree !== "Choose offer" ? (
+                  <>
+                    <div
+                      className="carousel-control prev hoverArrow"
+                      onClick={() => handleChangeStrip(false)}
                     >
-                      <path
-                        d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
-                        stroke="#DBE1E5"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="9"
-                      height="12"
-                      viewBox="0 0 9 12"
-                      fill="none"
+                      {themeMode == "Dark" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="12"
+                          viewBox="0 0 9 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
+                            stroke="#DBE1E5"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            style={{
+                              stroke: backgroundColorStrip ? copySvg : "",
+                            }}
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="12"
+                          viewBox="0 0 9 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
+                            stroke="#4D4D4D"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            style={{
+                              stroke: backgroundColorStrip ? copySvg : "",
+                            }}
+                          />
+                        </svg>
+                      )}
+                    </div>
+                    <div
+                      className="carousel-control next hoverArrow"
+                      onClick={() => handleChangeStrip(true)}
                     >
-                      <path
-                        d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
-                        stroke="#4D4D4D"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
-                      />
-                    </svg>
-                  )}
-                </div>
-                <div
-                  className="carousel-control next hoverArrow"
-                  onClick={() => handleChangeStrip(true)}
-                >
-                  {themeMode == "Dark" ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="9"
-                      height="12"
-                      viewBox="0 0 9 12"
-                      fill="none"
-                    >
-                      <path
-                        d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
-                        stroke="#DBE1E5"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="9"
-                      height="12"
-                      viewBox="0 0 9 12"
-                      fill="none"
-                    >
-                      <path
-                        d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
-                        stroke="#4D4D4D"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
-                      />
-                    </svg>
-                  )}
-                </div>
+                      {themeMode == "Dark" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="12"
+                          viewBox="0 0 9 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
+                            stroke="#DBE1E5"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            style={{
+                              stroke: backgroundColorStrip ? copySvg : "",
+                            }}
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="12"
+                          viewBox="0 0 9 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
+                            stroke="#4D4D4D"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            style={{
+                              stroke: backgroundColorStrip ? copySvg : "",
+                            }}
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             ) : (
               <>
@@ -474,223 +508,245 @@ const PreviewBannerCtp: React.FC<PreviewBannerProps> = ({
                           minWidth: "100%",
                         }}
                       >
-                        <span>
-                          <b>
-                            {strip.linetext.length <= 30 ? strip.linetext : ""}
-                          </b>
-                          {strip.checkactive == "true" && strip.countdown ? (
-                            <span
-                              className="counterArea"
-                              style={{
-                                backgroundColor: strip.backgroundCounter
-                                  ? strip.backgroundCounter
-                                  : "",
-                                color: txtColorCounter ? txtColorCounter : "",
-                              }}
-                            >
-                              {strip.countdown}
-                            </span>
-                          ) : (
-                            ""
-                          )}
-                        </span>
-                        <div className="breakLine">
-                          <span
-                            className="moreDetails"
-                            onClick={handleMoreDetailsClick}
-                            style={{
-                              backgroundColor: backgroundColorStrip
-                                ? backgroundColorStrip
-                                : "",
-                              color: backgroundColorStrip
-                                ? moreDetailsColor
-                                : "",
-                            }}
-                          >
-                            <u>Details</u>
-                          </span>
-                          <span className="spread">|</span>
-                          <span className="mbetween">
-                            <span
-                              className="copyCodeButton"
-                              onClick={() =>
-                                handleCopyCode(strip.code, strip.id)
-                              }
-                            >
-                              {copied === strip.id.toString() ? (
-                                <>
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="transparent"
-                                    strokeWidth="1.5"
-                                    viewBox="0 0 13 11"
-                                    className="vCopied"
-                                    style={{
-                                      width: "1em",
-                                      height: "1em",
-                                      verticalAlign: "middle",
-                                    }}
-                                  >
-                                    <path
-                                      style={{
-                                        color: backgroundColorStrip
-                                          ? copySvg
-                                          : "",
-                                      }}
-                                      stroke="currentColor"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      d="m11.33 1.714-6.428 7.66-3.83-3.214"
-                                    ></path>
-                                  </svg>
-                                  <span
-                                    style={{
-                                      color: backgroundColorStrip
-                                        ? moreDetailsColor
-                                        : "",
-                                    }}
-                                  >
-                                    Code copied
-                                  </span>
-                                </>
+                        {strip.offerSelectStrip !== "Choose offer" ? (
+                          <>
+                            <span>
+                              <b>
+                                {strip.linetext.length <= 30
+                                  ? strip.linetext
+                                  : ""}
+                              </b>
+                              {strip.checkactive == "true" &&
+                              strip.countdown ? (
+                                <span
+                                  className="counterArea"
+                                  style={{
+                                    backgroundColor: strip.backgroundCounter
+                                      ? strip.backgroundCounter
+                                      : "",
+                                    color: txtColorCounter
+                                      ? txtColorCounter
+                                      : "",
+                                  }}
+                                >
+                                  {strip.countdown}
+                                </span>
                               ) : (
-                                <>
-                                  <u
-                                    style={{
-                                      backgroundColor: backgroundColorStrip
-                                        ? backgroundColorStrip
-                                        : "",
-                                      color: backgroundColorStrip
-                                        ? moreDetailsColor
-                                        : "",
-                                    }}
-                                  >
-                                    Code:{code}
-                                  </u>
-                                  <svg
-                                    className="copyIconCode"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                    fill="none"
-                                  >
-                                    <rect
-                                      style={{
-                                        color: backgroundColorStrip
-                                          ? copySvg
-                                          : "",
-                                      }}
-                                      x="4.44531"
-                                      y="4.44531"
-                                      width="8.51562"
-                                      height="8.51562"
-                                      rx="0.851562"
-                                      stroke="currentColor"
-                                      strokeWidth="1.2"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                    <path
-                                      style={{
-                                        color: backgroundColorStrip
-                                          ? copySvg
-                                          : "",
-                                      }}
-                                      d="M7.85156 1.03906H1.89062C1.42032 1.03906 1.03906 1.42032 1.03906 1.89062V7.85156"
-                                      stroke="currentColor"
-                                      strokeWidth="1.2"
-                                      strokeLinecap="square"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </>
+                                ""
                               )}
                             </span>
-                          </span>
-                        </div>
+                            <div className="breakLine">
+                              <span
+                                className="moreDetails"
+                                onClick={handleMoreDetailsClick}
+                                style={{
+                                  backgroundColor: backgroundColorStrip
+                                    ? backgroundColorStrip
+                                    : "",
+                                  color: backgroundColorStrip
+                                    ? moreDetailsColor
+                                    : "",
+                                }}
+                              >
+                                <u>Details</u>
+                              </span>
+                              <span className="spread">|</span>
+                              <span className="mbetween">
+                                <span
+                                  className="copyCodeButton"
+                                  onClick={() =>
+                                    handleCopyCode(strip.code, strip.id)
+                                  }
+                                >
+                                  {copied === strip.id.toString() ? (
+                                    <>
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="transparent"
+                                        strokeWidth="1.5"
+                                        viewBox="0 0 13 11"
+                                        className="vCopied"
+                                        style={{
+                                          width: "1em",
+                                          height: "1em",
+                                          verticalAlign: "middle",
+                                        }}
+                                      >
+                                        <path
+                                          style={{
+                                            color: backgroundColorStrip
+                                              ? copySvg
+                                              : "",
+                                          }}
+                                          stroke="currentColor"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          d="m11.33 1.714-6.428 7.66-3.83-3.214"
+                                        ></path>
+                                      </svg>
+                                      <span
+                                        style={{
+                                          color: backgroundColorStrip
+                                            ? moreDetailsColor
+                                            : "",
+                                        }}
+                                      >
+                                        Code copied
+                                      </span>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <u
+                                        style={{
+                                          backgroundColor: backgroundColorStrip
+                                            ? backgroundColorStrip
+                                            : "",
+                                          color: backgroundColorStrip
+                                            ? moreDetailsColor
+                                            : "",
+                                        }}
+                                      >
+                                        Code:{strip.code}
+                                      </u>
+                                      <svg
+                                        className="copyIconCode"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 14 14"
+                                        fill="none"
+                                      >
+                                        <rect
+                                          style={{
+                                            color: backgroundColorStrip
+                                              ? copySvg
+                                              : "",
+                                          }}
+                                          x="4.44531"
+                                          y="4.44531"
+                                          width="8.51562"
+                                          height="8.51562"
+                                          rx="0.851562"
+                                          stroke="currentColor"
+                                          strokeWidth="1.2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                        <path
+                                          style={{
+                                            color: backgroundColorStrip
+                                              ? copySvg
+                                              : "",
+                                          }}
+                                          d="M7.85156 1.03906H1.89062C1.42032 1.03906 1.03906 1.42032 1.03906 1.89062V7.85156"
+                                          stroke="currentColor"
+                                          strokeWidth="1.2"
+                                          strokeLinecap="square"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </>
+                                  )}
+                                </span>
+                              </span>
+                            </div>
+                          </>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     ))}
                   </div>
                 </div>
-                <div
-                  className="carousel-control prev"
-                  onClick={() => handleChangeStrip(false)}
-                >
-                  {themeMode == "Dark" ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="9"
-                      height="12"
-                      viewBox="0 0 9 12"
-                      fill="none"
+                {offerSelectTwo !== "Choose offer" ||
+                offerSelectThree !== "Choose offer" ? (
+                  <>
+                    <div
+                      className="carousel-control prev"
+                      onClick={() => handleChangeStrip(false)}
                     >
-                      <path
-                        d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
-                        stroke="#DBE1E5"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="9"
-                      height="12"
-                      viewBox="0 0 9 12"
-                      fill="none"
+                      {themeMode == "Dark" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="12"
+                          viewBox="0 0 9 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
+                            stroke="#DBE1E5"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            style={{
+                              stroke: backgroundColorStrip ? copySvg : "",
+                            }}
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="12"
+                          viewBox="0 0 9 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
+                            stroke="#4D4D4D"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                    <div
+                      className="carousel-control next"
+                      onClick={() => handleChangeStrip(true)}
                     >
-                      <path
-                        d="M7.5 0.600098L1.5 6.0001L7.5 11.4001"
-                        stroke="#4D4D4D"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  )}
-                </div>
-                <div
-                  className="carousel-control next"
-                  onClick={() => handleChangeStrip(true)}
-                >
-                  {themeMode == "Dark" ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="9"
-                      height="12"
-                      viewBox="0 0 9 12"
-                      fill="none"
-                    >
-                      <path
-                        d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
-                        stroke="#DBE1E5"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style={{ stroke: backgroundColorStrip ? copySvg : "" }}
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="9"
-                      height="12"
-                      viewBox="0 0 9 12"
-                      fill="none"
-                    >
-                      <path
-                        d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
-                        stroke="#4D4D4D"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  )}
-                </div>
+                      {themeMode == "Dark" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="12"
+                          viewBox="0 0 9 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
+                            stroke="#DBE1E5"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            style={{
+                              stroke: backgroundColorStrip ? copySvg : "",
+                            }}
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="12"
+                          viewBox="0 0 9 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M1.5 11.3999L7.5 5.9999L1.5 0.599902"
+                            stroke="#4D4D4D"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             ) : (
               <>
